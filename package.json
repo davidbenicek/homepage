@@ -23,6 +23,7 @@
     "bpk-mixins": "^17.11.1",
     "bpk-stylesheets": "^3.2.113",
     "react": "^15.6.2",
-    "react-dom": "^15.6.2"
+    "react-dom": "^15.6.2",
+    "styled-components": "^4.1.1"
   }
 }
