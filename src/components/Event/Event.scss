@@ -9,6 +9,7 @@
     background-size: cover;
     height: 200px;
     box-shadow: $bpk-box-shadow-xl;
+    border-radius: $bpk-border-radius-sm;
   }
   &__content {
     height: 400px;
@@ -18,11 +19,22 @@
     background: white;
     box-shadow: $bpk-box-shadow-xl;
     border-radius: $bpk-border-radius-sm;
+    padding-left: $bpk-spacing-xl;
+    padding-right: $bpk-spacing-xl;
   }
   &__textArea {
     text-align: left;
-    margin-top: $bpk-spacing-md;
-    padding: $bpk-spacing-xl;
+    margin-top: $bpk-spacing-xl;
+  }
+
+  &__org {
+    text-align: left;
+  }
+  &__role {
+    text-align: center;
+  }
+  &__time {
+    text-align: right;
   }
 
 }

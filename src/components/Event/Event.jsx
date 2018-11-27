@@ -16,13 +16,13 @@ class Event extends React.Component {
             <BpkGridRow className={c('Event__content')}>
               <BpkGridColumn width={12} className={c('Event__left')}>
                 <BpkGridRow>
-                  <BpkGridColumn width={3} className={c('Event__left')}>
+                  <BpkGridColumn width={4} className={c('Event__left')}>
                     <BpkText tagName="p" textStyle="lg" className={c('Event__org')}>Skyscanner</BpkText>
                   </BpkGridColumn>
-                  <BpkGridColumn width={6} className={c('Event__left')}>
+                  <BpkGridColumn width={4} className={c('Event__left')}>
                   <BpkText tagName="p" textStyle="lg" className={c('Event__role')}>Software Engineer</BpkText>
                   </BpkGridColumn>
-                  <BpkGridColumn width={3} className={c('Event__left')}>
+                  <BpkGridColumn width={4} className={c('Event__left')}>
                     <BpkText tagName="p" textStyle="lg" className={c('Event__time')}>June 2016 - Present</BpkText>
                   </BpkGridColumn>
                 </BpkGridRow>
