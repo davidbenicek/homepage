@@ -2,9 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { BpkGridRow, BpkGridColumn } from 'bpk-component-grid';
 import BpkText from 'bpk-component-text';
-// import { styled } from 'styled-components';
 
-import hero from './hero.jpg'
 import STYLES from './Event.scss';
 const c = className => STYLES[className] || 'UNKNOWN';
 
