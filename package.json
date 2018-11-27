@@ -2,7 +2,6 @@
   "name": "homepage",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {},
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -14,7 +13,7 @@
     "lint": "npm run lint:js && npm run lint:scss",
     "eject": "react-scripts eject"
   },
-  "devDependencies": {
+  "dependencies": {
     "backpack-react-scripts": "^5.1.1",
     "bpk-component-button": "^2.1.6",
     "bpk-component-code": "^1.1.10",
