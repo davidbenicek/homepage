@@ -1,0 +1,29 @@
+@import '~bpk-mixins';
+
+.Skills {
+  &__row {
+    margin-top: $bpk-spacing-md;
+  }
+  &__title {
+    text-align: left;
+    padding: $bpk-spacing-md;
+  }
+  &__skill {
+    background: white;
+    height: auto;
+    box-shadow: $bpk-box-shadow-xl;
+    border-radius: $bpk-border-radius-sm;
+    text-align: left;
+    padding: $bpk-spacing-md;
+  }
+  &__hiddenBar {
+    width: 0 !important;
+  }
+  &__bar {
+    height: 20px;
+    // width: 500px;
+    background: linear-gradient(45deg, rgba(191,117,135,0.639) 0%, rgba(214,255,255,0.631) 100%);
+    transition: width 500ms ease-out;
+  }
+}
+

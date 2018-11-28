@@ -22,8 +22,9 @@
     "bpk-component-ticket": "^1.1.55",
     "bpk-mixins": "^17.11.1",
     "bpk-stylesheets": "^3.2.113",
-    "react": "^15.6.2",
-    "react-dom": "^15.6.2",
-    "styled-components": "^4.1.1"
+    "react": "^16.6.0",
+    "react-addons-css-transition-group": "^15.6.2",
+    "react-dom": "^16.6.0",
+    "styled-components": "^3.4.9"
   }
 }

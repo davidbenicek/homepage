@@ -2,7 +2,11 @@
 
 .Event {
   &__row {
-    margin: $bpk-spacing-md;
+    margin-top: $bpk-spacing-md;
+  }
+  &__title {
+    text-align: left;
+    padding: $bpk-spacing-md;
   }
   &__banner {
     background: linear-gradient(45deg, rgba(191,117,135,0.639) 0%, rgba(214,255,255,0.631) 100%), url('https://www.s-ge.com/sites/default/files/cserver/styles/sge_header_lg/streamy/company/images/Hongkong-Fotolia-48687313-rabbit75-fot-282451.jpg?itok=ANpJxrgW') center;;

@@ -5,6 +5,7 @@ import { BpkGridContainer } from 'bpk-component-grid';
 // Internal imports
 import Hero from './components/Hero';
 import Event from './components/Event';
+import Skills from './components/Skills';
 // import Map from './components/EventBox';
 // import Footer from './components/EventBox';
 import STYLES from './App.scss';
@@ -16,6 +17,7 @@ const App = () => (
   <div className={c('App')}>
       <BpkGridContainer>
         <Hero />
+        <Skills />
         <Event />
         {/* <EventBox />
         <EventBox />

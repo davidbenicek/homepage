@@ -11,6 +11,9 @@ class Event extends React.Component {
     return (
         <BpkGridRow className={c('Event__row')}>
           <BpkGridColumn width={12} >
+          <BpkGridRow className={c('Event__title')}>
+              <BpkText tagName="h2" textStyle="xl" >Employement History</BpkText>
+            </BpkGridRow>
             <BpkGridRow className={c('Event__banner')}>
             </BpkGridRow>
             <BpkGridRow className={c('Event__content')}>
