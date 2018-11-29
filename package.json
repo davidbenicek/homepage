@@ -18,6 +18,7 @@
     "bpk-component-button": "^2.1.6",
     "bpk-component-code": "^1.1.10",
     "bpk-component-grid": "^1.1.75",
+    "bpk-component-icon": "^3.23.16",
     "bpk-component-text": "^1.0.66",
     "bpk-component-ticket": "^1.1.55",
     "bpk-mixins": "^17.11.1",

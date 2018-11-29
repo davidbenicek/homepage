@@ -24,4 +24,11 @@
   &__textContainer {
     text-align: left;
   }
+  &__more {
+    margin-top: 6rem;
+    text-align: center;
+  }
+  &__chevron {
+    margin-top: $bpk-spacing-sm;
+  }
 }

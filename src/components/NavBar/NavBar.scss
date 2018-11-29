@@ -1,0 +1,28 @@
+@import '~bpk-mixins';
+
+.NavBar {
+  &__bar {
+    background: $bpk-color-gray-100;
+    box-shadow: $bpk-box-shadow-xl;
+    margin: $bpk-spacing-lg;
+    border-radius: $bpk-border-radius-pill;
+  }
+  &__barAttached {
+    position: fixed;
+    top: 0px;
+    margin: 0px;
+    width: 71.25rem;
+    left: 10%;
+  }
+  &__bar > div {
+    display: inline;
+  }
+  &__selected {
+    background: white;
+    border-radius: $bpk-border-radius-pill;
+
+  }
+  &__icon {
+    margin: 0 $bpk-spacing-xs	0 $bpk-spacing-xs;
+  }
+}

@@ -44,7 +44,29 @@ class Skills extends React.Component {
       hidden: true,
     }
     this.renderSkills = this.renderSkills.bind(this);
+    this.interSectionCallback = this.interSectionCallback.bind(this);
   }
+
+  componentDidMount() {
+    let options = {
+      root: null, // relative to document viewport 
+      rootMargin: '0px', // margin around root. Values are similar to css property. Unitless values not allowed
+      threshold: 0.4 // visible amount of item shown in relation to root
+    };
+     
+    let observer = new IntersectionObserver(this.interSectionCallback, options);
+    observer.observe(document.querySelector(`.${c('Skills__row')}`));
+  }
+
+  interSectionCallback(changes, observer) {
+    changes.forEach(change => {
+        if (change.intersectionRatio > 0.3) {
+          this.setState({hidden: false})
+          this.props.changeSelected('skills');
+        }
+    });
+  }
+
   renderSkills() {
     return SKILLS.map((skill) => 
       <div key={skill.title}>
@@ -56,7 +78,7 @@ class Skills extends React.Component {
 
   render() {
     return (
-        <BpkGridRow className={c('Skills__row')} onMouseEnter={() => {this.setState({hidden: false})}}>
+        <BpkGridRow className={c('Skills__row')} >
           <BpkGridColumn width={7} >
             <BpkGridRow className={c('Skills__title')}>
               <BpkText tagName="h2" textStyle="xl">Technical Skills</BpkText>
@@ -69,4 +91,8 @@ class Skills extends React.Component {
     );
   }
 }
+
+Skills.propTypes = {
+  changeSelected: PropTypes.func.isRequired,
+};
 export default Skills;
