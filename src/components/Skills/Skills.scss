@@ -1,9 +1,6 @@
 @import '~bpk-mixins';
 
 .Skills {
-  &__row {
-    margin-top: $bpk-spacing-md;
-  }
   &__title {
     text-align: left;
     padding: $bpk-spacing-md;

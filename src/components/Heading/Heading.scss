@@ -1,0 +1,8 @@
+@import '~bpk-mixins';
+
+.Heading {
+  &__row {
+      text-align: left;
+      padding: $bpk-spacing-md;
+  }
+}

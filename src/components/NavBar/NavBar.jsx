@@ -34,13 +34,13 @@ const NAV_BAR = [
     icon: AlignedBpkLargeAwardIcon,
   },
   {
-    id: 'employement',
+    id: 'career',
     name: 'Employement',
     icon: AlignedBpkLargeBusinessIcon,
   },
   {
-    id: 'university',
-    name: 'University',
+    id: 'education',
+    name: 'Education',
     icon: AlignedBpkLargeLandmarkIcon,
   },
   {
@@ -89,9 +89,9 @@ class NavBar extends React.Component {
     return (
       <BpkGridRow className={`${c('NavBar__bar')} ${this.props.attached ? c('NavBar__barAttached') : ''}`}>
       {NAV_BAR.map((item) => (
-        <BpkGridColumn onClick={() => {this.props.changeElement(item.id)}} width={12/NAV_BAR.length} className={this.props.selected === item.id ? c('NavBar__selected') : ''}>
+        <BpkGridColumn onClick={() => {this.props.scrollTo(item.id)}} width={12/NAV_BAR.length} className={this.props.selected === item.id ? c('NavBar__selected') : c('NavBar__unselected')}>
           <item.icon/>
-          <BpkText tagName="span" textStyle="md" >{item.name}</BpkText>
+          <BpkText tagName="span" textStyle="base" >{item.name}</BpkText>
         </BpkGridColumn>
       ))}
       </BpkGridRow>
@@ -102,7 +102,7 @@ class NavBar extends React.Component {
 
 NavBar.propTypes = {
   selected: PropTypes.string,
-  changeElement: PropTypes.func,
+  scrollTo: PropTypes.func,
   detached: PropTypes.bool,
   attachNavBar: PropTypes.func.isRequired,
 };

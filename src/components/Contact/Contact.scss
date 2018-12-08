@@ -1,0 +1,21 @@
+@import '~bpk-mixins';
+
+.Contact {
+  &__reachOut {
+    margin-top: $bpk-spacing-md;
+  }
+  &__options {
+    margin-top: $bpk-spacing-md;
+  }
+  &__logo {
+    width: 80px;
+    height: 80px;
+  }
+  &__footer {
+    margin-top: $bpk-spacing-md;
+  }
+  &__buttonUp {
+    margin-top: $bpk-spacing-md;
+    display: inline-flex;
+  }
+}

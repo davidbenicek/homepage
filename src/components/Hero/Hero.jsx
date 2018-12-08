@@ -19,8 +19,8 @@ class Hero extends React.Component {
   componentDidMount() {
     let options = {
       root: null, // relative to document viewport 
-      rootMargin: '0px', // margin around root. Values are similar to css property. Unitless values not allowed
-      threshold: 0.01 // visible amount of item shown in relation to root
+      rootMargin: '-100px', // margin around root. Values are similar to css property. Unitless values not allowed
+      threshold: 0.5 // visible amount of item shown in relation to root
     };
     
     let observer = new IntersectionObserver(this.interSectionCallback, options);
@@ -29,7 +29,7 @@ class Hero extends React.Component {
 
   interSectionCallback(changes, observer) {
     changes.forEach(change => {
-        if (change.intersectionRatio > 0) {
+        if (change.intersectionRatio > 0.5) {
             this.props.attachNavBar(false)
             this.props.changeSelected('top');
           }
@@ -37,13 +37,13 @@ class Hero extends React.Component {
   }
   render() {
     return (
-        <BpkGridRow className={c('Hero__box')}>
+        <BpkGridRow id="top" className={c('Hero__box')}>
           <BpkGridColumn width={6} className={c('Hero__left')}>
             <div className={c('Hero__textContainer')}>
               <BpkText tagName="h1" textStyle="xxl" className={c('Hero__heading')}>David Beníček</BpkText>
               <BpkText tagName="h2" textStyle="xl" className={c('Hero__subheading')}>Software Engineer at Skyscanner</BpkText>
-              <div className={c('Hero__more')}>
-                <BpkText tagName="p" textStyle="md" >Find out more</BpkText>
+              <div className={c('Hero__more')} onClick={()=> {this.props.scrollTo('skills')}}>
+                <BpkText tagName="p" textStyle="base" >Find out more</BpkText>
                 <BpkLargeChevrovIcon className={c('Hero__chevron')} />
               </div>
             </div>
@@ -58,6 +58,7 @@ class Hero extends React.Component {
 Hero.propTypes = {
   attachNavBar: PropTypes.func.isRequired,
   changeSelected: PropTypes.func.isRequired,
+  scrollTo: PropTypes.func.isRequired,
 };
 
 export default Hero;

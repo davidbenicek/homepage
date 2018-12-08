@@ -1,0 +1,10 @@
+@import '~bpk-mixins';
+
+.Schooling {
+  &__box {
+    text-align: left;
+  }
+  &__grade {
+    margin-right: $bpk-spacing-base;
+  }
+}

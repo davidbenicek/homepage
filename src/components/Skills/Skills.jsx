@@ -62,7 +62,6 @@ class Skills extends React.Component {
     changes.forEach(change => {
         if (change.intersectionRatio > 0.3) {
           this.setState({hidden: false})
-          this.props.changeSelected('skills');
         }
     });
   }
@@ -80,9 +79,6 @@ class Skills extends React.Component {
     return (
         <BpkGridRow className={c('Skills__row')} >
           <BpkGridColumn width={7} >
-            <BpkGridRow className={c('Skills__title')}>
-              <BpkText tagName="h2" textStyle="xl">Technical Skills</BpkText>
-            </BpkGridRow>
             <BpkGridRow className={c('Skills__skill')}>
               {this.renderSkills()}
             </BpkGridRow>
@@ -92,7 +88,4 @@ class Skills extends React.Component {
   }
 }
 
-Skills.propTypes = {
-  changeSelected: PropTypes.func.isRequired,
-};
 export default Skills;
