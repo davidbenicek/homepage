@@ -91,7 +91,7 @@ class NavBar extends React.Component {
       <BpkGridRow className={`${c('NavBar__bar')} ${this.props.attached ? c('NavBar__barAttached') : ''}`}>
       {NAV_BAR.map((item) => (
         <BpkGridColumn onClick={() => {this.props.scrollTo(item.id)}} width={12/NAV_BAR.length} className={this.props.selected === item.id ? c('NavBar__selected') : c('NavBar__unselected')}>
-          <item.icon/>
+          <item.icon className={c('NavBar__icon')}/>
           <BpkBreakpoint query={BREAKPOINTS.ABOVE_MOBILE}>
             <BpkText tagName="span" textStyle="base" >{item.name}</BpkText>
           </BpkBreakpoint>

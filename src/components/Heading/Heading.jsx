@@ -5,10 +5,40 @@ import BpkText from 'bpk-component-text';
 import BpkCard from 'bpk-component-card';
 import styled from 'styled-components';
 import BpkLink from 'bpk-component-link';
+import BpkLargeAwardIcon from 'bpk-component-icon/lg/award';
+import BpkLargeBusinessIcon from 'bpk-component-icon/lg/business';
+import BpkLargeMailIcon from 'bpk-component-icon/lg/mail';
+import BpkLargeLandmarkIcon from 'bpk-component-icon/lg/landmark';
+import BpkLargeFlaskIcon from 'bpk-component-icon/lg/flask';
+import { withButtonAlignment } from 'bpk-component-icon';
+
+
 
 import STYLES from './Heading.scss';
 const c = className => STYLES[className] || 'UNKNOWN';
 
+const HEADINGS = {
+  'skills': {
+    name: 'Skills',
+    Icon: BpkLargeAwardIcon,
+  },
+  'career': {
+    name: 'Employement',
+    Icon: BpkLargeBusinessIcon,
+  },
+  'education': {
+    name: 'Education',
+    Icon: BpkLargeLandmarkIcon,
+  },
+  'projects': {
+    name: 'Projects',
+    Icon: BpkLargeFlaskIcon,
+  },
+  'contact': {
+    name: 'Contact',
+    Icon: BpkLargeMailIcon,
+  },
+}
 
 class Heading extends React.Component {
   constructor(props) {
@@ -42,13 +72,16 @@ class Heading extends React.Component {
   render() {
     const {
       id,
-      text,
       show,
       onIntersection,
     } = this.props;
+    console.log('id', id);
+    console.log('id', HEADINGS);
+    console.log('id', HEADINGS[id]);
+    const {Icon, name} = HEADINGS[id]
     return (
         <BpkGridRow id={id} className={c('Heading__row')} padded={false}>
-          {show ? <BpkText tagName="h2" textStyle="xl" >{text}</BpkText> : <span />}
+          {show ? (<BpkText tagName="h2" textStyle="xl" ><Icon className={c('Heading__icon')}/>{name}</BpkText>) : <span />}
         </BpkGridRow>
     );
   }
