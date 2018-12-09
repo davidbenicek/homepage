@@ -6,10 +6,12 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { BpkGridRow, BpkGridColumn } from 'bpk-component-grid';
 import BpkText from 'bpk-component-text';
 
+import Toggle from '../Toggle';
+
 import STYLES from './Skills.scss';
 const c = className => STYLES[className] || 'UNKNOWN';
 
-const SKILLS = [
+const TECH_SKILLS = [
   {
     title: 'React',
     level: 100,
@@ -36,49 +38,83 @@ const SKILLS = [
   },
 ];
 
+const LANG_SKILLS = [
+  {
+    title: 'English',
+    level: 100,
+  },
+  {
+    title: 'Czech',
+    level: 100,
+  },
+  {
+    title: 'German',
+    level: 70,
+  },
+  {
+    title: 'Chinese',
+    level: 50,
+  },
+  {
+    title: 'Spanish',
+    level: 10,
+  },
+];
+
 
 class Skills extends React.Component {
   constructor() {
     super();
     this.state = {
-      hidden: true,
+      hidden: false,
+      skillset: 'tech'
     }
+
     this.renderSkills = this.renderSkills.bind(this);
-    this.interSectionCallback = this.interSectionCallback.bind(this);
+    this.getSkills = this.getSkills.bind(this);
+    this.onSkillsChange = this.onSkillsChange.bind(this);
+    this.toggleLevelsOn = this.toggleLevelsOn.bind(this);
   }
 
-  componentDidMount() {
-    let options = {
-      root: null, // relative to document viewport 
-      rootMargin: '0px', // margin around root. Values are similar to css property. Unitless values not allowed
-      threshold: 0.4 // visible amount of item shown in relation to root
-    };
-     
-    let observer = new IntersectionObserver(this.interSectionCallback, options);
-    observer.observe(document.querySelector(`.${c('Skills__row')}`));
-  }
-
-  interSectionCallback(changes, observer) {
-    changes.forEach(change => {
-        if (change.intersectionRatio > 0.3) {
-          this.setState({hidden: false})
-        }
-    });
+  getSkills() {
+    return (this.state.skillset === 'tech') ? TECH_SKILLS : LANG_SKILLS;
   }
 
   renderSkills() {
-    return SKILLS.map((skill) => 
+    const { hidden } = this.state;
+    return this.getSkills().map((skill) => 
       <div key={skill.title}>
         <BpkText tagName="h3" textStyle="lg">{skill.title}</BpkText>
-        <div style={{ width: `${skill.level}%` }} className={`${c('Skills__bar')} ${this.state.hidden ? c('Skills__hiddenBar') : ''}`}></div>
+        <div style={{ width: `${hidden ? 0 : skill.level}%` }} className={`${c('Skills__bar')} ${this.state.hidden ? c('Skills__hiddenBar') : ''}`}></div>
       </div>
     )
+  }
+  toggleLevelsOn() {
+    this.setState({
+      hidden: false,
+    })
+  }
+
+  onSkillsChange(skillset) {
+    this.setState({
+      skillset,
+      hidden: true,
+    })
+
+    setTimeout(this.toggleLevelsOn,100);
+
   }
 
   render() {
     return (
         <BpkGridRow className={c('Skills__row')} >
           <BpkGridColumn width={10} offset={1} mobileWidth={12} mobileOffset={0}>
+            <Toggle
+              defaultId = 'tech'
+              option1 = {{id: 'tech', text: 'Technical skills'}}
+              option2 = {{id: 'lang', text: 'Language skills'}}
+              onChange = {this.onSkillsChange}
+            />
             <BpkGridRow className={c('Skills__skill')}>
               {this.renderSkills()}
             </BpkGridRow>

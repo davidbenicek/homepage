@@ -23,7 +23,7 @@ const HEADINGS = {
     Icon: BpkLargeAwardIcon,
   },
   'career': {
-    name: 'Employement',
+    name: 'Employment',
     Icon: BpkLargeBusinessIcon,
   },
   'education': {
@@ -78,9 +78,6 @@ class Heading extends React.Component {
       id,
       show,
     } = this.props;
-    console.log('id', id);
-    console.log('id', HEADINGS);
-    console.log('id', HEADINGS[id]);
     const {Icon, name} = HEADINGS[id]
     return (
         <BpkGridRow id={id} className={c('Heading__row')} padded={false}>

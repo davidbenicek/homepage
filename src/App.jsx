@@ -33,7 +33,6 @@ class App extends React.Component {
   }
 
   changeSelected(sectionInView) {
-    console.log('change selected to', sectionInView);
     this.setState({
       sectionInView
     });
