@@ -124,10 +124,10 @@ class App extends React.Component {
             id='contact'
             show
           />
-          <Contact
+          <Contact />
+          <Footer
             scrollUp={this.scrollTo}
           />
-          <Footer/>
         </BpkGridContainer>
       </div>);
   }
