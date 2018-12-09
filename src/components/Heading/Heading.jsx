@@ -47,9 +47,13 @@ class Heading extends React.Component {
 
   }
   componentDidMount() {
+    const width = window.innerWidth
+    || document.documentElement.clientWidth
+    || document.body.clientWidth;
+    const offset = (width >= 512) ? 200 : 0;
     let options = {
       root: null, // relative to document viewport 
-      rootMargin: '-200px', // margin around root. Values are similar to css property. Unitless values not allowed
+      rootMargin: `${offset}px`, // margin around root. Values are similar to css property. Unitless values not allowed
       threshold: 0.8 // visible amount of item shown in relation to root
     };
      

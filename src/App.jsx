@@ -11,6 +11,7 @@ import Skills from './components/Skills';
 import Schooling from './components/Schooling';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
+import Footer from './components/Footer';
 import STYLES from './App.scss';
 
 
@@ -75,7 +76,6 @@ class App extends React.Component {
           <Heading
             onIntersection={this.changeSelected}
             id='skills'
-            text='Skills'
             show
           />
           <Skills
@@ -84,7 +84,6 @@ class App extends React.Component {
           <Heading
             onIntersection={this.changeSelected}
             id='career'
-            text='Employment History'
             show
           />
           <CareerEvent
@@ -98,7 +97,6 @@ class App extends React.Component {
           <Heading
             onIntersection={this.changeSelected}
             id='career'
-            text='Employment History'
             show={false}
           />
           <CareerEvent
@@ -112,26 +110,24 @@ class App extends React.Component {
           <Heading
             onIntersection={this.changeSelected}
             id='education'
-            text='Education'
             show
           />
           <Schooling/>
           <Heading
             onIntersection={this.changeSelected}
             id='projects'
-            text='Projects'
             show
           />
           <Projects/>
           <Heading
             onIntersection={this.changeSelected}
             id='contact'
-            text='Contact details'
             show
           />
           <Contact
             scrollUp={this.scrollTo}
           />
+          <Footer/>
         </BpkGridContainer>
       </div>);
   }

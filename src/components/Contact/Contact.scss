@@ -1,11 +1,21 @@
 @import '~bpk-mixins';
 
 .Contact {
+  &__row {
+    box-shadow: $bpk-box-shadow-xl;
+    width: 95%;
+    border-radius: $bpk-border-radius-sm;
+    margin: auto;
+    padding: $bpk-spacing-sm;
+  }
   &__reachOut {
     margin-top: $bpk-spacing-md;
   }
   &__options {
     margin-top: $bpk-spacing-md;
+  }
+  &__optionBox {
+    cursor: pointer;
   }
   &__logo {
     width: 80px;
@@ -17,5 +27,10 @@
   &__buttonUp {
     margin-top: $bpk-spacing-md;
     display: inline-flex;
+  }
+  @include bpk-breakpoint-mobile {
+    &__prompt {
+      font-size: $bpk-text-base-font-size
+    }
   }
 }

@@ -1,0 +1,15 @@
+@import '~bpk-mixins';
+
+.Footer {
+  &__row {
+    margin-top: $bpk-spacing-lg;
+    margin-bottom: $bpk-spacing-lg;
+  }
+  &__buttonUp {
+    margin-top: $bpk-spacing-md;
+    display: inline-flex;
+  }
+  &__credits {
+    margin-top: $bpk-spacing-md;
+  }
+}

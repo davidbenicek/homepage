@@ -1,6 +1,12 @@
 @import '~bpk-mixins';
 
 .Schooling {
+  &__row {
+    box-shadow: $bpk-box-shadow-xl;
+    width: 95%;
+    border-radius: $bpk-border-radius-sm;
+    margin: auto;
+  }
   &__box {
     text-align: left;
   }
