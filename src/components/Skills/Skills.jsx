@@ -78,7 +78,7 @@ class Skills extends React.Component {
   render() {
     return (
         <BpkGridRow className={c('Skills__row')} >
-          <BpkGridColumn width={10} offset={1} mobileWidht={12} mobileOffset={0}>
+          <BpkGridColumn width={10} offset={1} mobileWidth={12} mobileOffset={0}>
             <BpkGridRow className={c('Skills__skill')}>
               {this.renderSkills()}
             </BpkGridRow>
