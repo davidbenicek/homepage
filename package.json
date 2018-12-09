@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "backpack-react-scripts": "^5.1.1",
+    "bpk-component-breakpoint": "^1.1.31",
     "bpk-component-button": "^2.1.6",
     "bpk-component-card": "^1.1.45",
     "bpk-component-code": "^1.1.10",

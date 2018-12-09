@@ -51,7 +51,7 @@ const CONTACT = [
 class Contact extends React.Component {
   renderContactOption() {
     return CONTACT.map((contact, i) => (
-      <BpkGridColumn width={2} offset={i===0 ? 1 : 0} className={c('Contact__optionBox')}>
+      <BpkGridColumn width={2} offset={i===0 ? 1 : 0} mobileWidth={12} mobileOffset={0} className={c('Contact__optionBox')}>
         <img className={c('Contact__logo')} src={contact.logo} alt={contact.name} />
         <BpkText tagName="h3" textStyle="lg" >{contact.name}</BpkText>
         <BpkLink blank href={contact.url}>{contact.linkText}</BpkLink>

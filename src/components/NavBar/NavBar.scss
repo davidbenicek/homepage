@@ -5,8 +5,10 @@
     cursor: pointer;
     background: $bpk-color-gray-100;
     box-shadow: $bpk-box-shadow-xl;
-    margin: $bpk-spacing-lg;
     border-radius: $bpk-border-radius-pill;
+    @include bpk-breakpoint-above-mobile { 
+      margin: $bpk-spacing-lg;
+    }
   }
   &__barAttached {
     margin: auto;

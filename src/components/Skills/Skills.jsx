@@ -70,7 +70,7 @@ class Skills extends React.Component {
     return SKILLS.map((skill) => 
       <div key={skill.title}>
         <BpkText tagName="h3" textStyle="lg">{skill.title}</BpkText>
-        <div style={ {width: 800 * (skill.level/100) + 'px'} } className={`${c('Skills__bar')} ${this.state.hidden ? c('Skills__hiddenBar') : ''}`}></div>
+        <div style={{ width: `${skill.level}%` }} className={`${c('Skills__bar')} ${this.state.hidden ? c('Skills__hiddenBar') : ''}`}></div>
       </div>
     )
   }
@@ -78,7 +78,7 @@ class Skills extends React.Component {
   render() {
     return (
         <BpkGridRow className={c('Skills__row')} >
-          <BpkGridColumn width={7} >
+          <BpkGridColumn width={10} offset={1} mobileWidht={12} mobileOffset={0}>
             <BpkGridRow className={c('Skills__skill')}>
               {this.renderSkills()}
             </BpkGridRow>

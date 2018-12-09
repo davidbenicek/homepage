@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { BpkGridRow, BpkGridColumn } from 'bpk-component-grid';
 import BpkText from 'bpk-component-text';
+import BpkBreakpoint, { BREAKPOINTS } from 'bpk-component-breakpoint';
 import BpkLargeUpIcon from 'bpk-component-icon/lg/arrow-up';
 import BpkLargeAwardIcon from 'bpk-component-icon/lg/award';
 import BpkLargeBusinessIcon from 'bpk-component-icon/lg/business';
@@ -91,7 +92,9 @@ class NavBar extends React.Component {
       {NAV_BAR.map((item) => (
         <BpkGridColumn onClick={() => {this.props.scrollTo(item.id)}} width={12/NAV_BAR.length} className={this.props.selected === item.id ? c('NavBar__selected') : c('NavBar__unselected')}>
           <item.icon/>
-          <BpkText tagName="span" textStyle="base" >{item.name}</BpkText>
+          <BpkBreakpoint query={BREAKPOINTS.ABOVE_MOBILE}>
+            <BpkText tagName="span" textStyle="base" >{item.name}</BpkText>
+          </BpkBreakpoint>
         </BpkGridColumn>
       ))}
       </BpkGridRow>

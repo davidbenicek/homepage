@@ -26,15 +26,15 @@ class CareerEvent extends React.Component {
           <BpkGridColumn width={12} >
             <Banner className={c('CareerEvent__banner')} />
             <BpkGridRow className={c('CareerEvent__content')}>
-              <BpkGridColumn width={12} className={c('CareerEvent__left')}>
+              <BpkGridColumn width={12}>
                 <BpkGridRow>
-                  <BpkGridColumn width={4} className={c('CareerEvent__left')}>
+                  <BpkGridColumn width={4} mobileWidth={12}>
                     <BpkText tagName="p" textStyle="lg" className={c('CareerEvent__org')}>{organisation}</BpkText>
                   </BpkGridColumn>
-                  <BpkGridColumn width={4} className={c('CareerEvent__left')}>
+                  <BpkGridColumn width={4} mobileWidth={12}>
                   <BpkText tagName="p" textStyle="lg" className={c('CareerEvent__role')}>{position}</BpkText>
                   </BpkGridColumn>
-                  <BpkGridColumn width={4} className={c('CareerEvent__left')}>
+                  <BpkGridColumn width={4} mobileWidth={12}>
                     <BpkText tagName="p" textStyle="lg" className={c('CareerEvent__time')}>{dates}</BpkText>
                   </BpkGridColumn>
                 </BpkGridRow>

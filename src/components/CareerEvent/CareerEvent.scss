@@ -31,5 +31,20 @@
   &__time {
     text-align: right;
   }
-
+  @include bpk-breakpoint-mobile {
+    &__content {
+      height: 700px;
+    }
+    &__org {
+      text-align: center;
+    }
+    &__role {
+      text-align: center;
+      font-size: $bpk-text-base-font-size
+    }
+    &__time {
+      text-align: center;
+      font-size: $bpk-text-sm-font-size
+    }
+  }
 }

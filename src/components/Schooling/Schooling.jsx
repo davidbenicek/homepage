@@ -43,7 +43,7 @@ const SCHOOLS = [
 class Schooling extends React.Component {
   renderSchoolingOption() {
     return SCHOOLS.map((school) => (
-      <BpkGridColumn width={6} className={c('Schooling__box')}>
+      <BpkGridColumn width={6} mobileWidth={12} className={c('Schooling__box')}>
         <BpkText tagName="h3" textStyle="lg" >{school.name}</BpkText>
         <BpkText tagName="h4" textStyle="base" >{school.degree}</BpkText>
         {school.grade ? <BpkText tagName="span" textStyle="sm" className={c('Schooling__grade')}>{school.grade}</BpkText> : ''}
@@ -52,7 +52,6 @@ class Schooling extends React.Component {
     ))
   }
   render() {
-    console.log('reee')
     return (
         <BpkGridRow className={c('Schooling__row')}>
           <BpkGridColumn width={12} >      

@@ -1,7 +1,10 @@
 @import '~bpk-mixins';
 
 .Hero {
-  &__left {
+  &__box {
+    margin-bottom: $bpk-spacing-base;
+  }
+  &__textBlock {
     height: 700px;
     background: white;
     display: flex;
@@ -10,7 +13,7 @@
     box-shadow: $bpk-box-shadow-xl;
     border-radius: $bpk-border-radius-sm 0 0 $bpk-border-radius-sm;
   }
-  &__right {
+  &__imageBlock {
     height: 700px;
     background: white;
     display: flex;
@@ -31,5 +34,17 @@
   }
   &__chevron {
     margin-top: $bpk-spacing-sm;
+  }
+  @include bpk-breakpoint-mobile { 
+    &__textBlock {
+      height: 300px;
+      margin-top: -50px;
+    }
+    &__imageBlock {
+      height: 200px;
+    }
+    &__more {
+      margin-top: 3rem;
+    }
   }
 }

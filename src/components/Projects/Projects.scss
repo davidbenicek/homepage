@@ -24,5 +24,15 @@
     border-radius: $bpk-border-radius-sm;
     margin-top: $bpk-spacing-md;
   }
-
+  &__detailRow {
+    margin-top: $bpk-spacing-base;
+  }
+  @include bpk-breakpoint-mobile { 
+    &__card {
+      height: 240px;
+    }
+    &__work {
+      margin-top: $bpk-spacing-lg;
+    }
+  }
 }
