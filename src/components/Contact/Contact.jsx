@@ -61,7 +61,7 @@ class Contact extends React.Component {
       >
         <img className={c('Contact__logo')} src={contact.logo} alt={contact.name} />
         <BpkText tagName="h3" textStyle="lg" >{contact.name}</BpkText>
-        <BpkLink blank href={contact.url}>{contact.linkText}</BpkLink>
+        <BpkLink blank href={contact.url} className={c('Contact__link')}>{contact.linkText}</BpkLink>
       </BpkGridColumn>
     ))
   }

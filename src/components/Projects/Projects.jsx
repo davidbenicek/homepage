@@ -12,7 +12,7 @@ const c = className => STYLES[className] || 'UNKNOWN';
 const PROJECTS = [
   {
     name: 'KanHanZi',
-    tagLine: 'Learn Chinese characters online',
+    tagLine: 'Learn, practice and test your Chinese characters online',
     work: false,
     url: 'https://kanhanzi.herokuapp.com',
     logo: 'https://s3.eu-central-1.amazonaws.com/benicek/homepage/hanyu.png',
@@ -20,7 +20,7 @@ const PROJECTS = [
   },
   {
     name: 'Lorin',
-    tagLine: 'A travel chatbot',
+    tagLine: 'A travel chatbot that finds flight, hotels, attractions and tells (terrible) jokes!',
     work: false,
     url: 'https://benicek-travelbot.azurewebsites.net/',
     logo: 'https://s3.eu-central-1.amazonaws.com/benicek/homepage/lorin.png',
@@ -28,7 +28,7 @@ const PROJECTS = [
   },
   {
     name: 'Content Labs*',
-    tagLine: 'Customisable pages for partners',
+    tagLine: 'Customisable pages for Skyscanner partners',
     work: true,
     url: 'https://www.skyscanner.net/mp/lufthansa',
     logo: 'https://www.skyscanner.net/sttc/blackbird/opengraph_solid.png',
@@ -36,7 +36,7 @@ const PROJECTS = [
   },
   {
     name: 'Skyscanner Jobs Website*',
-    tagLine: 'A place to attract talent and familirise users with life at Skyscanner',
+    tagLine: 'A place to attract talent and familiarise users with life at Skyscanner',
     work: true,
     url: 'https://www.skyscanner.net/jobs',
     logo: 'https://www.skyscanner.net/sttc/blackbird/opengraph_solid.png',

@@ -36,7 +36,7 @@ const NAV_BAR = [
   },
   {
     id: 'career',
-    name: 'Employement',
+    name: 'Employment',
     icon: AlignedBpkLargeBusinessIcon,
   },
   {

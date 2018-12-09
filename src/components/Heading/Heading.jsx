@@ -77,7 +77,6 @@ class Heading extends React.Component {
     const {
       id,
       show,
-      onIntersection,
     } = this.props;
     console.log('id', id);
     console.log('id', HEADINGS);
