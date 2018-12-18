@@ -5,7 +5,7 @@ const path = require('path');
 
 //Start server
 var app = express();
-var port = Number(process.env.BACKEND_PORT || 1200);
+var port = Number(process.env.PORT || 5000);
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));

@@ -2,7 +2,7 @@
     "scripts": {
         "start": "node server",
         "dev:start": "node server & cd client && npm start",
-        "heroku-postbuild": "cd client && npm i & npm run build"
+        "heroku-postbuild": "cd client && npm i && npm run build"
     },
     "dependencies": {
         "express": "^4.16.2",
