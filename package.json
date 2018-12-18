@@ -1,6 +1,7 @@
 {
     "scripts": {
-        "start": "node server & cd client && npm start"
+        "start": "node server & cd client && npm start",
+        "postinstall": "cd client && npm i"
     },
     "dependencies": {
         "express": "^4.16.2",
