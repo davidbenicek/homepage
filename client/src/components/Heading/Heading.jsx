@@ -60,7 +60,7 @@ class Heading extends React.Component {
     observer.observe(document.querySelector(`#${this.props.id}`));
   }
 
-  interSectionCallback(changes, observer) {
+  interSectionCallback(changes) {
     const {
       id,
     } = this.props;
@@ -72,7 +72,7 @@ class Heading extends React.Component {
   }
 
 
-  async render() {
+  render() {
     const {
       id,
       show,

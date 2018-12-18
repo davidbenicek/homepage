@@ -5,8 +5,17 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# ---------| 
+#          |
+#  Custon  |
+#          |
+# ---------|
 *.DS_Store
 assets/
+build/
+
+
+
 # Runtime data
 pids
 *.pid

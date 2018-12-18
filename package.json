@@ -1,7 +1,8 @@
 {
     "scripts": {
-        "start": "node server & cd client && npm start",
-        "postinstall": "cd client && npm i"
+        "start": "node server",
+        "dev:start": "node server & cd client && npm start",
+        "heroku-postbuild": "cd client && npm i & npm run build"
     },
     "dependencies": {
         "express": "^4.16.2",
