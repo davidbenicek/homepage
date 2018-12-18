@@ -1,8 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-
 import { BpkGridRow, BpkGridColumn } from 'bpk-component-grid';
 import BpkText from 'bpk-component-text';
 
