@@ -7,6 +7,7 @@ import BpkBreakpoint, { BREAKPOINTS } from 'bpk-component-breakpoint';
 import styled from 'styled-components';
 
 import STYLES from './Projects.scss';
+
 const c = className => STYLES[className] || 'UNKNOWN';
 
 const PROJECTS = [
@@ -50,7 +51,7 @@ const PROJECTS = [
     logo: 'https://image.flaticon.com/icons/png/512/25/25231.png',
     background: 'rgb(1,178,214)',
   },
-]
+];
 
 class Projects extends React.Component {
   renderProjects() {
@@ -61,9 +62,9 @@ class Projects extends React.Component {
         min-height: 70px;
         height: 100%
       `;
-      return (<BpkGridRow padded={false} onClick={() => {window.location = proj.url}} className={c('Projects__card')}>
+      return (<BpkGridRow padded={false} onClick={() => { window.location = proj.url; }} className={c('Projects__card')}>
         <BpkBreakpoint query={BREAKPOINTS.ABOVE_MOBILE}>
-          <LogoColumn width={2}/>
+          <LogoColumn width={2} />
           <BpkGridColumn width={10}>
             <BpkText tagName="h3" textStyle="xl" className={c('Projects__name')}>{proj.name}</BpkText>
             {proj.work ? <BpkText tagName="p" textStyle="xs" className={c('Projects__work')}>*A team effort from my time at Skyscanner</BpkText> : ''}
@@ -73,29 +74,29 @@ class Projects extends React.Component {
         <BpkBreakpoint query={BREAKPOINTS.MOBILE}>
           <BpkGridColumn width={12}>
             <BpkGridRow>
-            <LogoColumn width={4}/>
-            <BpkGridColumn width={8}>
-              <BpkText tagName="h3" textStyle="base" className={c('Projects__name')}>{proj.name}</BpkText>
-            </BpkGridColumn>
+              <LogoColumn width={4} />
+              <BpkGridColumn width={8}>
+                <BpkText tagName="h3" textStyle="base" className={c('Projects__name')}>{proj.name}</BpkText>
+              </BpkGridColumn>
             </BpkGridRow>
             <BpkGridRow className={c('Projects__detailRow')}>
               <BpkText tagName="p" textStyle="sm" className={c('Projects__tagLine')}>{proj.tagLine}</BpkText>
             </BpkGridRow>
             {proj.work ? (<BpkGridRow>
               <BpkText tagName="p" textStyle="xs" className={c('Projects__work')}>*A team effort from my time at Skyscanner</BpkText>
-            </BpkGridRow>)  : ''}
+            </BpkGridRow>) : ''}
           </BpkGridColumn>
         </BpkBreakpoint>
-      </BpkGridRow>)
-    })
+      </BpkGridRow>);
+    });
   }
   render() {
     return (
-        <BpkGridRow className={c('Projects__row')}>
-          <BpkGridColumn width={12} >
-            {this.renderProjects()}
-          </BpkGridColumn>
-        </BpkGridRow>
+      <BpkGridRow className={c('Projects__row')}>
+        <BpkGridColumn width={12} >
+          {this.renderProjects()}
+        </BpkGridColumn>
+      </BpkGridRow>
     );
   }
 }

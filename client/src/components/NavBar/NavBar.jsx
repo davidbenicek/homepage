@@ -11,16 +11,16 @@ import BpkLargeLandmarkIcon from 'bpk-component-icon/lg/landmark';
 import BpkLargeFlaskIcon from 'bpk-component-icon/lg/flask';
 import { withButtonAlignment } from 'bpk-component-icon';
 
+// import { styled } from 'styled-components';
+
+import STYLES from './NavBar.scss';
+
 const AlignedBpkLargeUpIcon = withButtonAlignment(BpkLargeUpIcon);
 const AlignedBpkLargeBusinessIcon = withButtonAlignment(BpkLargeBusinessIcon);
 const AlignedBpkLargeMailIcon = withButtonAlignment(BpkLargeMailIcon);
 const AlignedBpkLargeLandmarkIcon = withButtonAlignment(BpkLargeLandmarkIcon);
 const AlignedBpkLargeAwardIcon = withButtonAlignment(BpkLargeAwardIcon);
 const AlignedBpkLargeFlaskIcon = withButtonAlignment(BpkLargeFlaskIcon);
-
-// import { styled } from 'styled-components';
-
-import STYLES from './NavBar.scss';
 const c = className => STYLES[className] || 'UNKNOWN';
 
 const NAV_BAR = [
@@ -54,53 +54,52 @@ const NAV_BAR = [
     name: 'Contact',
     icon: AlignedBpkLargeMailIcon,
   },
-]
+];
 
 class NavBar extends React.Component {
   constructor(props) {
     super();
     this.state = {
       attached: props.attached,
-    }
+    };
     this.interSectionCallback = this.interSectionCallback.bind(this);
   }
 
   componentDidMount() {
-    let options = {
-      root: null, // relative to document viewport 
+    const options = {
+      root: null, // relative to document viewport
       rootMargin: '0px', // margin around root. Values are similar to css property. Unitless values not allowed
-      threshold: 1 // visible amount of item shown in relation to root
+      threshold: 1, // visible amount of item shown in relation to root
     };
-     
-    let observer = new IntersectionObserver(this.interSectionCallback, options);
+
+    const observer = new IntersectionObserver(this.interSectionCallback, options);
     observer.observe(document.querySelector(`.${c('NavBar__bar')}`));
   }
 
   interSectionCallback(changes, observer) {
-    changes.forEach(change => {
-        if (change.intersectionRatio > 0) {
-            if(change.boundingClientRect.y < 0){
-              this.props.attachNavBar(true);
-            }
-          }
+    changes.forEach((change) => {
+      if (change.intersectionRatio > 0) {
+        if (change.boundingClientRect.y < 0) {
+          this.props.attachNavBar(true);
+        }
+      }
     });
   }
 
   render() {
     return (
       <BpkGridRow className={`${c('NavBar__bar')} ${this.props.attached ? c('NavBar__barAttached') : ''}`}>
-      {NAV_BAR.map((item) => (
-        <BpkGridColumn onClick={() => {this.props.scrollTo(item.id)}} width={12/NAV_BAR.length} className={this.props.selected === item.id ? c('NavBar__selected') : c('NavBar__unselected')}>
-          <item.icon className={c('NavBar__icon')}/>
-          <BpkBreakpoint query={BREAKPOINTS.ABOVE_MOBILE}>
-            <BpkText tagName="span" textStyle="base" >{item.name}</BpkText>
-          </BpkBreakpoint>
-        </BpkGridColumn>
+        {NAV_BAR.map(item => (
+          <BpkGridColumn onClick={() => { this.props.scrollTo(item.id); }} width={12 / NAV_BAR.length} className={this.props.selected === item.id ? c('NavBar__selected') : c('NavBar__unselected')}>
+            <item.icon className={c('NavBar__icon')} />
+            <BpkBreakpoint query={BREAKPOINTS.ABOVE_MOBILE}>
+              <BpkText tagName="span" textStyle="base" >{item.name}</BpkText>
+            </BpkBreakpoint>
+          </BpkGridColumn>
       ))}
       </BpkGridRow>
-    )
-  };
-
+    );
+  }
 }
 
 NavBar.propTypes = {

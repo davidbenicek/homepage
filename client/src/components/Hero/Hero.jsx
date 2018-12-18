@@ -7,33 +7,34 @@ import BpkLargeChevronIcon from 'bpk-component-icon/lg/chevron-down';
 
 // import { styled } from 'styled-components';
 
-import hero from './hero.jpg'
+import hero from './hero.jpg';
 import STYLES from './Hero.scss';
+
 const c = className => STYLES[className] || 'UNKNOWN';
 
 class Hero extends React.Component {
-  constructor(){
+  constructor() {
     super();
     this.interSectionCallback = this.interSectionCallback.bind(this);
   }
 
   componentDidMount() {
-    let options = {
-      root: null, // relative to document viewport 
+    const options = {
+      root: null, // relative to document viewport
       rootMargin: '-100px', // margin around root. Values are similar to css property. Unitless values not allowed
-      threshold: 0.5 // visible amount of item shown in relation to root
+      threshold: 0.5, // visible amount of item shown in relation to root
     };
-    
-    let observer = new IntersectionObserver(this.interSectionCallback, options);
+
+    const observer = new IntersectionObserver(this.interSectionCallback, options);
     observer.observe(document.querySelector(`.${c('Hero__box')}`));
   }
 
   interSectionCallback(changes, observer) {
-    changes.forEach(change => {
-        if (change.intersectionRatio > 0.5) {
-            this.props.attachNavBar(false)
-            this.props.changeSelected('top');
-          }
+    changes.forEach((change) => {
+      if (change.intersectionRatio > 0.5) {
+        this.props.attachNavBar(false);
+        this.props.changeSelected('top');
+      }
     });
   }
 
@@ -47,7 +48,7 @@ class Hero extends React.Component {
         <div className={c('Hero__textContainer')}>
           <BpkText tagName="h1" textStyle="xxl" className={c('Hero__heading')}>David Beníček</BpkText>
           <BpkText tagName="h2" textStyle="xl" className={c('Hero__subheading')}>Software Engineer at Skyscanner</BpkText>
-          <div className={c('Hero__more')} onClick={()=> {this.props.scrollTo('career')}}>
+          <div className={c('Hero__more')} onClick={() => { this.props.scrollTo('career'); }}>
             <BpkText tagName="p" textStyle="base" >Find out more</BpkText>
             <BpkLargeChevronIcon className={c('Hero__chevron')} />
           </div>
@@ -57,16 +58,16 @@ class Hero extends React.Component {
   }
   render() {
     return (
-        <BpkGridRow id="top" className={c('Hero__box')}>
-          <BpkBreakpoint query={BREAKPOINTS.ABOVE_MOBILE}>
-            {this.renderHeroText()}
-            {this.renderHeroImage()}
-          </BpkBreakpoint>
-          <BpkBreakpoint query={BREAKPOINTS.MOBILE}>
-            {this.renderHeroImage()}
-            {this.renderHeroText()}
-          </BpkBreakpoint>
-        </BpkGridRow>
+      <BpkGridRow id="top" className={c('Hero__box')}>
+        <BpkBreakpoint query={BREAKPOINTS.ABOVE_MOBILE}>
+          {this.renderHeroText()}
+          {this.renderHeroImage()}
+        </BpkBreakpoint>
+        <BpkBreakpoint query={BREAKPOINTS.MOBILE}>
+          {this.renderHeroImage()}
+          {this.renderHeroText()}
+        </BpkBreakpoint>
+      </BpkGridRow>
     );
   }
 }

@@ -5,6 +5,7 @@ import BpkText from 'bpk-component-text';
 import styled from 'styled-components';
 
 import STYLES from './CareerEvent.scss';
+
 const c = className => STYLES[className] || 'UNKNOWN';
 
 class CareerEvent extends React.Component {
@@ -20,33 +21,33 @@ class CareerEvent extends React.Component {
     const Banner = styled(BpkGridRow)`
       background: linear-gradient(45deg, rgba(191,117,135,0.639) 0%, rgba(214,255,255,0.631) 100%), url('${bannerImage}') center;
       background-size: cover;
-    `
+    `;
     return (
-        <BpkGridRow className={c('CareerEvent__row')}>
-          <BpkGridColumn width={12} >
-            <Banner className={c('CareerEvent__banner')} />
-            <BpkGridRow className={c('CareerEvent__content')}>
-              <BpkGridColumn width={12}>
-                <BpkGridRow>
-                  <BpkGridColumn width={4} mobileWidth={12}>
-                    <BpkText tagName="p" textStyle="lg" className={c('CareerEvent__org')}>{organisation}</BpkText>
-                  </BpkGridColumn>
-                  <BpkGridColumn width={4} mobileWidth={12}>
+      <BpkGridRow className={c('CareerEvent__row')}>
+        <BpkGridColumn width={12} >
+          <Banner className={c('CareerEvent__banner')} />
+          <BpkGridRow className={c('CareerEvent__content')}>
+            <BpkGridColumn width={12}>
+              <BpkGridRow>
+                <BpkGridColumn width={4} mobileWidth={12}>
+                  <BpkText tagName="p" textStyle="lg" className={c('CareerEvent__org')}>{organisation}</BpkText>
+                </BpkGridColumn>
+                <BpkGridColumn width={4} mobileWidth={12}>
                   <BpkText tagName="p" textStyle="lg" className={c('CareerEvent__role')}>{position}</BpkText>
-                  </BpkGridColumn>
-                  <BpkGridColumn width={4} mobileWidth={12}>
-                    <BpkText tagName="p" textStyle="lg" className={c('CareerEvent__time')}>{dates}</BpkText>
-                  </BpkGridColumn>
-                </BpkGridRow>
-                <BpkGridRow className={c('CareerEvent__textArea')}>
+                </BpkGridColumn>
+                <BpkGridColumn width={4} mobileWidth={12}>
+                  <BpkText tagName="p" textStyle="lg" className={c('CareerEvent__time')}>{dates}</BpkText>
+                </BpkGridColumn>
+              </BpkGridRow>
+              <BpkGridRow className={c('CareerEvent__textArea')}>
                 <BpkText tagName="p" textStyle="base" className={c('CareerEvent__description')}>
                   {text}
                 </BpkText>
-                </BpkGridRow>
-              </BpkGridColumn>
-            </BpkGridRow>
-          </BpkGridColumn>
-        </BpkGridRow>
+              </BpkGridRow>
+            </BpkGridColumn>
+          </BpkGridRow>
+        </BpkGridColumn>
+      </BpkGridRow>
     );
   }
 }

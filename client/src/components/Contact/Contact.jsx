@@ -10,9 +10,9 @@ import BpkLargeUpIcon from 'bpk-component-icon/lg/arrow-up';
 
 import { withButtonAlignment } from 'bpk-component-icon';
 
-const AlignedBpkLargeUpIcon = withButtonAlignment(BpkLargeUpIcon);
-
 import STYLES from './Contact.scss';
+
+const AlignedBpkLargeUpIcon = withButtonAlignment(BpkLargeUpIcon);
 const c = className => STYLES[className] || 'UNKNOWN';
 
 const CONTACT = [
@@ -46,38 +46,38 @@ const CONTACT = [
     url: 'mailto:davidbenicek@hotmail.com',
     logo: 'https://s3.eu-central-1.amazonaws.com/benicek/homepage/email.svg',
   },
-]
+];
 
 class Contact extends React.Component {
   renderContactOption() {
     return CONTACT.map((contact, i) => (
       <BpkGridColumn
         width={2}
-        offset={i===0 ? 1 : 0}
+        offset={i === 0 ? 1 : 0}
         mobileWidth={12}
         mobileOffset={0}
         className={c('Contact__optionBox')}
-        onClick={() => {window.location = contact.url}}   
+        onClick={() => { window.location = contact.url; }}
       >
         <img className={c('Contact__logo')} src={contact.logo} alt={contact.name} />
         <BpkText tagName="h3" textStyle="lg" >{contact.name}</BpkText>
         <BpkLink blank href={contact.url} className={c('Contact__link')}>{contact.linkText}</BpkLink>
       </BpkGridColumn>
-    ))
+    ));
   }
   render() {
     return (
-        <BpkGridRow className={c('Contact__row')}>
-          <BpkGridColumn width={12} >
-            <BpkGridRow className={c('Contact__blurb')}>
-              <BpkText tagName="h2" textStyle="xl" className={c('Contact__prompt')}>Do you like what you see?<br/>Are you finding one of my creations useful?<br/>Just want a chat?</BpkText>
-              <BpkText tagName="h2" textStyle="lg" className={c('Contact__reachOut')}>Reach out via these methods:</BpkText>
-            </BpkGridRow>            
-            <BpkGridRow className={c('Contact__options')}>
-              {this.renderContactOption()}
-            </BpkGridRow>
-          </BpkGridColumn>
-        </BpkGridRow>
+      <BpkGridRow className={c('Contact__row')}>
+        <BpkGridColumn width={12} >
+          <BpkGridRow className={c('Contact__blurb')}>
+            <BpkText tagName="h2" textStyle="xl" className={c('Contact__prompt')}>Do you like what you see?<br />Are you finding one of my creations useful?<br />Just want a chat?</BpkText>
+            <BpkText tagName="h2" textStyle="lg" className={c('Contact__reachOut')}>Reach out via these methods:</BpkText>
+          </BpkGridRow>
+          <BpkGridRow className={c('Contact__options')}>
+            {this.renderContactOption()}
+          </BpkGridRow>
+        </BpkGridColumn>
+      </BpkGridRow>
     );
   }
 }

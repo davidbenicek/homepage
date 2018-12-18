@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import BpkText from 'bpk-component-text';
 import { BpkGridContainer } from 'bpk-component-grid';
 
@@ -17,8 +18,6 @@ import STYLES from './App.scss';
 
 const c = className => STYLES[className] || 'UNKNOWN';
 
-
-
 class App extends React.Component {
   constructor() {
     super();
@@ -29,21 +28,21 @@ class App extends React.Component {
     this.state = {
       sectionInView: 'top',
       navBarAttached: false,
-    }
+    };
   }
 
   changeSelected(sectionInView) {
     this.setState({
-      sectionInView
+      sectionInView,
     });
   }
 
   scrollTo(newSelected) {
     const elmnt = document.getElementById(newSelected);
-    if(newSelected && elmnt) {
-      elmnt.scrollIntoView({behavior: "instant", block: "center", inline: "center"});
+    if (newSelected && elmnt) {
+      elmnt.scrollIntoView({ behavior: 'instant', block: 'center', inline: 'center' });
       this.changeSelected(newSelected);
-      if(newSelected === 'top') {
+      if (newSelected === 'top') {
         this.attachNavBar(false);
       } else {
         this.attachNavBar(true);
@@ -53,11 +52,17 @@ class App extends React.Component {
 
   attachNavBar(navBarAttached) {
     this.setState({
-      navBarAttached
-    })
+      navBarAttached,
+    });
   }
 
   render() {
+    axios({
+      url: '/char',
+      method: 'get',
+    }).then((data) => {
+      console.log(data);
+    });
     return (
       <div className={c('App')}>
         <BpkGridContainer>
@@ -74,7 +79,7 @@ class App extends React.Component {
           />
           <Heading
             onIntersection={this.changeSelected}
-            id='skills'
+            id="skills"
             show
           />
           <Skills
@@ -82,7 +87,7 @@ class App extends React.Component {
           />
           <Heading
             onIntersection={this.changeSelected}
-            id='career'
+            id="career"
             show
           />
           <CareerEvent
@@ -95,7 +100,7 @@ class App extends React.Component {
           />
           <Heading
             onIntersection={this.changeSelected}
-            id='career'
+            id="career"
             show={false}
           />
           <CareerEvent
@@ -108,19 +113,19 @@ class App extends React.Component {
           />
           <Heading
             onIntersection={this.changeSelected}
-            id='education'
+            id="education"
             show
           />
-          <Schooling/>
+          <Schooling />
           <Heading
             onIntersection={this.changeSelected}
-            id='projects'
+            id="projects"
             show
           />
-          <Projects/>
+          <Projects />
           <Heading
             onIntersection={this.changeSelected}
-            id='contact'
+            id="contact"
             show
           />
           <Contact />
