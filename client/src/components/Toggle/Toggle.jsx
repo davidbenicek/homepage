@@ -43,6 +43,8 @@ class Toggle extends React.Component {
         <BpkGridColumn
           width={3}
           offset={3}
+          mobileWidth={5}
+          mobileOffset={1}
           className={`${c('Toggle__option')} ${(checkedId === option1.id) ? c('Toggle__selected') : ''}`}
           onClick={() => this.handleChange(option1.id)}
         >
@@ -50,6 +52,8 @@ class Toggle extends React.Component {
         </BpkGridColumn>
         <BpkGridColumn
           width={3}
+          mobileWidth={5}
+          mobileOffset={0}
           className={`${c('Toggle__option')} ${(checkedId === option2.id) ? c('Toggle__selected') : ''}`}
           onClick={() => this.handleChange(option2.id)}
         >
