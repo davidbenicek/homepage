@@ -25,7 +25,6 @@ class Footer extends React.Component {
           <AlignedBpkLargeUpIcon />
           <BpkText tagName="p" textStyle="base" onClick={() => { this.props.scrollUp('top'); }}>Back to the top</BpkText>
         </BpkButton>
-        <BpkText tagName="p" textStyle="base" className={c('Footer__credits')}>Made using <BpkLink href="https://backpack.github.io">Backpack</BpkLink></BpkText>
       </BpkGridRow>
     );
   }

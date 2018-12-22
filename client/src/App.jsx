@@ -96,7 +96,7 @@ class App extends React.Component {
             organisation="Skyscanner"
             position="Software Engineer"
             dates="June 2016 - Present"
-            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            text={['Initially, worked part time alongside university for two years (Glasgow, London office)', 'Created bespoke systems for surfacing internal company organisation structure, goal alignment and service ownership', 'Worked extensively with JIRA, Confluence and developed system engineering knowledge', 'Helped re-design the Skyscanner Jobs website', 'After a move to Barcelona, worked in the Modern Advertising team, focusing on optimising the delivery of ads throughout the Skyscanner product', 'Worked with integrations for Google Ad Manager, Media Alpha and helped optimise the Skyscanners own Ad Mananger system', 'Created branded content pages for numberous partners']}
           />
           <Heading
             onIntersection={this.changeSelected}
@@ -109,7 +109,7 @@ class App extends React.Component {
             organisation="WhiteStein"
             position="Intern Software Engineer"
             dates="Dec 2012-Jan 2013"
-            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+            text={['One month internship during final year of high scool', 'Extended a set of executable models for a Business Process Management platform', 'Reimplemented demo programs and documentation that was presented to clients']}
           />
           <Heading
             onIntersection={this.changeSelected}
