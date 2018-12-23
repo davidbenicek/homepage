@@ -14,6 +14,7 @@
     border-radius: $bpk-border-radius-sm;
     box-shadow: $bpk-box-shadow-xl;
     text-align: center;
+    user-select: none;
   }
 
   &__reachOut {
