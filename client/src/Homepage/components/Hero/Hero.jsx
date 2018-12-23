@@ -5,9 +5,6 @@ import BpkText from 'bpk-component-text';
 import BpkBreakpoint, { BREAKPOINTS } from 'bpk-component-breakpoint';
 import BpkLargeChevronIcon from 'bpk-component-icon/lg/chevron-down';
 
-// import { styled } from 'styled-components';
-
-import hero from './hero.jpg';
 import STYLES from './Hero.scss';
 
 const c = className => STYLES[className] || 'UNKNOWN';
@@ -29,7 +26,7 @@ class Hero extends React.Component {
     observer.observe(document.querySelector(`.${c('Hero__box')}`));
   }
 
-  interSectionCallback(changes, observer) {
+  interSectionCallback(changes) {
     changes.forEach((change) => {
       if (change.intersectionRatio > 0.5) {
         this.props.attachNavBar(false);
@@ -37,7 +34,7 @@ class Hero extends React.Component {
       }
     });
   }
-
+  // eslint-disable-next-line class-methods-use-this
   renderHeroImage() {
     return (<BpkGridColumn width={6} mobileWidth={12} className={c('Hero__imageBlock')} />);
   }
@@ -48,7 +45,7 @@ class Hero extends React.Component {
         <div className={c('Hero__textContainer')}>
           <BpkText tagName="h1" textStyle="xxl" className={c('Hero__heading')}>David Beníček</BpkText>
           <BpkText tagName="h2" textStyle="xl" className={c('Hero__subheading')}>Software Engineer at Skyscanner</BpkText>
-          <div className={c('Hero__more')} onClick={() => { this.props.scrollTo('career'); }}>
+          <div className={c('Hero__more')} onClick={() => { this.props.scrollTo('skills'); }}>
             <BpkText tagName="p" textStyle="base" >Find out more</BpkText>
             <BpkLargeChevronIcon className={c('Hero__chevron')} />
           </div>

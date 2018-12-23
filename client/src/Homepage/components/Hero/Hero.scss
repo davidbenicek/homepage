@@ -1,50 +1,59 @@
 @import '~bpk-mixins';
 
 .Hero {
-  &__box {
-    margin-bottom: $bpk-spacing-base;
-  }
-  &__textBlock {
-    height: 700px;
-    background: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: $bpk-box-shadow-xl;
-    border-radius: $bpk-border-radius-sm 0 0 $bpk-border-radius-sm;
-  }
-  &__imageBlock {
-    height: 700px;
-    background: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(45deg, rgba(191,117,135,0.639) 0%, rgba(214,255,255,0.631) 100%), url('https://s3.eu-central-1.amazonaws.com/benicek/homepage/hero.jpg') center;
-    background-size: cover;
-    box-shadow: $bpk-box-shadow-xl;
-    border-radius: 0 $bpk-border-radius-sm $bpk-border-radius-sm 0;
-  }
-  &__textContainer {
-    text-align: left;
-  }
-  &__more {
-    cursor: pointer;
-    margin-top: 6rem;
-    text-align: center;
-  }
-  &__chevron {
-    margin-top: $bpk-spacing-sm;
-  }
-  @include bpk-breakpoint-mobile { 
+
+  @include bpk-breakpoint-mobile {
     &__textBlock {
       height: 300px;
       margin-top: -50px;
     }
+
     &__imageBlock {
       height: 200px;
     }
+
     &__more {
       margin-top: 3rem;
     }
+  }
+  &__box {
+    margin-bottom: $bpk-spacing-base;
+    user-select: none;
+  }
+
+  &__textBlock {
+    display: flex;
+    height: 700px;
+    justify-content: center;
+    align-items: center;
+    border-radius: $bpk-border-radius-sm 0 0 $bpk-border-radius-sm;
+    background: white;
+    box-shadow: $bpk-box-shadow-xl;
+  }
+
+  &__imageBlock {
+    display: flex;
+    height: 700px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 $bpk-border-radius-sm $bpk-border-radius-sm 0;
+    background: white;
+    background: linear-gradient(45deg, rgba(191, 117, 135, .639) 0%, rgba(214, 255, 255, .631) 100%), url('https://s3.eu-central-1.amazonaws.com/benicek/homepage/hero.jpg') center;
+    background-size: cover;
+    box-shadow: $bpk-box-shadow-xl;
+  }
+
+  &__textContainer {
+    text-align: left;
+  }
+
+  &__more {
+    margin-top: 6rem;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  &__chevron {
+    margin-top: $bpk-spacing-sm;
   }
 }

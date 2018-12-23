@@ -1,38 +1,43 @@
 @import '~bpk-mixins';
 
 .Projects {
-  &__title {
-    text-align: left;
-    padding: $bpk-spacing-md;
-  }
-  &__card {
-    text-align: left;
-    margin: $bpk-spacing-md;
-    padding: $bpk-spacing-md;
-    box-shadow: $bpk-box-shadow-lg;
-    border-radius: $bpk-border-radius-sm;
-    cursor: pointer;
-    height: 150px;
-  }
-  &__card:hover {
-    box-shadow: $bpk-box-shadow-xl;
 
-  }
-  &__logo {
-    max-height: 100px;
-    max-width: 100px;
-    border-radius: $bpk-border-radius-sm;
-    margin-top: $bpk-spacing-md;
-  }
-  &__detailRow {
-    margin-top: $bpk-spacing-base;
-  }
-  @include bpk-breakpoint-mobile { 
+  @include bpk-breakpoint-mobile {
     &__card {
       height: 240px;
     }
+
     &__work {
       margin-top: $bpk-spacing-lg;
     }
+  }
+  &__title {
+    padding: $bpk-spacing-md;
+    text-align: left;
+  }
+
+  &__card {
+    height: 150px;
+    margin: $bpk-spacing-md;
+    padding: $bpk-spacing-md;
+    border-radius: $bpk-border-radius-sm;
+    text-align: left;
+    box-shadow: $bpk-box-shadow-lg;
+    cursor: pointer;
+  }
+
+  &__card:hover {
+    box-shadow: $bpk-box-shadow-xl;
+  }
+
+  &__logo {
+    max-width: 100px;
+    max-height: 100px;
+    margin-top: $bpk-spacing-md;
+    border-radius: $bpk-border-radius-sm;
+  }
+
+  &__detailRow {
+    margin-top: $bpk-spacing-base;
   }
 }

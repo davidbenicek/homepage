@@ -9,14 +9,15 @@ import STYLES from './CareerEvent.scss';
 const c = className => STYLES[className] || 'UNKNOWN';
 
 class CareerEvent extends React.Component {
+  renderBulletPoints() {
+    return this.props.text.map(bullet => (<li className={c('CareerEvent__description')}>{bullet}</li>));
+  }
   render() {
     const {
-      sectionTitle,
       bannerImage,
       organisation,
       position,
       dates,
-      text,
     } = this.props;
     const Banner = styled(BpkGridRow)`
       background: linear-gradient(45deg, rgba(191,117,135,0.639) 0%, rgba(214,255,255,0.631) 100%), url('${bannerImage}') center;
@@ -40,9 +41,7 @@ class CareerEvent extends React.Component {
                 </BpkGridColumn>
               </BpkGridRow>
               <BpkGridRow className={c('CareerEvent__textArea')}>
-                <BpkText tagName="p" textStyle="base" className={c('CareerEvent__description')}>
-                  {text}
-                </BpkText>
+                {this.renderBulletPoints()}
               </BpkGridRow>
             </BpkGridColumn>
           </BpkGridRow>
@@ -53,12 +52,11 @@ class CareerEvent extends React.Component {
 }
 
 CareerEvent.propTypes = {
-  sectionTitle: PropTypes.string.isRequired,
   bannerImage: PropTypes.string.isRequired,
   organisation: PropTypes.string.isRequired,
   position: PropTypes.string.isRequired,
   dates: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
+  text: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default CareerEvent;

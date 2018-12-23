@@ -1,24 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { BpkGridRow, BpkGridColumn } from 'bpk-component-grid';
 import BpkText from 'bpk-component-text';
-import BpkCard from 'bpk-component-card';
-import styled from 'styled-components';
 import BpkLink from 'bpk-component-link';
-import BpkButton from 'bpk-component-button';
-import BpkLargeUpIcon from 'bpk-component-icon/lg/arrow-up';
-
-import { withButtonAlignment } from 'bpk-component-icon';
 
 import STYLES from './Contact.scss';
 
-const AlignedBpkLargeUpIcon = withButtonAlignment(BpkLargeUpIcon);
 const c = className => STYLES[className] || 'UNKNOWN';
 
 const CONTACT = [
   {
     name: 'LinkedIn',
-    linkText: 'linkedin.com/in/benicek',
+    linkText: '/in/benicek',
     url: 'https://www.linkedin.com/in/benicek',
     logo: 'https://s3.eu-central-1.amazonaws.com/benicek/homepage/linkedin.svg',
   },
@@ -27,12 +19,6 @@ const CONTACT = [
     linkText: '@benixek',
     url: 'https://www.instagram.com/benixek/',
     logo: 'https://s3.eu-central-1.amazonaws.com/benicek/homepage/instagram.svg',
-  },
-  {
-    name: 'Smoke Signal',
-    linkText: 'Two puff signals',
-    url: 'https://adventure.howstuffworks.com/survival/wilderness/how-to-send-smoke-signal1.htm',
-    logo: 'https://s3.eu-central-1.amazonaws.com/benicek/homepage/smoke.svg',
   },
   {
     name: 'Twitter',
@@ -46,9 +32,16 @@ const CONTACT = [
     url: 'mailto:davidbenicek@hotmail.com',
     logo: 'https://s3.eu-central-1.amazonaws.com/benicek/homepage/email.svg',
   },
+  {
+    name: 'Smoke Signal',
+    linkText: 'Two puff signals',
+    url: 'https://adventure.howstuffworks.com/survival/wilderness/how-to-send-smoke-signal1.htm',
+    logo: 'https://s3.eu-central-1.amazonaws.com/benicek/homepage/smoke.svg',
+  },
 ];
 
 class Contact extends React.Component {
+  // eslint-disable-next-line class-methods-use-this
   renderContactOption() {
     return CONTACT.map((contact, i) => (
       <BpkGridColumn

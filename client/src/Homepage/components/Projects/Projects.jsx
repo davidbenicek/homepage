@@ -1,8 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { BpkGridRow, BpkGridColumn } from 'bpk-component-grid';
 import BpkText from 'bpk-component-text';
-import BpkCard from 'bpk-component-card';
 import BpkBreakpoint, { BREAKPOINTS } from 'bpk-component-breakpoint';
 import styled from 'styled-components';
 
@@ -25,6 +23,14 @@ const PROJECTS = [
     work: false,
     url: 'https://benicek-travelbot.azurewebsites.net/',
     logo: 'https://s3.eu-central-1.amazonaws.com/benicek/homepage/lorin.png',
+    background: '#faefe6',
+  },
+  {
+    name: 'FirstRep',
+    tagLine: 'An augmented reality application to help take fitness beginners from their first rep to their goal',
+    work: false,
+    url: 'https://www.youtube.com/watch?v=s8n0jT1Xb4U',
+    logo: 'https://s3.eu-central-1.amazonaws.com/benicek/homepage/firstrep.png',
     background: '#faefe6',
   },
   {
@@ -54,6 +60,7 @@ const PROJECTS = [
 ];
 
 class Projects extends React.Component {
+  // eslint-disable-next-line class-methods-use-this
   renderProjects() {
     return PROJECTS.map((proj) => {
       const LogoColumn = styled(BpkGridColumn)`
@@ -62,32 +69,34 @@ class Projects extends React.Component {
         min-height: 70px;
         height: 100%
       `;
-      return (<BpkGridRow padded={false} onClick={() => { window.location = proj.url; }} className={c('Projects__card')}>
-        <BpkBreakpoint query={BREAKPOINTS.ABOVE_MOBILE}>
-          <LogoColumn width={2} />
-          <BpkGridColumn width={10}>
-            <BpkText tagName="h3" textStyle="xl" className={c('Projects__name')}>{proj.name}</BpkText>
-            {proj.work ? <BpkText tagName="p" textStyle="xs" className={c('Projects__work')}>*A team effort from my time at Skyscanner</BpkText> : ''}
-            <BpkText tagName="p" textStyle="base" className={c('Projects__tagLine')}>{proj.tagLine}</BpkText>
-          </BpkGridColumn>
-        </BpkBreakpoint>
-        <BpkBreakpoint query={BREAKPOINTS.MOBILE}>
-          <BpkGridColumn width={12}>
-            <BpkGridRow>
-              <LogoColumn width={4} />
-              <BpkGridColumn width={8}>
-                <BpkText tagName="h3" textStyle="base" className={c('Projects__name')}>{proj.name}</BpkText>
-              </BpkGridColumn>
-            </BpkGridRow>
-            <BpkGridRow className={c('Projects__detailRow')}>
-              <BpkText tagName="p" textStyle="sm" className={c('Projects__tagLine')}>{proj.tagLine}</BpkText>
-            </BpkGridRow>
-            {proj.work ? (<BpkGridRow>
-              <BpkText tagName="p" textStyle="xs" className={c('Projects__work')}>*A team effort from my time at Skyscanner</BpkText>
-            </BpkGridRow>) : ''}
-          </BpkGridColumn>
-        </BpkBreakpoint>
-      </BpkGridRow>);
+      return (
+        <BpkGridRow padded={false} onClick={() => { window.location = proj.url; }} className={c('Projects__card')}>
+          <BpkBreakpoint query={BREAKPOINTS.ABOVE_MOBILE}>
+            <LogoColumn width={2} />
+            <BpkGridColumn width={10}>
+              <BpkText tagName="h3" textStyle="xl" className={c('Projects__name')}>{proj.name}</BpkText>
+              {proj.work ? <BpkText tagName="p" textStyle="xs" className={c('Projects__work')}>*A team effort from my time at Skyscanner</BpkText> : ''}
+              <BpkText tagName="p" textStyle="base" className={c('Projects__tagLine')}>{proj.tagLine}</BpkText>
+            </BpkGridColumn>
+          </BpkBreakpoint>
+          <BpkBreakpoint query={BREAKPOINTS.MOBILE}>
+            <BpkGridColumn width={12}>
+              <BpkGridRow>
+                <LogoColumn width={4} />
+                <BpkGridColumn width={8}>
+                  <BpkText tagName="h3" textStyle="base" className={c('Projects__name')}>{proj.name}</BpkText>
+                </BpkGridColumn>
+              </BpkGridRow>
+              <BpkGridRow className={c('Projects__detailRow')}>
+                <BpkText tagName="p" textStyle="sm" className={c('Projects__tagLine')}>{proj.tagLine}</BpkText>
+              </BpkGridRow>
+              {proj.work ? (
+                <BpkGridRow>
+                  <BpkText tagName="p" textStyle="xs" className={c('Projects__work')}>*A team effort from my time at Skyscanner</BpkText>
+                </BpkGridRow>) : ''}
+            </BpkGridColumn>
+          </BpkBreakpoint>
+        </BpkGridRow>);
     });
   }
   render() {

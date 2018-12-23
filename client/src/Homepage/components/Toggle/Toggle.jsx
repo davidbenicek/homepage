@@ -1,18 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { BpkGridRow, BpkGridColumn } from 'bpk-component-grid';
-import BpkText from 'bpk-component-text';
-import BpkCard from 'bpk-component-card';
-import styled from 'styled-components';
-import BpkLink from 'bpk-component-link';
-import BpkButton from 'bpk-component-button';
-import BpkLargeUpIcon from 'bpk-component-icon/lg/arrow-up';
-
-import { withButtonAlignment } from 'bpk-component-icon';
 
 import STYLES from './Toggle.scss';
 
-const AlignedBpkLargeUpIcon = withButtonAlignment(BpkLargeUpIcon);
 const c = className => STYLES[className] || 'UNKNOWN';
 
 
@@ -43,6 +34,8 @@ class Toggle extends React.Component {
         <BpkGridColumn
           width={3}
           offset={3}
+          mobileWidth={5}
+          mobileOffset={1}
           className={`${c('Toggle__option')} ${(checkedId === option1.id) ? c('Toggle__selected') : ''}`}
           onClick={() => this.handleChange(option1.id)}
         >
@@ -50,6 +43,8 @@ class Toggle extends React.Component {
         </BpkGridColumn>
         <BpkGridColumn
           width={3}
+          mobileWidth={5}
+          mobileOffset={0}
           className={`${c('Toggle__option')} ${(checkedId === option2.id) ? c('Toggle__selected') : ''}`}
           onClick={() => this.handleChange(option2.id)}
         >

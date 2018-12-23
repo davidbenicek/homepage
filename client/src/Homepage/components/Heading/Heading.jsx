@@ -1,17 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { BpkGridRow, BpkGridColumn } from 'bpk-component-grid';
+import { BpkGridRow } from 'bpk-component-grid';
 import BpkText from 'bpk-component-text';
-import BpkCard from 'bpk-component-card';
-import styled from 'styled-components';
-import BpkLink from 'bpk-component-link';
 import BpkLargeAwardIcon from 'bpk-component-icon/lg/award';
 import BpkLargeBusinessIcon from 'bpk-component-icon/lg/business';
 import BpkLargeMailIcon from 'bpk-component-icon/lg/mail';
 import BpkLargeLandmarkIcon from 'bpk-component-icon/lg/landmark';
 import BpkLargeFlaskIcon from 'bpk-component-icon/lg/flask';
-import { withButtonAlignment } from 'bpk-component-icon';
-
 
 import STYLES from './Heading.scss';
 
@@ -41,7 +36,7 @@ const HEADINGS = {
 };
 
 class Heading extends React.Component {
-  constructor(props) {
+  constructor() {
     super();
     this.interSectionCallback = this.interSectionCallback.bind(this);
   }
@@ -88,7 +83,6 @@ class Heading extends React.Component {
 
 Heading.propTypes = {
   id: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
   show: PropTypes.bool.isRequired,
   onIntersection: PropTypes.func.isRequired,
 };

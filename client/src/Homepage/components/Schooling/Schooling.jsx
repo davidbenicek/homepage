@@ -1,10 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { BpkGridRow, BpkGridColumn } from 'bpk-component-grid';
 import BpkText from 'bpk-component-text';
-import BpkCard from 'bpk-component-card';
-import styled from 'styled-components';
-import BpkLink from 'bpk-component-link';
 
 import STYLES from './Schooling.scss';
 
@@ -72,6 +68,7 @@ const MOBILE_SCHOOLS = [
 ];
 
 class Schooling extends React.Component {
+  // eslint-disable-next-line class-methods-use-this
   getSchools() {
     const width = window.innerWidth
     || document.documentElement.clientWidth

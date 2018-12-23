@@ -1,50 +1,61 @@
 @import '~bpk-mixins';
 
 .CareerEvent {
+
+  @include bpk-breakpoint-mobile {
+    &__org {
+      text-align: center;
+    }
+
+    &__role {
+      font-size: $bpk-text-base-font-size;
+      text-align: center;
+    }
+
+    &__time {
+      font-size: $bpk-text-sm-font-size;
+      text-align: center;
+    }
+
+    &__textArea {
+      padding: 0;
+    }
+  }
   &__banner {
     height: 200px;
-    box-shadow: $bpk-box-shadow-xl;
     border-radius: $bpk-border-radius-sm;
+    box-shadow: $bpk-box-shadow-xl;
   }
+
   &__content {
-    height: 400px;
+    width: 95%;
     margin: auto;
     margin-top: -50px;
-    width: 95%;
+    padding-right: $bpk-spacing-xl;
+    padding-left: $bpk-spacing-xl;
+    border-radius: $bpk-border-radius-sm;
     background: white;
     box-shadow: $bpk-box-shadow-xl;
-    border-radius: $bpk-border-radius-sm;
-    padding-left: $bpk-spacing-xl;
-    padding-right: $bpk-spacing-xl;
   }
+
   &__textArea {
+    padding: $bpk-spacing-lg;
     text-align: left;
-    margin-top: $bpk-spacing-xl;
+  }
+
+  &__description {
+    text-indent: -1.3rem;
   }
 
   &__org {
     text-align: left;
   }
+
   &__role {
     text-align: center;
   }
+
   &__time {
     text-align: right;
-  }
-  @include bpk-breakpoint-mobile {
-    &__content {
-      height: 700px;
-    }
-    &__org {
-      text-align: center;
-    }
-    &__role {
-      text-align: center;
-      font-size: $bpk-text-base-font-size
-    }
-    &__time {
-      text-align: center;
-      font-size: $bpk-text-sm-font-size
-    }
   }
 }

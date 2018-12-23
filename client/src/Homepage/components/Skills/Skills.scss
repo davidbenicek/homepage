@@ -1,26 +1,36 @@
 @import '~bpk-mixins';
 
 .Skills {
+  &__row {
+    user-select: none;
+  }
+
   &__title {
-    text-align: left;
     padding: $bpk-spacing-md;
+    text-align: left;
   }
+
   &__skill {
-    background: white;
     height: auto;
-    box-shadow: $bpk-box-shadow-xl;
-    border-radius: $bpk-border-radius-sm;
-    text-align: left;
     padding: $bpk-spacing-md;
+    border-radius: $bpk-border-radius-sm;
+    background: white;
+    text-align: left;
+    box-shadow: $bpk-box-shadow-xl;
   }
+
   &__hiddenBar {
     width: 0 !important;
   }
+
   &__bar {
-    height: 20px;
-    // width: 500px;
-    background: linear-gradient(45deg, rgba(191,117,135,0.639) 0%, rgba(214,255,255,0.631) 100%);
+    height: 25px;
+    padding-right: 5px;
     transition: width 500ms ease-out;
+    background: linear-gradient(45deg, rgba(0, 178, 214, .5), 0, rgba(0, 140, 168, .3) 100%);
+    color: $bpk-color-gray-700;
+    font-size: 10px;
+    text-align: right;
   }
 }
 

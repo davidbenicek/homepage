@@ -57,14 +57,10 @@ const NAV_BAR = [
 ];
 
 class NavBar extends React.Component {
-  constructor(props) {
+  constructor() {
     super();
-    this.state = {
-      attached: props.attached,
-    };
     this.interSectionCallback = this.interSectionCallback.bind(this);
   }
-
   componentDidMount() {
     const options = {
       root: null, // relative to document viewport
@@ -76,7 +72,7 @@ class NavBar extends React.Component {
     observer.observe(document.querySelector(`.${c('NavBar__bar')}`));
   }
 
-  interSectionCallback(changes, observer) {
+  interSectionCallback(changes) {
     changes.forEach((change) => {
       if (change.intersectionRatio > 0) {
         if (change.boundingClientRect.y < 0) {
@@ -104,9 +100,9 @@ class NavBar extends React.Component {
 
 NavBar.propTypes = {
   selected: PropTypes.string,
-  scrollTo: PropTypes.func,
-  detached: PropTypes.bool,
+  scrollTo: PropTypes.func.isRequired,
   attachNavBar: PropTypes.func.isRequired,
+  attached: PropTypes.bool,
 };
 
 NavBar.defaultProps = {

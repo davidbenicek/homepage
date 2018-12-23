@@ -2,38 +2,44 @@
 
 .NavBar {
   &__bar {
-    cursor: pointer;
+    border-radius: $bpk-border-radius-pill;
     background: $bpk-color-gray-100;
     box-shadow: $bpk-box-shadow-xl;
-    border-radius: $bpk-border-radius-pill;
-    @include bpk-breakpoint-above-mobile { 
+    cursor: pointer;
+
+    user-select: none;
+
+    @include bpk-breakpoint-above-mobile {
       margin: $bpk-spacing-lg;
     }
   }
+
   &__barAttached {
-    margin: auto;
-    top: 0px;
     position: sticky;
+    top: 0;
+    margin: auto;
   }
+
   &__bar > div {
     display: inline;
   }
+
   &__selected {
-    background: white;
     border-radius: $bpk-border-radius-pill;
+    background: white;
   }
 
   &__unselected:hover {
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    margin: 0px;
+    margin: 0;
     border: solid 1px white;
     border-radius: $bpk-border-radius-pill;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
   }
 
   &__icon {
-    margin: 0 $bpk-spacing-xs	0 $bpk-spacing-xs;
+    margin: 0 $bpk-spacing-xs 0 $bpk-spacing-xs;
     fill: rgb(82, 76, 97);
   }
 }

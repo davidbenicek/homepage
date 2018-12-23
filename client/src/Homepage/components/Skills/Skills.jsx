@@ -12,26 +12,32 @@ const TECH_SKILLS = [
   {
     title: 'React',
     level: 100,
+    text: 'Advanced',
   },
   {
     title: 'NodeJS',
-    level: 90,
+    level: 98,
+    text: 'Advanced',
   },
   {
     title: 'Python',
     level: 70,
+    text: 'Profficient',
   },
   {
     title: 'AWS',
     level: 70,
+    text: 'Profficient',
   },
   {
     title: 'Java',
     level: 60,
+    text: 'Intermidiate',
   },
   {
     title: 'Database',
     level: 50,
+    text: 'Intermidiate',
   },
 ];
 
@@ -39,22 +45,27 @@ const LANG_SKILLS = [
   {
     title: 'English',
     level: 100,
+    text: 'Native',
   },
   {
     title: 'Czech',
     level: 100,
+    text: 'Native',
   },
   {
     title: 'German',
     level: 70,
+    text: 'Fluent',
   },
   {
     title: 'Chinese',
     level: 50,
+    text: 'Semi-fluent',
   },
   {
     title: 'Spanish',
-    level: 10,
+    level: 15,
+    text: 'Beginner',
   },
 ];
 
@@ -73,25 +84,6 @@ class Skills extends React.Component {
     this.toggleLevelsOn = this.toggleLevelsOn.bind(this);
   }
 
-  getSkills() {
-    return (this.state.skillset === 'tech') ? TECH_SKILLS : LANG_SKILLS;
-  }
-
-  renderSkills() {
-    const { hidden } = this.state;
-    return this.getSkills().map(skill =>
-      (<div key={skill.title}>
-        <BpkText tagName="h3" textStyle="lg">{skill.title}</BpkText>
-        <div style={{ width: `${hidden ? 0 : skill.level}%` }} className={`${c('Skills__bar')} ${this.state.hidden ? c('Skills__hiddenBar') : ''}`} />
-       </div>),
-    );
-  }
-  toggleLevelsOn() {
-    this.setState({
-      hidden: false,
-    });
-  }
-
   onSkillsChange(skillset) {
     this.setState({
       skillset,
@@ -99,6 +91,28 @@ class Skills extends React.Component {
     });
 
     setTimeout(this.toggleLevelsOn, 100);
+  }
+
+  getSkills() {
+    return (this.state.skillset === 'tech') ? TECH_SKILLS : LANG_SKILLS;
+  }
+
+  toggleLevelsOn() {
+    this.setState({
+      hidden: false,
+    });
+  }
+
+  renderSkills() {
+    const { hidden } = this.state;
+    return this.getSkills().map(skill => (
+      <div key={skill.title}>
+        <BpkText tagName="h3" textStyle="lg">{skill.title}</BpkText>
+        <div style={{ width: `${hidden ? 0 : skill.level}%` }} className={`${c('Skills__bar')} ${this.state.hidden ? c('Skills__hiddenBar') : ''}`}>
+          {skill.text}
+        </div>
+      </div>),
+    );
   }
 
   render() {

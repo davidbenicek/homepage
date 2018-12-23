@@ -68,8 +68,8 @@ class WorldMap extends React.Component {
   componentDidMount() {
     console.log('fillIn');
     const CA = d3.select('#path12678');
-    console.log('ca',CA);
-    CA.attr('fill','blue');
+    console.log('ca', CA);
+    CA.attr('fill', 'blue');
   }
 
   render() {

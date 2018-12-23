@@ -2,16 +2,17 @@
 
 .Toggle {
   &__row {
+    padding-top: 0 !important;
     padding-bottom: $bpk-spacing-base;
-    padding-top: 0px !important;
   }
+
   &__option {
     display: inline-block;
-    text-align: center;
     padding: $bpk-spacing-xs;
+    transition: all .1s ease-in-out;
+    border: 1px solid rgba(178, 174, 189, .3);
     background-color: $bpk-color-gray-100;
-    border: 1px solid rgba(178, 174, 189, 0.3);
-    transition: all 0.1s ease-in-out;
+    text-align: center;
     box-shadow: none;
   }
 
@@ -29,6 +30,6 @@
 
   &__selected {
     background-color: $bpk-color-white;
-    box-shadow: 0px 4px 14px 0px rgba(127, 215, 232, 0.5);
+    box-shadow: 0 4px 14px 0px rgba(127, 215, 232, .5);
   }
 }

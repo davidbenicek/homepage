@@ -2,12 +2,14 @@
 
 .Heading {
   &__row {
-      text-align: left;
-      padding: $bpk-spacing-md;
+    padding: $bpk-spacing-md;
+    text-align: left;
+    user-select: none;
   }
+
   &__icon {
-    fill: rgba(82, 76, 97, 0.9);
     margin-right: $bpk-spacing-sm;
     margin-bottom: -3px;
+    fill: rgba(82, 76, 97, .9);
   }
 }
