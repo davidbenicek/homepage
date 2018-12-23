@@ -18,7 +18,7 @@ const c = className => STYLES[className] || 'UNKNOWN';
 const CONTACT = [
   {
     name: 'LinkedIn',
-    linkText: '/in/benicek',
+    linkText: 'linkedin.com/in/benicek',
     url: 'https://www.linkedin.com/in/benicek',
     logo: 'https://s3.eu-central-1.amazonaws.com/benicek/homepage/linkedin.svg',
   },
@@ -27,6 +27,12 @@ const CONTACT = [
     linkText: '@benixek',
     url: 'https://www.instagram.com/benixek/',
     logo: 'https://s3.eu-central-1.amazonaws.com/benicek/homepage/instagram.svg',
+  },
+  {
+    name: 'Smoke Signal',
+    linkText: 'Two puff signals',
+    url: 'https://adventure.howstuffworks.com/survival/wilderness/how-to-send-smoke-signal1.htm',
+    logo: 'https://s3.eu-central-1.amazonaws.com/benicek/homepage/smoke.svg',
   },
   {
     name: 'Twitter',
@@ -39,12 +45,6 @@ const CONTACT = [
     linkText: 'davidbenicek@hotmail.com',
     url: 'mailto:davidbenicek@hotmail.com',
     logo: 'https://s3.eu-central-1.amazonaws.com/benicek/homepage/email.svg',
-  },
-  {
-    name: 'Smoke Signal',
-    linkText: 'Two puff signals',
-    url: 'https://adventure.howstuffworks.com/survival/wilderness/how-to-send-smoke-signal1.htm',
-    logo: 'https://s3.eu-central-1.amazonaws.com/benicek/homepage/smoke.svg',
   },
 ];
 

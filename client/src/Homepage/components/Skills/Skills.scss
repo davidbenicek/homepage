@@ -1,9 +1,6 @@
 @import '~bpk-mixins';
 
 .Skills {
-  &__row {
-    user-select: none;
-  }
   &__title {
     text-align: left;
     padding: $bpk-spacing-md;
@@ -20,12 +17,9 @@
     width: 0 !important;
   }
   &__bar {
-    height: 25px;
-    text-align: right;
-    padding-right: 5px;
-    color: $bpk-color-gray-700;
-    font-size: 10px;
-    background: linear-gradient(45deg,rgba(0, 178, 214, 0.5), 0, rgba(0, 140, 168, 0.3) 100%);
+    height: 20px;
+    // width: 500px;
+    background: linear-gradient(45deg, rgba(191,117,135,0.639) 0%, rgba(214,255,255,0.631) 100%);
     transition: width 500ms ease-out;
   }
 }

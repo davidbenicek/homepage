@@ -7,6 +7,7 @@
     border-radius: $bpk-border-radius-sm;
   }
   &__content {
+    height: 400px;
     margin: auto;
     margin-top: -50px;
     width: 95%;
@@ -16,14 +17,9 @@
     padding-left: $bpk-spacing-xl;
     padding-right: $bpk-spacing-xl;
   }
-
   &__textArea {
     text-align: left;
-    padding: $bpk-spacing-lg;
-  }
-
-  &__description {
-    text-indent: -1.3rem;
+    margin-top: $bpk-spacing-xl;
   }
 
   &__org {
@@ -35,8 +31,10 @@
   &__time {
     text-align: right;
   }
-
   @include bpk-breakpoint-mobile {
+    &__content {
+      height: 700px;
+    }
     &__org {
       text-align: center;
     }
@@ -47,9 +45,6 @@
     &__time {
       text-align: center;
       font-size: $bpk-text-sm-font-size
-    }
-    &__textArea {
-      padding: 0;
     }
   }
 }

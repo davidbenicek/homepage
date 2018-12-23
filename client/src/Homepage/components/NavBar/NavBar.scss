@@ -9,7 +9,6 @@
     @include bpk-breakpoint-above-mobile { 
       margin: $bpk-spacing-lg;
     }
-    user-select: none;
   }
   &__barAttached {
     margin: auto;

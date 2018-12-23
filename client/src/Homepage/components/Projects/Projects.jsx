@@ -1,6 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { BpkGridRow, BpkGridColumn } from 'bpk-component-grid';
 import BpkText from 'bpk-component-text';
+import BpkCard from 'bpk-component-card';
 import BpkBreakpoint, { BREAKPOINTS } from 'bpk-component-breakpoint';
 import styled from 'styled-components';
 
@@ -23,14 +25,6 @@ const PROJECTS = [
     work: false,
     url: 'https://benicek-travelbot.azurewebsites.net/',
     logo: 'https://s3.eu-central-1.amazonaws.com/benicek/homepage/lorin.png',
-    background: '#faefe6',
-  },
-  {
-    name: 'FirstRep',
-    tagLine: 'An augmented reality application to help take fitness beginners from their first rep to their goal',
-    work: false,
-    url: 'https://www.youtube.com/watch?v=s8n0jT1Xb4U',
-    logo: 'https://s3.eu-central-1.amazonaws.com/benicek/homepage/firstrep.png',
     background: '#faefe6',
   },
   {

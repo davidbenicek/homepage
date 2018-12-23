@@ -27,10 +27,16 @@
     "bpk-component-ticket": "^1.1.55",
     "bpk-mixins": "^17.11.1",
     "bpk-stylesheets": "^3.2.113",
+    "d3": "^5.7.0",
     "prop-types": "^15.6.2",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
+    "react-leaflet": "^2.1.3",
+    "react-router-dom": "^4.3.1",
     "styled-components": "^3.4.9"
   },
-  "proxy": "http://localhost:5000/"
+  "proxy": "http://localhost:5000/",
+  "devDependencies": {
+    "leaflet": "^1.3.4"
+  }
 }
