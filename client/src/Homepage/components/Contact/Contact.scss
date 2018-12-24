@@ -1,12 +1,6 @@
 @import '~bpk-mixins';
 
 .Contact {
-
-  @include bpk-breakpoint-mobile {
-    &__prompt {
-      font-size: $bpk-text-base-font-size;
-    }
-  }
   &__row {
     width: 95%;
     margin: auto;
@@ -67,6 +61,12 @@
     40%,
     60% {
       transform: translate3d(4px, 0, 0);
+    }
+  }
+
+  @include bpk-breakpoint-mobile {
+    &__prompt {
+      font-size: $bpk-text-base-font-size;
     }
   }
 }

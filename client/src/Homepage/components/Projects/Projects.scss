@@ -1,16 +1,6 @@
 @import '~bpk-mixins';
 
 .Projects {
-
-  @include bpk-breakpoint-mobile {
-    &__card {
-      height: 240px;
-    }
-
-    &__work {
-      margin-top: $bpk-spacing-lg;
-    }
-  }
   &__title {
     padding: $bpk-spacing-md;
     text-align: left;
@@ -39,5 +29,15 @@
 
   &__detailRow {
     margin-top: $bpk-spacing-base;
+  }
+
+  @include bpk-breakpoint-mobile {
+    &__card {
+      height: 240px;
+    }
+
+    &__work {
+      margin-top: $bpk-spacing-lg;
+    }
   }
 }

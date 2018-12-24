@@ -88,7 +88,7 @@ class Homepage extends React.Component {
             organisation="Skyscanner"
             position="Software Engineer"
             dates="June 2016 - Present"
-            text={['Initially, worked part time alongside university for two years (Glasgow, London office)', 'Created bespoke systems for surfacing internal company organisation structure, goal alignment and service ownership', 'Worked extensively with JIRA, Confluence and developed system engineering knowledge', 'Helped re-design the Skyscanner Jobs website', 'After a move to Barcelona, worked in the Modern Advertising team, focusing on optimising the delivery of ads throughout the Skyscanner product', 'Worked with integrations for Google Ad Manager, Media Alpha and helped optimise the Skyscanners Ad Manager portal', 'Created branded content pages for numerous partners']}
+            text={['Working in the Modern Advertising team, focusing on optimising the delivery of ads throughout the Skyscanner product', 'Working with integrations for Google Ad Manager, Media Alpha and helping develop the Skyscanner Ad Manager ecosystem', 'Created branded content pages for numerous partners', 'Previously, worked part time alongside university for two years (Glasgow, London office)', 'Created bespoke systems for surfacing internal company organisation structure, goal alignment and service ownership', 'Helped re-design the Skyscanner Jobs website', 'Worked extensively with JIRA, Confluence and developed system engineering knowledge']}
           />
           <Heading
             onIntersection={this.changeSelected}
