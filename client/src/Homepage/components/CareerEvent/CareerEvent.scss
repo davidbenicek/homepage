@@ -1,26 +1,6 @@
 @import '~bpk-mixins';
 
 .CareerEvent {
-
-  @include bpk-breakpoint-mobile {
-    &__org {
-      text-align: center;
-    }
-
-    &__role {
-      font-size: $bpk-text-base-font-size;
-      text-align: center;
-    }
-
-    &__time {
-      font-size: $bpk-text-sm-font-size;
-      text-align: center;
-    }
-
-    &__textArea {
-      padding: 0;
-    }
-  }
   &__banner {
     height: 200px;
     border-radius: $bpk-border-radius-sm;
@@ -57,5 +37,25 @@
 
   &__time {
     text-align: right;
+  }
+
+  @include bpk-breakpoint-mobile {
+    &__org {
+      text-align: center;
+    }
+
+    &__role {
+      font-size: $bpk-text-base-font-size;
+      text-align: center;
+    }
+
+    &__time {
+      font-size: $bpk-text-sm-font-size;
+      text-align: center;
+    }
+
+    &__textArea {
+      padding: 0;
+    }
   }
 }

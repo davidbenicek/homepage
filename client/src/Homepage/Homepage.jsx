@@ -88,7 +88,7 @@ class Homepage extends React.Component {
             organisation="Skyscanner"
             position="Software Engineer"
             dates="June 2016 - Present"
-            text={['One month internship during final year of high scool', 'Extended a set of executable models for a Business Process Management platform', 'Reimplemented demo programs and documentation that was presented to clients']}
+            text={['Initially, worked part time alongside university for two years (Glasgow, London office)', 'Created bespoke systems for surfacing internal company organisation structure, goal alignment and service ownership', 'Worked extensively with JIRA, Confluence and developed system engineering knowledge', 'Helped re-design the Skyscanner Jobs website', 'After a move to Barcelona, worked in the Modern Advertising team, focusing on optimising the delivery of ads throughout the Skyscanner product', 'Worked with integrations for Google Ad Manager, Media Alpha and helped optimise the Skyscanners Ad Manager portal', 'Created branded content pages for numerous partners']}
           />
           <Heading
             onIntersection={this.changeSelected}
@@ -97,11 +97,24 @@ class Homepage extends React.Component {
           />
           <CareerEvent
             changeSelected={this.changeSelected}
-            bannerImage="https://scontent-mad1-1.xx.fbcdn.net/v/t31.0-8/11118476_10207385998472262_497960482952204237_o.jpg?_nc_cat=104&_nc_ht=scontent-mad1-1.xx&oh=a91bf008ae6853c8c25238e04c87440e&oe=5CA6622D"
+            bannerImage="https://s3.eu-central-1.amazonaws.com/benicek/homepage/glasgow2.jpg"
+            organisation="University Of Glasgow"
+            position="Tutor/Agile Coach"
+            dates="Sep 2016 - Jun 2017"
+            text={['Operated as a de facto Agile coach for teams completing their third year group project', 'Mentored, guided and helped teams and individuals to work together and follow Agile principles', 'Helped facilitate meetings with stakeholders and clients']}
+          />
+          <Heading
+            onIntersection={this.changeSelected}
+            id="career"
+            show={false}
+          />
+          <CareerEvent
+            changeSelected={this.changeSelected}
+            bannerImage="https://s3.eu-central-1.amazonaws.com/benicek/homepage/myanmar.jpg"
             organisation="WhiteStein"
             position="Intern Software Engineer"
             dates="Dec 2012-Jan 2013"
-            text={['Initially, worked part time alongside university for two years (Glasgow, London office)', 'Created bespoke systems for surfacing internal company organisation structure, goal alignment and service ownership', 'Worked extensively with JIRA, Confluence and developed system engineering knowledge', 'Helped re-design the Skyscanner Jobs website', 'After a move to Barcelona, worked in the Modern Advertising team, focusing on optimising the delivery of ads throughout the Skyscanner product', 'Worked with integrations for Google Ad Manager, Media Alpha and helped optimise the Skyscanners own Ad Mananger system', 'Created branded content pages for numberous partners']}
+            text={['One month internship during final year of high school', 'Extended a set of executable models for a Business Process Management platform', 'Reimplemented demo programs and documentation that was presented to clients']}
           />
           <Heading
             onIntersection={this.changeSelected}

@@ -6,7 +6,7 @@
     background: $bpk-color-gray-100;
     box-shadow: $bpk-box-shadow-xl;
     cursor: pointer;
-
+    text-align: center;
     user-select: none;
 
     @include bpk-breakpoint-above-mobile {

@@ -2,20 +2,6 @@
 
 .Hero {
 
-  @include bpk-breakpoint-mobile {
-    &__textBlock {
-      height: 300px;
-      margin-top: -50px;
-    }
-
-    &__imageBlock {
-      height: 200px;
-    }
-
-    &__more {
-      margin-top: 3rem;
-    }
-  }
   &__box {
     margin-bottom: $bpk-spacing-base;
     user-select: none;
@@ -55,5 +41,20 @@
 
   &__chevron {
     margin-top: $bpk-spacing-sm;
+  }
+
+  @include bpk-breakpoint-mobile {
+    &__textBlock {
+      height: 300px;
+      margin-top: -50px;
+    }
+
+    &__imageBlock {
+      height: 200px;
+    }
+
+    &__more {
+      margin-top: 3rem;
+    }
   }
 }
