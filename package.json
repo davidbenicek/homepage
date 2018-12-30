@@ -10,9 +10,7 @@
         "node-cmd": "^3.0.0",
         "nodemon": "^1.12.1",
         "request": "^2.83.0",
-        "request-promise": "^4.2.2"
-    },
-    "devDependencies": {
+        "request-promise": "^4.2.2",
         "dotenv": "^6.2.0"
     }
 }
