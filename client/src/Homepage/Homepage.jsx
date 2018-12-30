@@ -3,6 +3,7 @@ import { BpkGridContainer } from 'bpk-component-grid';
 
 // Internal imports
 import Hero from './components/Hero';
+import Intro from './components/Intro';
 import NavBar from './components/NavBar';
 import Heading from './components/Heading';
 import CareerEvent from './components/CareerEvent';
@@ -35,10 +36,10 @@ class Homepage extends React.Component {
     });
   }
 
-  scrollTo(newSelected) {
+  scrollTo(newSelected, where) {
     const elmnt = document.getElementById(newSelected);
     if (newSelected && elmnt) {
-      elmnt.scrollIntoView({ behavior: 'instant', block: 'center', inline: 'center' });
+      elmnt.scrollIntoView({ behavior: 'smooth', block: where || 'center', inline: 'center' });
       this.changeSelected(newSelected);
       if (newSelected === 'top') {
         this.attachNavBar(false);
@@ -69,6 +70,7 @@ class Homepage extends React.Component {
             attached={this.state.navBarAttached}
             scrollTo={this.scrollTo}
           />
+          <Intro scrollTo={this.scrollTo} />
           <Heading
             onIntersection={this.changeSelected}
             id="skills"

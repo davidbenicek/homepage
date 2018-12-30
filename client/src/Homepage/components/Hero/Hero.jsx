@@ -45,7 +45,7 @@ class Hero extends React.Component {
         <div className={c('Hero__textContainer')}>
           <BpkText tagName="h1" textStyle="xxl" className={c('Hero__heading')}>David Beníček</BpkText>
           <BpkText tagName="h2" textStyle="xl" className={c('Hero__subheading')}>Software Engineer at Skyscanner</BpkText>
-          <div className={c('Hero__more')} onClick={() => { this.props.scrollTo('skills'); }}>
+          <div className={c('Hero__more')} onClick={() => { this.props.scrollTo('skills', 'start'); }}>
             <BpkText tagName="p" textStyle="base" >Find out more</BpkText>
             <BpkLargeChevronIcon className={c('Hero__chevron')} />
           </div>
