@@ -1,20 +1,37 @@
 'use strict'
 //Lib imports
+require('dotenv').config();
 var express = require('express');
 const path = require('path');
-var request = require('request-promise');
 
-//Start server
+const kanhanzi = require('./services/kanhanzi');
+
+// Start server
 var app = express();
 var port = Number(process.env.PORT || 5000);
+
+// TODO: replace with DB bind
+let VOCAB = [];
+kanhanzi.getVocab().then(({ vocab }) => {
+  VOCAB = vocab;
+}).catch((err) => {
+  console.log(err);
+});
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
 
-app.get('/char', async (req, res) => {
-  const x = await request('https://s3.eu-central-1.amazonaws.com/benicek/map/world_map.svg');
-  res.send(x);
+app.get('/char', function (req, res) {
+  let { level } = req.query;
+
+  if (!level) level = '1,2,3';
+  let char = VOCAB[Math.floor(Math.random() * VOCAB.length)];
+  while(!level.includes(char.HSK)) {
+    char = VOCAB[Math.floor(Math.random() * VOCAB.length)];
+  }
+  res.send(char);
 });
+
 
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.

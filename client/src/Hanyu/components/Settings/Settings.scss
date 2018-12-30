@@ -1,0 +1,18 @@
+@import '~bpk-mixins';
+
+.Settings {
+  user-select: none;
+  &__form {
+    max-width: 300px;
+    margin: auto;
+  }
+  &__checkbox {
+    display: block;
+    font-size: 20px;
+    margin-top: 12px;
+    cursor: pointer;
+  }
+  &__close {
+    margin-top: $bpk-spacing-lg;
+  }
+}

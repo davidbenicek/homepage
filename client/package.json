@@ -16,6 +16,9 @@
   "dependencies": {
     "axios": "^0.18.0",
     "backpack-react-scripts": "^5.1.1",
+    "bpk-component-tooltip": "^3.1.41",
+    "bpk-component-checkbox": "^1.4.28",
+    "bpk-component-modal": "^1.8.28",
     "bpk-component-breakpoint": "^1.1.31",
     "bpk-component-button": "^2.1.6",
     "bpk-component-card": "^1.1.45",

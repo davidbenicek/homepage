@@ -13,7 +13,7 @@ const PROJECTS = [
     name: 'KanHanZi',
     tagLine: 'Learn, practice and test your Chinese characters online',
     work: false,
-    url: 'https://kanhanzi.herokuapp.com',
+    url: '/kanhanzi',
     logo: 'https://s3.eu-central-1.amazonaws.com/benicek/homepage/hanyu.png',
     background: 'white',
   },

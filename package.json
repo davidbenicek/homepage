@@ -5,10 +5,14 @@
         "heroku-postbuild": "cd client && npm i && npm run build"
     },
     "dependencies": {
+        "aws-sdk": "^2.382.0",
         "express": "^4.16.2",
         "node-cmd": "^3.0.0",
         "nodemon": "^1.12.1",
         "request": "^2.83.0",
         "request-promise": "^4.2.2"
+    },
+    "devDependencies": {
+        "dotenv": "^6.2.0"
     }
 }
