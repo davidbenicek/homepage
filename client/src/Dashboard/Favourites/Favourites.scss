@@ -1,30 +1,12 @@
 @import '~bpk-mixins';
 
-.Contact {
+.Favourites {
 
-  &__row {
-    width: 95%;
-    margin: auto;
-    padding: $bpk-spacing-sm;
-    border-radius: $bpk-border-radius-sm;
-    text-align: center;
-    box-shadow: $bpk-box-shadow-xl;
-    user-select: none;
-  }
-
-  &__reachOut {
-    margin-top: $bpk-spacing-md;
-  }
-
-  &__options {
-    margin-top: $bpk-spacing-md;
-  }
-
-  &__optionBox {
+  &__block {
     cursor: pointer;
   }
 
-  &__optionBox:hover {
+  &__block:hover {
     transform: translate3d(0, 0, 0);
     border-radius: $bpk-border-radius-sm;
     box-shadow: $bpk-box-shadow-xl;
@@ -32,16 +14,7 @@
     backface-visibility: hidden;
     perspective: 1000px;
   }
-
-  &__logo {
-    width: 80px;
-    height: 80px;
-  }
-
-  &__link {
-    font-size: $bpk-text-sm-font-size;
-  }
-
+  
   @keyframes shake {
     10%,
     90% {
@@ -65,9 +38,16 @@
     }
   }
 
-  @include bpk-breakpoint-mobile {
-    &__prompt {
-      font-size: $bpk-text-base-font-size;
-    }
+  &__icon > img {
+    max-width: 50px;
+    max-height: 50px;
+    border-radius: 50px;
+    box-shadow: $bpk-box-shadow-xl;
+  }
+
+  &__index {
+    position: relative;
+    top: -30px;
+    right: 100px;
   }
 }

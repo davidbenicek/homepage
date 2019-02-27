@@ -2,21 +2,21 @@
 
 .Intro {
   &__row {
-    text-align: center;
     padding-top: $bpk-spacing-base;
     padding-right: $bpk-spacing-xl;
     padding-right: $bpk-spacing-xl;
+    text-align: center;
     user-select: none;
   }
 
   &__line {
-    background-image: $bpk-primary-gradient;
-    margin: auto;
     display: block;
-    height: 1px;
     width: 150px;
+    height: 1px;
+    margin: auto;
     margin-top: $bpk-spacing-sm;
     margin-bottom: $bpk-spacing-sm;
+    background-image: $bpk-primary-gradient;
   }
 
   &__contact {

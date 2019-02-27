@@ -1,0 +1,33 @@
+@import '~bpk-mixins';
+
+.Widget {
+    &__main {
+        border-radius: 6px;
+        background: rgba(255, 255, 255, .9);
+        box-shadow: $bpk-box-shadow-xl;
+        transition: height 500ms ease-out;
+    }
+
+    &__tag {
+        // TODO: Fix this
+        transform: translateX(-9.66%)
+    }
+
+    &__titleRow, &__toggleRow, &__lineRow {
+        cursor: pointer;
+    }
+    &__lineRow > hr {
+        width: 5rem;
+        border: $bpk-border-size-sm solid;
+        color: $bpk-color-gray-100;
+    }
+      &__chevron {
+        overflow: hidden;
+        transition-duration: 0.8s;
+        transition-property: transform;
+    }
+    &__chevronDown {
+        transform: rotate(-180deg);
+        -webkit-transform: rotate(-180deg);
+    }
+}

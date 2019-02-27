@@ -57,7 +57,7 @@ class ExerciseArea extends React.Component {
     const {
       levels,
     } = this.state;
-    console.log('l',Object.keys(levels));
+    console.log('l', Object.keys(levels));
     return Object.keys(levels).map(lvl => (
       <BpkCheckbox
         className={STYLES.ExerciseArea__levelSelectors}
@@ -70,7 +70,7 @@ class ExerciseArea extends React.Component {
   }
 
   render() {
-    console.log(this.state,'state');
+    console.log(this.state, 'state');
     const {
       showVocab,
       charUp,

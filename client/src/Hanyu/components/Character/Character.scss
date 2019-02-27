@@ -2,9 +2,9 @@
 
 .Character {
   &__card {
+    display: flex;
     min-height: 15.63rem;
     padding: $bpk-spacing-base;
-    display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -23,14 +23,13 @@
   }
 
   &__translation {
-    background: #524c61;
     padding: 5px;
+    background: #524c61;
   }
 
   &__translation:hover {
     color: white;
   }
-
 
   &__authorContainer {
     float: left;

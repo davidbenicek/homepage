@@ -1,0 +1,17 @@
+@import '~bpk-mixins';
+
+.Weather {
+  &__currentIcon {
+    max-width: 15rem;
+  }
+
+  &__forecastIcon {
+    max-width: 10rem;
+  }
+
+  &__currentDayColumn {
+    position: relative;
+    top: 50%;
+    transform: translateY(50%);
+  }
+}

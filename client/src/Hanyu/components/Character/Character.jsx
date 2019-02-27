@@ -115,7 +115,7 @@ class Character extends React.Component {
       <div>
         <span className={STYLES.Character__stats}>HSK: {this.state.char.HSK} Word ID:{this.state.char.id}</span>
         <BpkText tagName="h1" textStyle="xxl" className={STYLES.Character__char}>{this.state.char.chinese || ''}</BpkText>
-        <BpkText tagName="p" textStyle="sm" className={STYLES.Character__type}>{this.state.char.type|| ''}</BpkText>
+        <BpkText tagName="p" textStyle="sm" className={STYLES.Character__type}>{this.state.char.type || ''}</BpkText>
       </div>
     );
   }

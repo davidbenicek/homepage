@@ -42,7 +42,7 @@
   &__chevron {
     margin-top: $bpk-spacing-sm;
   }
-
+  
   @include bpk-breakpoint-mobile {
     &__textBlock {
       height: 300px;

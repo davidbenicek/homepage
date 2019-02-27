@@ -5,6 +5,7 @@ var express = require('express');
 const path = require('path');
 
 const kanhanzi = require('./services/kanhanzi');
+const weather = require('./services/weather');
 
 // Start server
 var app = express();
@@ -21,7 +22,7 @@ kanhanzi.getVocab().then(({ vocab }) => {
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
 
-app.get('/char', function (req, res) {
+app.get('/char', (req, res) => {
   let { level } = req.query;
 
   if (!level) level = '1,2,3';
@@ -30,6 +31,17 @@ app.get('/char', function (req, res) {
     char = VOCAB[Math.floor(Math.random() * VOCAB.length)];
   }
   res.send(char);
+});
+
+app.get('/weather', async (req, res) => {
+  let { lat, lang } = req.query;
+  try {
+    let forecast = await weather.getForecast(lat, lang);
+    res.send(forecast);
+  } catch (err) {
+    console.log('WEATHER ERROR: ', err);
+    res.status(500).send(err);
+  }
 });
 
 

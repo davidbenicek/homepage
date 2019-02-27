@@ -1,0 +1,29 @@
+@import '~bpk-mixins';
+
+.Dashboard {
+  &__grid {
+    max-width: 100vw !important;
+    height: 100vh;
+    background: linear-gradient(45deg, rgba(191, 117, 135, .639), rgba(214, 255, 255, .631)), url('https://source.unsplash.com/collection/827743/1600x900') 50%;
+    background-size: cover;
+    text-align: center;
+  }
+
+  &__row {
+      margin-bottom: $bpk-spacing-lg;
+  }
+
+  &__clock {
+    padding-bottom: $bpk-spacing-xl;
+  }
+
+  &__quoteRow {
+    padding-bottom: $bpk-spacing-lg;
+  }
+
+  &__quote {
+    width: 5rem;
+    border: $bpk-border-size-sm solid;
+    color: $bpk-color-gray-100;
+  }
+}
