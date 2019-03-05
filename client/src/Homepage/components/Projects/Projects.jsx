@@ -73,7 +73,7 @@ class Projects extends React.Component {
         margin: auto;
       `;
       return (
-        <div className={c('Projects__tile')}>
+        <div className={c('Projects__tile')} >
           <a href={proj.url} rel="noopener noreferrer" target="_blank" >
             <ProjectLogo />
           </a>
@@ -95,21 +95,36 @@ class Projects extends React.Component {
       slidesToShow: 3,
       slidesToScroll: 1,
     };
+    const tabletSettings = {
+      ...settings,
+      slidesToShow: 2,
+    };
     const mobileSettings = {
       ...settings,
       slidesToShow: 1,
     };
     return (
       <BpkGridRow className={c('Projects__row')}>
-        <BpkBreakpoint query={BREAKPOINTS.ABOVE_MOBILE}>
-          <Slider {...settings} className={c('Projects__carousel')}>
-            {this.renderProjects()}
-          </Slider>
+        <BpkBreakpoint query={BREAKPOINTS.ABOVE_TABLET}>
+          <div className={c('Projects__container')}>
+            <Slider {...settings} className={c('Projects__carousel')}>
+              {this.renderProjects()}
+            </Slider>
+          </div>
+        </BpkBreakpoint>
+        <BpkBreakpoint query={BREAKPOINTS.TABLET_ONLY}>
+          <div className={c('Projects__container')}>
+            <Slider {...tabletSettings} className={c('Projects__carousel')}>
+              {this.renderProjects()}
+            </Slider>
+          </div>
         </BpkBreakpoint>
         <BpkBreakpoint query={BREAKPOINTS.MOBILE}>
-          <Slider {...mobileSettings} className={c('Projects__carousel')}>
-            {this.renderProjects()}
-          </Slider>
+          <div className={c('Projects__container')}>
+            <Slider {...mobileSettings} className={c('Projects__carousel')}>
+              {this.renderProjects()}
+            </Slider>
+          </div>
         </BpkBreakpoint>
       </BpkGridRow>
     );
