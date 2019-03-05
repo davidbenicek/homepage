@@ -11,8 +11,6 @@ import BpkLargeLandmarkIcon from 'bpk-component-icon/lg/landmark';
 import BpkLargeFlaskIcon from 'bpk-component-icon/lg/flask';
 import { withButtonAlignment } from 'bpk-component-icon';
 
-// import { styled } from 'styled-components';
-
 import STYLES from './NavBar.scss';
 
 const AlignedBpkLargeUpIcon = withButtonAlignment(BpkLargeUpIcon);
@@ -55,36 +53,11 @@ const NAV_BAR = [
     icon: AlignedBpkLargeMailIcon,
   },
 ];
-
+// eslint-disable-next-line react/prefer-stateless-function
 class NavBar extends React.Component {
-  constructor() {
-    super();
-    this.interSectionCallback = this.interSectionCallback.bind(this);
-  }
-  componentDidMount() {
-    const options = {
-      root: null, // relative to document viewport
-      rootMargin: '0px', // margin around root. Values are similar to css property. Unitless values not allowed
-      threshold: 1, // visible amount of item shown in relation to root
-    };
-
-    const observer = new IntersectionObserver(this.interSectionCallback, options);
-    observer.observe(document.querySelector(`.${c('NavBar__bar')}`));
-  }
-
-  interSectionCallback(changes) {
-    changes.forEach((change) => {
-      if (change.intersectionRatio > 0) {
-        if (change.boundingClientRect.y < 0) {
-          this.props.attachNavBar(true);
-        }
-      }
-    });
-  }
-
   render() {
     return (
-      <BpkGridRow className={`${c('NavBar__bar')} ${this.props.attached ? c('NavBar__barAttached') : ''}`}>
+      <BpkGridRow className={c('NavBar__bar')}>
         {NAV_BAR.map(item => (
           <BpkGridColumn onClick={() => { this.props.scrollTo(item.id); }} width={12 / NAV_BAR.length} className={this.props.selected === item.id ? c('NavBar__selected') : c('NavBar__unselected')}>
             <item.icon className={c('NavBar__icon')} />
@@ -101,13 +74,10 @@ class NavBar extends React.Component {
 NavBar.propTypes = {
   selected: PropTypes.string,
   scrollTo: PropTypes.func.isRequired,
-  attachNavBar: PropTypes.func.isRequired,
-  attached: PropTypes.bool,
 };
 
 NavBar.defaultProps = {
   selected: 'top',
-  attached: false,
 };
 
 export default NavBar;

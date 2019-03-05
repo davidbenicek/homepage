@@ -1,6 +1,16 @@
 @import '~bpk-mixins';
 
 .Projects {
+  &__carousel {
+    text-align: center;
+  }
+
+  &__tile {
+    max-width: 250px;
+    text-decoration: none;
+    color: inherit;
+    text-align: left;
+  }
 
   &__title {
     padding: $bpk-spacing-md;
@@ -30,6 +40,11 @@
 
   &__detailRow {
     margin-top: $bpk-spacing-base;
+  }
+
+  &__checkItOut {
+    float: right;
+    margin-top: $bpk-spacing-lg;
   }
   
   @include bpk-breakpoint-mobile {

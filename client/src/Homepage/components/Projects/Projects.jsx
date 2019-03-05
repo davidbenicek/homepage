@@ -1,10 +1,12 @@
 import React from 'react';
+import Slider from 'react-slick';
 import { BpkGridRow, BpkGridColumn } from 'bpk-component-grid';
 import BpkText from 'bpk-component-text';
 import BpkBreakpoint, { BREAKPOINTS } from 'bpk-component-breakpoint';
 import styled from 'styled-components';
 
 import STYLES from './Projects.scss';
+import BpkButton from 'bpk-component-button';
 
 const c = className => STYLES[className] || 'UNKNOWN';
 
@@ -50,7 +52,7 @@ const PROJECTS = [
     background: 'rgb(1,178,214)',
   },
   {
-    name: '...and many other small projects and hacks that never made it live',
+    name: '...and many other small projects that never made it live',
     tagLine: 'see some examples on my personal GitHub!',
     work: false,
     url: 'https://github.com/davidbenicek/',
@@ -63,48 +65,40 @@ class Projects extends React.Component {
   // eslint-disable-next-line class-methods-use-this
   renderProjects() {
     return PROJECTS.map((proj) => {
-      const LogoColumn = styled(BpkGridColumn)`
-        background: url('${proj.logo}') no-repeat;
+      const ProjectLogo = styled.div`
+        background: url('${proj.logo}') no-repeat center;
         background-size: contain;
-        min-height: 70px;
-        height: 100%
+        height: 120px;
+        width: 250px;
       `;
       return (
-        <BpkGridRow padded={false} onClick={() => { window.location = proj.url; }} className={c('Projects__card')}>
-          <BpkBreakpoint query={BREAKPOINTS.ABOVE_MOBILE}>
-            <LogoColumn width={2} />
-            <BpkGridColumn width={10}>
-              <BpkText tagName="h3" textStyle="xl" className={c('Projects__name')}>{proj.name}</BpkText>
-              {proj.work ? <BpkText tagName="p" textStyle="xs" className={c('Projects__work')}>*A team effort from my time at Skyscanner</BpkText> : ''}
-              <BpkText tagName="p" textStyle="base" className={c('Projects__tagLine')}>{proj.tagLine}</BpkText>
-            </BpkGridColumn>
-          </BpkBreakpoint>
-          <BpkBreakpoint query={BREAKPOINTS.MOBILE}>
-            <BpkGridColumn width={12}>
-              <BpkGridRow>
-                <LogoColumn width={4} />
-                <BpkGridColumn width={8}>
-                  <BpkText tagName="h3" textStyle="base" className={c('Projects__name')}>{proj.name}</BpkText>
-                </BpkGridColumn>
-              </BpkGridRow>
-              <BpkGridRow className={c('Projects__detailRow')}>
-                <BpkText tagName="p" textStyle="sm" className={c('Projects__tagLine')}>{proj.tagLine}</BpkText>
-              </BpkGridRow>
-              {proj.work ? (
-                <BpkGridRow>
-                  <BpkText tagName="p" textStyle="xs" className={c('Projects__work')}>*A team effort from my time at Skyscanner</BpkText>
-                </BpkGridRow>) : ''}
-            </BpkGridColumn>
-          </BpkBreakpoint>
-        </BpkGridRow>);
+        <div className={c('Projects__tile')}>
+          <a href={proj.url} rel="noopener noreferrer" target="_blank" >
+            <ProjectLogo />
+          </a>
+          <BpkText tagName="h3" textStyle="xl" className={c('Projects__name')}>{proj.name}</BpkText>
+          {proj.work ? <BpkText tagName="p" textStyle="xs" className={c('Projects__work')}>*A team effort from my time at Skyscanner</BpkText> : ''}
+          <BpkText tagName="p" textStyle="base" className={c('Projects__tagLine')}>{proj.tagLine}</BpkText>
+          <BpkButton secondary className={c('Projects__checkItOut')}>Check it out</BpkButton>
+        </div>
+      );
     });
   }
   render() {
+    const settings = {
+      dots: true,
+      arrows: true,
+      infinite: true,
+      autoplay: true,
+      speed: 500,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+    };
     return (
       <BpkGridRow className={c('Projects__row')}>
-        <BpkGridColumn width={12} >
+        <Slider {...settings} className={c('Projects__carousel')}>
           {this.renderProjects()}
-        </BpkGridColumn>
+        </Slider>
       </BpkGridRow>
     );
   }

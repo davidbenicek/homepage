@@ -15,4 +15,9 @@
   &__credits {
     margin-top: $bpk-spacing-md;
   }
+  &__makerAd {
+    margin-top: $bpk-spacing-md;
+    padding-top: $bpk-spacing-md;
+    border-top: solid 10px $bpk-color-gray-500;    
+  }
 }

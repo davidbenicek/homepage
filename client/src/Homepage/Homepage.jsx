@@ -22,11 +22,9 @@ class Homepage extends React.Component {
     super();
     this.changeSelected = this.changeSelected.bind(this);
     this.scrollTo = this.scrollTo.bind(this);
-    this.attachNavBar = this.attachNavBar.bind(this);
 
     this.state = {
       sectionInView: 'top',
-      navBarAttached: false,
     };
   }
 
@@ -41,18 +39,7 @@ class Homepage extends React.Component {
     if (newSelected && elmnt) {
       elmnt.scrollIntoView({ behavior: 'smooth', block: where || 'center', inline: 'center' });
       this.changeSelected(newSelected);
-      if (newSelected === 'top') {
-        this.attachNavBar(false);
-      } else {
-        this.attachNavBar(true);
-      }
     }
-  }
-
-  attachNavBar(navBarAttached) {
-    this.setState({
-      navBarAttached,
-    });
   }
 
   render() {
@@ -60,14 +47,11 @@ class Homepage extends React.Component {
       <div className={c('App')}>
         <BpkGridContainer>
           <Hero
-            attachNavBar={this.attachNavBar}
             changeSelected={this.changeSelected}
             scrollTo={this.scrollTo}
           />
           <NavBar
             selected={this.state.sectionInView}
-            attachNavBar={this.attachNavBar}
-            attached={this.state.navBarAttached}
             scrollTo={this.scrollTo}
           />
           <Intro scrollTo={this.scrollTo} />

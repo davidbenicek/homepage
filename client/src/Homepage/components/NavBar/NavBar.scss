@@ -2,6 +2,9 @@
 
 .NavBar {
   &__bar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
     border-radius: $bpk-border-radius-pill;
     background: $bpk-color-gray-100;
     text-align: center;
@@ -12,12 +15,6 @@
     @include bpk-breakpoint-above-mobile {
       margin: $bpk-spacing-lg;
     }
-  }
-
-  &__barAttached {
-    position: sticky;
-    top: 0;
-    margin: auto;
   }
 
   &__bar > div {

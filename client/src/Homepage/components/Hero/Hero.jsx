@@ -29,7 +29,6 @@ class Hero extends React.Component {
   interSectionCallback(changes) {
     changes.forEach((change) => {
       if (change.intersectionRatio > 0.5) {
-        this.props.attachNavBar(false);
         this.props.changeSelected('top');
       }
     });
@@ -70,7 +69,6 @@ class Hero extends React.Component {
 }
 
 Hero.propTypes = {
-  attachNavBar: PropTypes.func.isRequired,
   changeSelected: PropTypes.func.isRequired,
   scrollTo: PropTypes.func.isRequired,
 };
