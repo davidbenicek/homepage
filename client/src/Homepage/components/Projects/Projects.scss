@@ -1,15 +1,20 @@
 @import '~bpk-mixins';
 
 .Projects {
+  &__row {
+    overflow: hidden
+  }
+
   &__carousel {
     text-align: center;
   }
 
   &__tile {
-    max-width: 250px;
+    min-width: 250px;
     text-decoration: none;
     color: inherit;
     text-align: left;
+    padding: $bpk-spacing-lg;
   }
 
   &__title {

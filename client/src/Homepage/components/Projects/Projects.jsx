@@ -1,12 +1,12 @@
 import React from 'react';
 import Slider from 'react-slick';
-import { BpkGridRow, BpkGridColumn } from 'bpk-component-grid';
+import BpkButton from 'bpk-component-button';
 import BpkText from 'bpk-component-text';
+import { BpkGridRow, BpkGridColumn } from 'bpk-component-grid';
 import BpkBreakpoint, { BREAKPOINTS } from 'bpk-component-breakpoint';
 import styled from 'styled-components';
 
 import STYLES from './Projects.scss';
-import BpkButton from 'bpk-component-button';
 
 const c = className => STYLES[className] || 'UNKNOWN';
 
@@ -70,6 +70,7 @@ class Projects extends React.Component {
         background-size: contain;
         height: 120px;
         width: 250px;
+        margin: auto;
       `;
       return (
         <div className={c('Projects__tile')}>
@@ -94,11 +95,22 @@ class Projects extends React.Component {
       slidesToShow: 3,
       slidesToScroll: 1,
     };
+    const mobileSettings = {
+      ...settings,
+      slidesToShow: 1,
+    };
     return (
       <BpkGridRow className={c('Projects__row')}>
-        <Slider {...settings} className={c('Projects__carousel')}>
-          {this.renderProjects()}
-        </Slider>
+        <BpkBreakpoint query={BREAKPOINTS.ABOVE_MOBILE}>
+          <Slider {...settings} className={c('Projects__carousel')}>
+            {this.renderProjects()}
+          </Slider>
+        </BpkBreakpoint>
+        <BpkBreakpoint query={BREAKPOINTS.MOBILE}>
+          <Slider {...mobileSettings} className={c('Projects__carousel')}>
+            {this.renderProjects()}
+          </Slider>
+        </BpkBreakpoint>
       </BpkGridRow>
     );
   }
