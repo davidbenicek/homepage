@@ -41,7 +41,13 @@
 
   &__chevron {
     margin-top: $bpk-spacing-sm;
+    animation: hover-me .5s infinite ease-in-out alternate; 
   }
+  
+  @keyframes hover-me {
+    100% { transform: translate3d(0, 10px, 0); }
+  }
+  
   
   @include bpk-breakpoint-mobile {
     &__textBlock {

@@ -70,14 +70,13 @@ class Homepage extends React.Component {
           <Profile
             scrollTo={this.scrollTo}
             onFilter={this.onFilter}
-            selected={this.state.skills}
           />
           <Heading
             onIntersection={this.changeSelected}
             id="projects"
             show
           />
-          <Projects filters={this.state.skills} onFilterRemove={this.onFilter} />
+          <Projects filters={this.state.skills} onFilterRemove={this.onFilter}/>
           <Heading
             onIntersection={this.changeSelected}
             id="career"

@@ -1,8 +1,8 @@
-@import '~bpk-mixins';
+@import "~bpk-mixins";
 
 .Projects {
   &__row {
-    overflow: hidden
+    overflow: hidden;
   }
 
   &__carousel {
@@ -55,7 +55,7 @@
     float: right;
     margin-top: $bpk-spacing-lg;
   }
-  
+
   @include bpk-breakpoint-mobile {
     &__card {
       height: 240px;
@@ -64,5 +64,9 @@
     &__work {
       margin-top: $bpk-spacing-lg;
     }
+  }
+
+  &__chip {
+    margin-right: $bpk-spacing-xs;
   }
 }

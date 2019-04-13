@@ -46,5 +46,10 @@
     "slick-carousel": "^1.8.1",
     "styled-components": "^3.4.9"
   },
-  "proxy": "http://localhost:5000/"
+  "proxy": "http://localhost:5000/",
+  "devDependencies": {
+    "bpk-component-badge": "^1.1.67",
+    "bpk-component-chip": "^2.0.72",
+    "bpk-component-label": "^3.2.122"
+  }
 }

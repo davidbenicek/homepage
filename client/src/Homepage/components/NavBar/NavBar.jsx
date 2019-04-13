@@ -1,71 +1,83 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { BpkGridRow, BpkGridColumn } from 'bpk-component-grid';
-import BpkText from 'bpk-component-text';
-import BpkBreakpoint, { BREAKPOINTS } from 'bpk-component-breakpoint';
-import BpkLargeUpIcon from 'bpk-component-icon/lg/arrow-up';
-import BpkLargeAwardIcon from 'bpk-component-icon/lg/award';
-import BpkLargeBusinessIcon from 'bpk-component-icon/lg/business';
-import BpkLargeMailIcon from 'bpk-component-icon/lg/mail';
-import BpkLargeLandmarkIcon from 'bpk-component-icon/lg/landmark';
-import BpkLargeFlaskIcon from 'bpk-component-icon/lg/flask';
-import { withButtonAlignment } from 'bpk-component-icon';
+import React from "react";
+import PropTypes from "prop-types";
+import { BpkGridRow, BpkGridColumn } from "bpk-component-grid";
+import BpkText from "bpk-component-text";
+import BpkBreakpoint, { BREAKPOINTS } from "bpk-component-breakpoint";
+import BpkLargeUpIcon from "bpk-component-icon/lg/arrow-up";
+import BpkLargeAccountIcon from "bpk-component-icon/lg/account";
+import BpkLargeBusinessIcon from "bpk-component-icon/lg/business";
+import BpkLargeMailIcon from "bpk-component-icon/lg/mail";
+import BpkLargeLandmarkIcon from "bpk-component-icon/lg/landmark";
+import BpkLargeFlaskIcon from "bpk-component-icon/lg/flask";
+import { withButtonAlignment } from "bpk-component-icon";
 
-import STYLES from './NavBar.scss';
+import STYLES from "./NavBar.scss";
 
 const AlignedBpkLargeUpIcon = withButtonAlignment(BpkLargeUpIcon);
 const AlignedBpkLargeBusinessIcon = withButtonAlignment(BpkLargeBusinessIcon);
 const AlignedBpkLargeMailIcon = withButtonAlignment(BpkLargeMailIcon);
 const AlignedBpkLargeLandmarkIcon = withButtonAlignment(BpkLargeLandmarkIcon);
-const AlignedBpkLargeAwardIcon = withButtonAlignment(BpkLargeAwardIcon);
+const AlignedBpkLargeAccountIcon = withButtonAlignment(BpkLargeAccountIcon);
 const AlignedBpkLargeFlaskIcon = withButtonAlignment(BpkLargeFlaskIcon);
-const c = className => STYLES[className] || 'UNKNOWN';
+const c = className => STYLES[className] || "UNKNOWN";
 
 const NAV_BAR = [
   {
-    id: 'top',
-    name: 'Top',
-    icon: AlignedBpkLargeUpIcon,
+    id: "top",
+    name: "Top",
+    icon: AlignedBpkLargeUpIcon
   },
   {
-    id: 'skills',
-    name: 'Skills',
-    icon: AlignedBpkLargeAwardIcon,
+    id: "profile",
+    name: "Profile",
+    icon: AlignedBpkLargeAccountIcon
   },
   {
-    id: 'career',
-    name: 'Employment',
-    icon: AlignedBpkLargeBusinessIcon,
+    id: "projects",
+    name: "Projects",
+    icon: AlignedBpkLargeFlaskIcon
   },
   {
-    id: 'education',
-    name: 'Education',
-    icon: AlignedBpkLargeLandmarkIcon,
+    id: "career",
+    name: "Career",
+    icon: AlignedBpkLargeBusinessIcon
   },
   {
-    id: 'projects',
-    name: 'Projects',
-    icon: AlignedBpkLargeFlaskIcon,
+    id: "education",
+    name: "Education",
+    icon: AlignedBpkLargeLandmarkIcon
   },
   {
-    id: 'contact',
-    name: 'Contact',
-    icon: AlignedBpkLargeMailIcon,
-  },
+    id: "contact",
+    name: "Contact",
+    icon: AlignedBpkLargeMailIcon
+  }
 ];
 // eslint-disable-next-line react/prefer-stateless-function
 class NavBar extends React.Component {
   render() {
     return (
-      <BpkGridRow className={c('NavBar__bar')}>
+      <BpkGridRow className={c("NavBar__bar")}>
         {NAV_BAR.map(item => (
-          <BpkGridColumn onClick={() => { this.props.scrollTo(item.id); }} width={12 / NAV_BAR.length} className={this.props.selected === item.id ? c('NavBar__selected') : c('NavBar__unselected')}>
-            <item.icon className={c('NavBar__icon')} />
+          <BpkGridColumn
+            onClick={() => {
+              this.props.scrollTo(item.id);
+            }}
+            width={12 / NAV_BAR.length}
+            className={
+              this.props.selected === item.id
+                ? c("NavBar__selected")
+                : c("NavBar__unselected")
+            }
+          >
+            <item.icon className={c("NavBar__icon")} />
             <BpkBreakpoint query={BREAKPOINTS.ABOVE_MOBILE}>
-              <BpkText tagName="span" textStyle="base" >{item.name}</BpkText>
+              <BpkText tagName="span" textStyle="base">
+                {item.name}
+              </BpkText>
             </BpkBreakpoint>
           </BpkGridColumn>
-      ))}
+        ))}
       </BpkGridRow>
     );
   }
@@ -73,11 +85,11 @@ class NavBar extends React.Component {
 
 NavBar.propTypes = {
   selected: PropTypes.string,
-  scrollTo: PropTypes.func.isRequired,
+  scrollTo: PropTypes.func.isRequired
 };
 
 NavBar.defaultProps = {
-  selected: 'top',
+  selected: "top"
 };
 
 export default NavBar;

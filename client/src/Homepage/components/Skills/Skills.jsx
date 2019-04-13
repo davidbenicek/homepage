@@ -2,44 +2,9 @@ import React from 'react';
 import { BpkGridRow, BpkGridColumn } from 'bpk-component-grid';
 import BpkText from 'bpk-component-text';
 
-import Toggle from '../Toggle';
-
 import STYLES from './Skills.scss';
 
 const c = className => STYLES[className] || 'UNKNOWN';
-
-const TECH_SKILLS = [
-  {
-    title: 'React',
-    level: 100,
-    text: 'Advanced',
-  },
-  {
-    title: 'NodeJS',
-    level: 98,
-    text: 'Advanced',
-  },
-  {
-    title: 'Python',
-    level: 70,
-    text: 'Profficient',
-  },
-  {
-    title: 'AWS',
-    level: 70,
-    text: 'Profficient',
-  },
-  {
-    title: 'Java',
-    level: 60,
-    text: 'Intermidiate',
-  },
-  {
-    title: 'Database',
-    level: 50,
-    text: 'Intermidiate',
-  },
-];
 
 const LANG_SKILLS = [
   {
@@ -75,7 +40,7 @@ class Skills extends React.Component {
     super();
     this.state = {
       hidden: false,
-      skillset: 'tech',
+      skillset: 'lang',
     };
 
     this.renderSkills = this.renderSkills.bind(this);
@@ -117,19 +82,12 @@ class Skills extends React.Component {
 
   render() {
     return (
-      <BpkGridRow className={c('Skills__row')} >
-        <BpkGridColumn width={10} offset={1} mobileWidth={12} mobileOffset={0}>
-          <Toggle
-            defaultId="tech"
-            option1={{ id: 'tech', text: 'Technical skills' }}
-            option2={{ id: 'lang', text: 'Language skills' }}
-            onChange={this.onSkillsChange}
-          />
-          <BpkGridRow className={c('Skills__skill')}>
-            {this.renderSkills()}
-          </BpkGridRow>
-        </BpkGridColumn>
-      </BpkGridRow>
+      <BpkGridColumn className={c('Skills__section')} width={6} offset={0} mobileWidth={12} mobileOffset={0}>
+        <BpkGridRow className={c('Skills__skill')}>
+          <BpkText tagName="p" textStyle="base">Language skills:</BpkText>
+          {this.renderSkills()}
+        </BpkGridRow>
+      </BpkGridColumn>
     );
   }
 }

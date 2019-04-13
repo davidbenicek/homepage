@@ -14,5 +14,9 @@
         "nodemon": "^1.12.1",
         "request": "^2.83.0",
         "request-promise": "^4.2.2"
+    },
+    "devDependencies": {
+        "bpk-component-badge": "^1.1.67",
+        "bpk-component-label": "^3.2.122"
     }
 }

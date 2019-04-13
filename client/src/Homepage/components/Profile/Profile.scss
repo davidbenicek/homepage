@@ -1,0 +1,47 @@
+@import "~bpk-mixins";
+
+.Profile {
+  &__row {
+    text-align: left;
+    user-select: none;
+  }
+
+  &__line {
+    display: block;
+    width: 150px;
+    height: 1px;
+    left: 0;
+    margin-top: $bpk-spacing-sm;
+    margin-bottom: $bpk-spacing-sm;
+    background-image: $bpk-primary-gradient;
+  }
+
+  &__skill {
+    cursor: pointer;
+    border: solid 1px $bpk-color-gray-700;
+    margin-right: $bpk-spacing-xs;
+  }
+
+  &__skill:hover {
+    box-shadow: 0px 1px 8px 1px $bpk-color-blue-700;
+  }
+
+  &__clicked {
+    background: rgba(0, 178, 214, 0.5);
+  }
+
+  &__clicked:hover {
+    background: rgba(0, 178, 214, 0.3);
+  }
+
+  &__contact {
+    padding-bottom: 3px;
+  }
+
+  &__info {
+    width: 1rem !important;
+    height: 1rem !important;
+    margin-left: $bpk-spacing-xs;
+    fill: $bpk-color-gray-700;
+  }
+}

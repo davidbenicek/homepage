@@ -2,23 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { BpkGridRow } from 'bpk-component-grid';
 import BpkText from 'bpk-component-text';
-import BpkLargeAwardIcon from 'bpk-component-icon/lg/award';
 import BpkLargeBusinessIcon from 'bpk-component-icon/lg/business';
 import BpkLargeMailIcon from 'bpk-component-icon/lg/mail';
 import BpkLargeLandmarkIcon from 'bpk-component-icon/lg/landmark';
 import BpkLargeFlaskIcon from 'bpk-component-icon/lg/flask';
+import BpkLargeAccountIcon from 'bpk-component-icon/lg/account';
 
 import STYLES from './Heading.scss';
 
 const c = className => STYLES[className] || 'UNKNOWN';
 
 const HEADINGS = {
-  skills: {
-    name: 'Skills',
-    Icon: BpkLargeAwardIcon,
+  profile: {
+    name: 'Profile',
+    Icon: BpkLargeAccountIcon,
   },
   career: {
-    name: 'Employment',
+    name: 'Career',
     Icon: BpkLargeBusinessIcon,
   },
   education: {
