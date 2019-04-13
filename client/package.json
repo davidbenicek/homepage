@@ -44,12 +44,10 @@
     "react-skycons": "^0.7.0",
     "react-slick": "^0.23.2",
     "slick-carousel": "^1.8.1",
-    "styled-components": "^3.4.9"
-  },
-  "proxy": "http://localhost:5000/",
-  "devDependencies": {
+    "styled-components": "^3.4.9",
     "bpk-component-badge": "^1.1.67",
     "bpk-component-chip": "^2.0.72",
     "bpk-component-label": "^3.2.122"
-  }
+  },
+  "proxy": "http://localhost:5000/"
 }
