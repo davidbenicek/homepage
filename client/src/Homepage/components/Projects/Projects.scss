@@ -56,6 +56,10 @@
     margin-top: $bpk-spacing-lg;
   }
 
+  &__row {
+    margin-top: $bpk-spacing-lg;
+  }
+
   @include bpk-breakpoint-mobile {
     &__card {
       height: 240px;
@@ -64,9 +68,14 @@
     &__work {
       margin-top: $bpk-spacing-lg;
     }
+
+    &__row__logo {
+      display: none;
+    }
   }
 
   &__chip {
     margin-right: $bpk-spacing-xs;
   }
+
 }

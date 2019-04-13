@@ -24,7 +24,7 @@ const TECH_SKILLS = {
     level: 70,
     text: "Proficient"
   },
-  npl: {
+  nlp: {
     title: "NLP",
     level: 60,
     text: "Intermediate"
