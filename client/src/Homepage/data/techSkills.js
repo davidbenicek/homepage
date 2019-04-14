@@ -1,64 +1,64 @@
-const TECH_SKILLS = {
+const tech = {
   react: {
-    title: "React",
+    title: 'React',
     level: 100,
-    text: "Advanced"
+    text: 'Advanced',
   },
   nodejs: {
-    title: "NodeJS",
+    title: 'NodeJS',
     level: 98,
-    text: "Advanced"
+    text: 'Advanced',
   },
   redux: {
-    title: "Redux",
+    title: 'Redux',
     level: 70,
-    text: "Advanced"
+    text: 'Advanced',
   },
   python: {
-    title: "Python",
+    title: 'Python',
     level: 70,
-    text: "Proficient"
+    text: 'Proficient',
   },
   aws: {
-    title: "AWS",
+    title: 'AWS',
     level: 70,
-    text: "Proficient"
+    text: 'Proficient',
   },
   nlp: {
-    title: "NLP",
+    title: 'NLP',
     level: 60,
-    text: "Intermediate"
+    text: 'Intermediate',
   },
   java: {
-    title: "Java",
+    title: 'Java',
     level: 60,
-    text: "Intermediate"
+    text: 'Intermediate',
   },
   ar: {
-    title: "Augmented Reality",
+    title: 'Augmented Reality',
     level: 50,
-    text: "Intermediate"
+    text: 'Intermediate',
   },
   cordova: {
-    title: "Cordova/PhoneGap",
+    title: 'Cordova/PhoneGap',
     level: 50,
-    text: "Intermediate"
+    text: 'Intermediate',
   },
   database: {
-    title: "Database design & admin.",
+    title: 'Database design & admin.',
     level: 50,
-    text: "Intermediate"
+    text: 'Intermediate',
   },
   wordpress: {
-    title: "WordPress",
+    title: 'WordPress',
     level: 40,
-    text: "Intermediate"
+    text: 'Intermediate',
   },
   design: {
-    title: "Design, Sketch & Illustration",
+    title: 'Design, Sketch & Illustration',
     level: 40,
-    text: "Beginner"
-  }
+    text: 'Beginner',
+  },
 };
 
-export default TECH_SKILLS;
+export default tech;

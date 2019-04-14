@@ -15,7 +15,6 @@ const openInNewTab = (url) => {
 };
 
 class Favourites extends React.Component {
-
   componentWillMount() {
   //   const {
   //     lat,
@@ -30,7 +29,7 @@ class Favourites extends React.Component {
   //       success: true,
   //       weather: data,
   //     });
-      this.props.showTag(`Press '${this.props.shortcut}' to expand, then select by number`);
+    this.props.showTag(`Press '${this.props.shortcut}' to expand, then select by number`);
   //   }).catch((err) => {
   //     console.log('Failed to get weather...', err);
   //     this.setState({

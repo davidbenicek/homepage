@@ -1,19 +1,18 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Slider from "react-slick";
-import BpkButton from "bpk-component-button";
-import BpkChip from "bpk-component-chip";
-import BpkText from "bpk-component-text";
-import { BpkGridRow, BpkGridColumn } from "bpk-component-grid";
-import BpkBreakpoint, { BREAKPOINTS } from "bpk-component-breakpoint";
-import styled from "styled-components";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Slider from 'react-slick';
+import BpkButton from 'bpk-component-button';
+import BpkChip from 'bpk-component-chip';
+import BpkText from 'bpk-component-text';
+import { BpkGridRow } from 'bpk-component-grid';
+import BpkBreakpoint, { BREAKPOINTS } from 'bpk-component-breakpoint';
+import styled from 'styled-components';
 
-import STYLES from "./Projects.scss";
+import STYLES from './Projects.scss';
 
-import TECH_SKILLS from "../../data/techSkills";
-import PROJECTS from "../../data/projects";
+import { TECH_SKILLS, PROJECTS } from '../../data';
 
-const c = className => STYLES[className] || "UNKNOWN";
+const c = className => STYLES[className] || 'UNKNOWN';
 
 class Projects extends React.Component {
   removeFilter(skillId) {
@@ -29,16 +28,16 @@ class Projects extends React.Component {
 
   filterProjects() {
     return PROJECTS.filter(proj =>
-      proj.skills.some(usedSkill => this.props.filters.includes(usedSkill))
+      proj.skills.some(usedSkill => this.props.filters.includes(usedSkill)),
     );
   }
   // eslint-disable-next-line class-methods-use-this
   renderProjects(projects = PROJECTS, card = true) {
     if (projects.length === 0) {
-      return "No projects to show off 😢";
+      return 'No projects to show off 😢';
     }
     if (card) {
-      return projects.map(proj => {
+      return projects.map((proj) => {
         const ProjectLogo = styled.div`
         background: url('${proj.logo}') no-repeat center;
         background-size: contain;
@@ -47,14 +46,14 @@ class Projects extends React.Component {
         margin: auto;
       `;
         return (
-          <div className={c("Projects__tile")}>
+          <div className={c('Projects__tile')}>
             <a href={proj.url} rel="noopener noreferrer" target="_blank">
               <ProjectLogo />
             </a>
             <BpkText
               tagName="h3"
               textStyle="xl"
-              className={c("Projects__name")}
+              className={c('Projects__name')}
             >
               {proj.name}
             </BpkText>
@@ -62,21 +61,21 @@ class Projects extends React.Component {
               <BpkText
                 tagName="p"
                 textStyle="xs"
-                className={c("Projects__work")}
+                className={c('Projects__work')}
               >
                 *A team effort from my time at Skyscanner
               </BpkText>
             ) : (
-              ""
+              ''
             )}
             <BpkText
               tagName="p"
               textStyle="base"
-              className={c("Projects__tagLine")}
+              className={c('Projects__tagLine')}
             >
               {proj.tagLine}
             </BpkText>
-            <BpkButton secondary className={c("Projects__checkItOut")}>
+            <BpkButton secondary className={c('Projects__checkItOut')}>
               Check it out
             </BpkButton>
           </div>
@@ -92,26 +91,26 @@ class Projects extends React.Component {
       float: left;
     `;
       return (
-        <div className={c("Projects__row")}>
+        <div className={c('Projects__row')}>
           <a
             href={proj.url}
             rel="noopener noreferrer"
             target="_blank"
-            className={c("Projects__row__logo")}
+            className={c('Projects__row__logo')}
           >
             <ProjectLogo />
           </a>
           <BpkText
             tagName="h3"
             textStyle="xl"
-            className={c("Projects__row__name")}
+            className={c('Projects__row__name')}
           >
             {proj.name}
           </BpkText>
           <BpkText
             tagName="p"
             textStyle="base"
-            className={c("Projects__row__name")}
+            className={c('Projects__row__name')}
           >
             This project was made using: {proj.skills.map(s => `${(TECH_SKILLS[s] || {}).title}, `)}
           </BpkText>
@@ -119,21 +118,21 @@ class Projects extends React.Component {
             <BpkText
               tagName="p"
               textStyle="xs"
-              className={c("Projects__row__work")}
+              className={c('Projects__row__work')}
             >
               *A team effort from my time at Skyscanner
             </BpkText>
           ) : (
-            ""
+            ''
           )}
           <BpkText
             tagName="p"
             textStyle="base"
-            className={c("Projects__row__tagLine")}
+            className={c('Projects__row__tagLine')}
           >
             {proj.tagLine}
           </BpkText>
-          <BpkButton secondary className={c("Projects__row__checkItOut")}>
+          <BpkButton secondary className={c('Projects__row__checkItOut')}>
             Check it out
           </BpkButton>
         </div>
@@ -142,7 +141,7 @@ class Projects extends React.Component {
   }
   renderFilters() {
     return (
-      <BpkGridRow className={c("Projects__row")}>
+      <BpkGridRow className={c('Projects__row')}>
         <BpkText tagName="p" textStyle="base">
           Filtering for project that demonstrate:
         </BpkText>
@@ -151,7 +150,7 @@ class Projects extends React.Component {
         </BpkText>
         {this.props.filters.map(filter => (
           <BpkChip
-            className={c("Projects__chip")}
+            className={c('Projects__chip')}
             closeLabel="Close"
             onClose={() => this.removeFilter(filter)}
           >
@@ -170,35 +169,35 @@ class Projects extends React.Component {
       autoplay: true,
       speed: 500,
       slidesToShow: 3,
-      slidesToScroll: 1
+      slidesToScroll: 1,
     };
     const tabletSettings = {
       ...settings,
-      slidesToShow: 2
+      slidesToShow: 2,
     };
     const mobileSettings = {
       ...settings,
-      slidesToShow: 1
+      slidesToShow: 1,
     };
     return (
-      <BpkGridRow className={c("Projects__row")}>
+      <BpkGridRow className={c('Projects__row')}>
         <BpkBreakpoint query={BREAKPOINTS.ABOVE_TABLET}>
-          <div className={c("Projects__container")}>
-            <Slider {...settings} className={c("Projects__carousel")}>
+          <div className={c('Projects__container')}>
+            <Slider {...settings} className={c('Projects__carousel')}>
               {this.renderProjects()}
             </Slider>
           </div>
         </BpkBreakpoint>
         <BpkBreakpoint query={BREAKPOINTS.TABLET_ONLY}>
-          <div className={c("Projects__container")}>
-            <Slider {...tabletSettings} className={c("Projects__carousel")}>
+          <div className={c('Projects__container')}>
+            <Slider {...tabletSettings} className={c('Projects__carousel')}>
               {this.renderProjects()}
             </Slider>
           </div>
         </BpkBreakpoint>
         <BpkBreakpoint query={BREAKPOINTS.MOBILE}>
-          <div className={c("Projects__container")}>
-            <Slider {...mobileSettings} className={c("Projects__carousel")}>
+          <div className={c('Projects__container')}>
+            <Slider {...mobileSettings} className={c('Projects__carousel')}>
               {this.renderProjects()}
             </Slider>
           </div>
@@ -216,7 +215,7 @@ class Projects extends React.Component {
 
 Projects.propTypes = {
   filters: PropTypes.arrayOf(PropTypes.string).isRequired,
-  onFilterRemove: PropTypes.func.isRequired
+  onFilterRemove: PropTypes.func.isRequired,
 };
 
 export default Projects;

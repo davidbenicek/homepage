@@ -28,7 +28,7 @@
 
   &__unselected:hover {
     margin: 0;
-    border: solid 1px white;
+    background: $bpk-color-gray-50;
     border-radius: $bpk-border-radius-pill;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;

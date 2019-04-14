@@ -2,38 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { BpkGridRow } from 'bpk-component-grid';
 import BpkText from 'bpk-component-text';
-import BpkLargeBusinessIcon from 'bpk-component-icon/lg/business';
-import BpkLargeMailIcon from 'bpk-component-icon/lg/mail';
-import BpkLargeLandmarkIcon from 'bpk-component-icon/lg/landmark';
-import BpkLargeFlaskIcon from 'bpk-component-icon/lg/flask';
-import BpkLargeAccountIcon from 'bpk-component-icon/lg/account';
+
+import { HEADINGS } from '../../data';
 
 import STYLES from './Heading.scss';
 
 const c = className => STYLES[className] || 'UNKNOWN';
 
-const HEADINGS = {
-  profile: {
-    name: 'Profile',
-    Icon: BpkLargeAccountIcon,
-  },
-  career: {
-    name: 'Career',
-    Icon: BpkLargeBusinessIcon,
-  },
-  education: {
-    name: 'Education',
-    Icon: BpkLargeLandmarkIcon,
-  },
-  projects: {
-    name: 'Projects',
-    Icon: BpkLargeFlaskIcon,
-  },
-  contact: {
-    name: 'Contact',
-    Icon: BpkLargeMailIcon,
-  },
-};
 
 class Heading extends React.Component {
   constructor() {
