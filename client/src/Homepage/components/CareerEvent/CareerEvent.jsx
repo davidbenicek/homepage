@@ -10,14 +10,14 @@ const c = className => STYLES[className] || 'UNKNOWN';
 
 class CareerEvent extends React.Component {
   renderBulletPoints() {
-    return this.props.text.map(bullet => (
+    return this.props.info.text.map(bullet => (
       <li className={c('CareerEvent__description')}>{bullet}</li>
     ));
   }
   render() {
     const {
       bannerImage, organisation, position, dates,
-    } = this.props;
+    } = this.props.info;
     const Banner = styled(BpkGridRow)`
       background: linear-gradient(45deg, rgba(191,117,135,0.639) 0%, rgba(214,255,255,0.631) 100%), url('${bannerImage}') center;
       background-size: cover;
@@ -75,11 +75,13 @@ class CareerEvent extends React.Component {
 }
 
 CareerEvent.propTypes = {
-  bannerImage: PropTypes.string.isRequired,
-  organisation: PropTypes.string.isRequired,
-  position: PropTypes.string.isRequired,
-  dates: PropTypes.string.isRequired,
-  text: PropTypes.arrayOf(PropTypes.string).isRequired,
+  info: PropTypes.shape({
+    bannerImage: PropTypes.string.isRequired,
+    organisation: PropTypes.string.isRequired,
+    position: PropTypes.string.isRequired,
+    dates: PropTypes.string.isRequired,
+    text: PropTypes.arrayOf(PropTypes.string).isRequired,
+  }).isRequired,
   visible: PropTypes.bool.isRequired,
 };
 
