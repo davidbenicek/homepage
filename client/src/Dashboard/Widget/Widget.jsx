@@ -1,19 +1,19 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import BpkText from "bpk-component-text";
-import BpkButton from "bpk-component-button";
-import { BpkGridRow, BpkGridColumn } from "bpk-component-grid";
-import { withButtonAlignment, withRtlSupport } from "bpk-component-icon";
-import BpkLargeChevronDownIcon from "bpk-component-icon/sm/chevron-down";
-import { BpkLargeSpinner, SPINNER_TYPES } from "bpk-component-spinner";
+import BpkText from 'bpk-component-text';
+import BpkButton from 'bpk-component-button';
+import { BpkGridRow, BpkGridColumn } from 'bpk-component-grid';
+import { withButtonAlignment, withRtlSupport } from 'bpk-component-icon';
+import BpkLargeChevronDownIcon from 'bpk-component-icon/sm/chevron-down';
+import { BpkLargeSpinner, SPINNER_TYPES } from 'bpk-component-spinner';
 
-import STYLES from "./Widget.scss";
+import STYLES from './Widget.scss';
 
-const c = className => STYLES[className] || "UNKNOWN";
+const c = className => STYLES[className] || 'UNKNOWN';
 
 const AlignedChevronDown = withButtonAlignment(
-  withRtlSupport(BpkLargeChevronDownIcon)
+  withRtlSupport(BpkLargeChevronDownIcon),
 );
 
 // eslint-disable-next-line react/prefer-stateless-function
@@ -22,7 +22,7 @@ class Widget extends React.Component {
     super(props);
     this.state = {
       closed: props.closed,
-      tag: ""
+      tag: '',
     };
     this.updateTag = this.updateTag.bind(this);
     this.renderChevron = this.renderChevron.bind(this);
@@ -31,13 +31,13 @@ class Widget extends React.Component {
 
   toggleCollapse(newValue) {
     this.setState({
-      closed: newValue
+      closed: newValue,
     });
   }
 
   updateTag(tag) {
     this.setState({
-      tag
+      tag,
     });
   }
 
@@ -55,8 +55,8 @@ class Widget extends React.Component {
           <AlignedChevronDown
             className={
               closed
-                ? c("Widget__chevron")
-                : `${c("Widget__chevron")} ${c("Widget__chevronDown")}`
+                ? c('Widget__chevron')
+                : `${c('Widget__chevron')} ${c('Widget__chevronDown')}`
             }
           />
         }
@@ -70,10 +70,10 @@ class Widget extends React.Component {
       <BpkGridColumn
         width={this.props.width}
         offset={this.props.offset}
-        className={c("Widget__main")}
+        className={c('Widget__main')}
       >
         <BpkGridRow
-          className={c("Widget__titleRow")}
+          className={c('Widget__titleRow')}
           onClick={() => {
             this.toggleCollapse(!closed);
           }}
@@ -82,19 +82,19 @@ class Widget extends React.Component {
             tagName="p"
             textStyle="base"
             bold
-            className={c("Widget__title")}
+            className={c('Widget__title')}
           >
             {this.props.title}
           </BpkText>
         </BpkGridRow>
         <BpkGridRow
-          className={c("Widget__toggleRow")}
+          className={c('Widget__toggleRow')}
           onClick={() => {
             this.toggleCollapse(!closed);
           }}
         >
           <BpkGridColumn width={2}>{this.renderChevron()}</BpkGridColumn>
-          <BpkGridColumn width={10} className={c("Widget__tag")}>
+          <BpkGridColumn width={10} className={c('Widget__tag')}>
             {!tag ? (
               <BpkLargeSpinner type={SPINNER_TYPES.primary} />
             ) : (
@@ -105,7 +105,7 @@ class Widget extends React.Component {
           </BpkGridColumn>
         </BpkGridRow>
         <BpkGridRow
-          className={c("Widget__lineRow")}
+          className={c('Widget__lineRow')}
           onClick={() => {
             this.toggleCollapse(!closed);
           }}
@@ -115,7 +115,7 @@ class Widget extends React.Component {
         {React.cloneElement(this.props.children, {
           ...this.props,
           closed: this.state.closed,
-          showTag: this.updateTag
+          showTag: this.updateTag,
         })}
       </BpkGridColumn>
     );
@@ -126,13 +126,13 @@ Widget.propTypes = {
   offset: PropTypes.number,
   title: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
-  closed: PropTypes.bool // eslint-disable-line react/no-unused-prop-types
+  closed: PropTypes.bool, // eslint-disable-line react/no-unused-prop-types
 };
 
 Widget.defaultProps = {
   width: 12,
   offset: 0,
-  closed: true
+  closed: true,
 };
 
 export default Widget;

@@ -1,19 +1,19 @@
-import React from "react";
-import { BpkGridContainer } from "bpk-component-grid";
+import React from 'react';
+import { BpkGridContainer } from 'bpk-component-grid';
 
 // Internal imports
-import Hero from "./components/Hero";
-import Profile from "./components/Profile";
-import NavBar from "./components/NavBar";
-import Heading from "./components/Heading";
-import CareerEvent from "./components/CareerEvent";
-import Schooling from "./components/Schooling";
-import Projects from "./components/Projects";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
-import STYLES from "./Homepage.scss";
+import Hero from './components/Hero';
+import Profile from './components/Profile';
+import NavBar from './components/NavBar';
+import Heading from './components/Heading';
+import CareerEvent from './components/CareerEvent';
+import Schooling from './components/Schooling';
+import Projects from './components/Projects';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
+import STYLES from './Homepage.scss';
 
-const c = className => STYLES[className] || "UNKNOWN";
+const c = className => STYLES[className] || 'UNKNOWN';
 
 class Homepage extends React.Component {
   constructor() {
@@ -22,7 +22,7 @@ class Homepage extends React.Component {
     this.scrollTo = this.scrollTo.bind(this);
 
     this.state = {
-      sectionInView: "top",
+      sectionInView: 'top',
       sectionsUncovered: {
         top: true,
         profile: false,
@@ -31,19 +31,19 @@ class Homepage extends React.Component {
         careerB: false,
         careerC: false,
         education: false,
-        contact: false
+        contact: false,
       },
-      skills: []
+      skills: [],
     };
   }
 
   changeSelected(sectionInView) {
     const sectionsUncovered = { ...this.state.sectionsUncovered };
     sectionsUncovered[sectionInView] = true;
-    debugger;
+
     this.setState({
       sectionInView,
-      sectionsUncovered
+      sectionsUncovered,
     });
   }
 
@@ -51,9 +51,9 @@ class Homepage extends React.Component {
     const elmnt = document.getElementById(newSelected);
     if (newSelected && elmnt) {
       elmnt.scrollIntoView({
-        behavior: "smooth",
-        block: where || "center",
-        inline: "center"
+        behavior: 'smooth',
+        block: where || 'center',
+        inline: 'center',
       });
       this.changeSelected(newSelected);
     }
@@ -62,7 +62,7 @@ class Homepage extends React.Component {
   render() {
     const { sectionsUncovered } = this.state;
     return (
-      <div className={c("App")}>
+      <div className={c('App')}>
         <BpkGridContainer>
           <Hero changeSelected={this.changeSelected} scrollTo={this.scrollTo} />
           <NavBar
@@ -104,13 +104,13 @@ class Homepage extends React.Component {
             position="Software Engineer"
             dates="June 2016 - Present"
             text={[
-              "Working in the Modern Advertising team, focusing on optimising the delivery of ads throughout the Skyscanner product",
-              "Working with integrations for Google Ad Manager, Media Alpha and helping develop the Skyscanner Ad Manager ecosystem",
-              "Created branded content pages for numerous partners",
-              "Previously, worked part time alongside university for two years (Glasgow, London office)",
-              "Created bespoke systems for surfacing internal company organisation structure, goal alignment and service ownership",
-              "Helped re-design the Skyscanner Jobs website",
-              "Worked extensively with JIRA, Confluence and developed system engineering knowledge"
+              'Working in the Modern Advertising team, focusing on optimising the delivery of ads throughout the Skyscanner product',
+              'Working with integrations for Google Ad Manager, Media Alpha and helping develop the Skyscanner Ad Manager ecosystem',
+              'Created branded content pages for numerous partners',
+              'Previously, worked part time alongside university for two years (Glasgow, London office)',
+              'Created bespoke systems for surfacing internal company organisation structure, goal alignment and service ownership',
+              'Helped re-design the Skyscanner Jobs website',
+              'Worked extensively with JIRA, Confluence and developed system engineering knowledge',
             ]}
           />
           <Heading
@@ -127,9 +127,9 @@ class Homepage extends React.Component {
             position="Tutor/Agile Coach"
             dates="Sep 2016 - Jun 2017"
             text={[
-              "Operated as a de facto Agile coach for teams completing their third year group project",
-              "Mentored, guided and helped teams and individuals to work together and follow Agile principles",
-              "Helped facilitate meetings with stakeholders and clients"
+              'Operated as a de facto Agile coach for teams completing their third year group project',
+              'Mentored, guided and helped teams and individuals to work together and follow Agile principles',
+              'Helped facilitate meetings with stakeholders and clients',
             ]}
           />
           <Heading
@@ -147,9 +147,9 @@ class Homepage extends React.Component {
             position="Intern Software Engineer"
             dates="Dec 2012-Jan 2013"
             text={[
-              "One month internship during final year of high school",
-              "Extended a set of executable models for a Business Process Management platform",
-              "Reimplemented demo programs and documentation that was presented to clients"
+              'One month internship during final year of high school',
+              'Extended a set of executable models for a Business Process Management platform',
+              'Reimplemented demo programs and documentation that was presented to clients',
             ]}
           />
           <Heading

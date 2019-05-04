@@ -1,13 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { BpkGridRow, BpkGridColumn } from "bpk-component-grid";
-import BpkText from "bpk-component-text";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { BpkGridRow, BpkGridColumn } from 'bpk-component-grid';
+import BpkText from 'bpk-component-text';
 
-import STYLES from "./Schooling.scss";
+import STYLES from './Schooling.scss';
 
-const c = className => STYLES[className] || "UNKNOWN";
+import { SCHOOLS, MOBILE_SCHOOLS } from '../../data/schools';
 
-import { SCHOOLS, MOBILE_SCHOOLS } from "../../data/schools";
+const c = className => STYLES[className] || 'UNKNOWN';
 
 class Schooling extends React.Component {
   // eslint-disable-next-line class-methods-use-this
@@ -20,7 +20,7 @@ class Schooling extends React.Component {
   }
   renderSchoolingOption() {
     return this.getSchools().map(school => (
-      <BpkGridColumn width={6} mobileWidth={12} className={c("Schooling__box")}>
+      <BpkGridColumn width={6} mobileWidth={12} className={c('Schooling__box')}>
         <BpkText tagName="h3" textStyle="lg">
           {school.name}
         </BpkText>
@@ -31,19 +31,19 @@ class Schooling extends React.Component {
           <BpkText
             tagName="span"
             textStyle="sm"
-            className={c("Schooling__grade")}
+            className={c('Schooling__grade')}
           >
             {school.grade}
           </BpkText>
         ) : (
-          ""
+          ''
         )}
         {school.period ? (
           <BpkText tagName="span" textStyle="sm">
             {school.period}
           </BpkText>
         ) : (
-          ""
+          ''
         )}
       </BpkGridColumn>
     ));
@@ -52,16 +52,16 @@ class Schooling extends React.Component {
     return (
       <BpkGridRow
         className={`
-          ${c("Schooling__row")}
+          ${c('Schooling__row')}
           ${
             this.props.visible
-              ? c("Schooling__visible")
-              : c("Schooling__invisible")
+              ? c('Schooling__visible')
+              : c('Schooling__invisible')
           }
         `}
       >
         <BpkGridColumn width={12}>
-          <BpkGridRow className={c("Schooling__list")}>
+          <BpkGridRow className={c('Schooling__list')}>
             {this.renderSchoolingOption()}
           </BpkGridRow>
         </BpkGridColumn>
@@ -71,7 +71,7 @@ class Schooling extends React.Component {
 }
 
 Schooling.propTypes = {
-  visible: PropTypes.bool.isRequired
+  visible: PropTypes.bool.isRequired,
 };
 
 export default Schooling;
