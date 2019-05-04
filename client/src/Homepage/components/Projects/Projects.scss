@@ -50,7 +50,6 @@
   &__detailRow {
     margin-top: $bpk-spacing-base;
   }
-
   &__checkItOut {
     float: right;
     margin-top: $bpk-spacing-lg;
@@ -58,6 +57,70 @@
 
   &__row {
     margin-top: $bpk-spacing-lg;
+  }
+
+  &__skill {
+    user-select: none;
+    border: solid 1px $bpk-color-gray-700;
+    margin-right: $bpk-spacing-xs;
+  }
+
+  &__clickableSkill {
+    cursor: pointer;
+  }
+
+  &__clickableSkill:hover {
+    box-shadow: 0px 1px 8px 1px $bpk-color-blue-700;
+  }
+
+  &__clicked {
+    background: rgba(0, 178, 214, 0.5);
+  }
+
+  &__clicked:hover {
+    background: rgba(0, 178, 214, 0.3);
+  }
+
+  &__filters {
+    padding-bottom: $bpk-spacing-sm;
+  }
+
+  &__activeFilters {
+    text-align: center;
+    padding: $bpk-spacing-base;
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+  }
+
+  &__noResults {
+    width: 75%;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  &__chip {
+    margin: $bpk-spacing-xs;
+  }
+
+  &__row__checkItOut {
+    margin-top: $bpk-spacing-sm;
+    position: absolute;
+    right: $bpk-spacing-md;
+    width: 200px;
+  }
+
+  &__skillCard {
+    position: relative;
+    margin: auto;
+    margin-bottom: $bpk-spacing-base;
+    width: 70%;
+    padding: $bpk-spacing-md;
+    padding-bottom: 55px;
+    border-radius: $bpk-border-radius-sm;
+    box-shadow: $bpk-box-shadow-lg;
   }
 
   @include bpk-breakpoint-mobile {
@@ -73,9 +136,4 @@
       display: none;
     }
   }
-
-  &__chip {
-    margin-right: $bpk-spacing-xs;
-  }
-
 }
