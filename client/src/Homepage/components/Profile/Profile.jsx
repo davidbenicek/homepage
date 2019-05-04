@@ -18,7 +18,15 @@ const c = className => STYLES[className] || "UNKNOWN";
 class Profile extends React.Component {
   render() {
     return (
-      <BpkGridRow className={c("Profile__row")} padded={false}>
+      <BpkGridRow
+        className={`
+          ${c("Profile__row")}
+          ${
+            this.props.visible ? c("Profile__visible") : c("Profile__invisible")
+          }
+        `}
+        padded={false}
+      >
         <BpkGridColumn width={6} mobileWidth={12}>
           <BpkLabel htmlFor="name">Who are you?</BpkLabel>
           <BpkText tagName="p" textStyle="base" id="name">
@@ -91,7 +99,8 @@ class Profile extends React.Component {
 }
 
 Profile.propTypes = {
-  scrollTo: PropTypes.func.isRequired
+  scrollTo: PropTypes.func.isRequired,
+  visible: PropTypes.bool.isRequired
 };
 
 export default Profile;

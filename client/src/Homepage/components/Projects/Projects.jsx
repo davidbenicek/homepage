@@ -278,7 +278,7 @@ class Projects extends React.Component {
       slidesToShow: 1
     };
     return (
-      <BpkGridRow className={c("Projects__row")}>
+      <div>
         {this.renderFilters()}
         <BpkBreakpoint query={BREAKPOINTS.ABOVE_TABLET}>
           <div className={c("Projects__container")}>
@@ -301,15 +301,29 @@ class Projects extends React.Component {
             </Slider>
           </div>
         </BpkBreakpoint>
-      </BpkGridRow>
+      </div>
     );
   }
   render() {
-    if (this.state.activeFilters.length) {
-      return this.renderFilteredProjects();
-    }
-    return this.renderProjectCarousel();
+    return (
+      <BpkGridRow
+        className={`
+        ${c("Projects__row")}
+        ${
+          this.props.visible ? c("Projects__visible") : c("Projects__invisible")
+        }
+      `}
+      >
+        {this.state.activeFilters.length > 0
+          ? this.renderFilteredProjects()
+          : this.renderProjectCarousel()}
+      </BpkGridRow>
+    );
   }
 }
+
+Projects.propTypes = {
+  visible: PropTypes.bool.isRequired
+};
 
 export default Projects;

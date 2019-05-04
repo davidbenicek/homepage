@@ -1,7 +1,17 @@
-@import '~bpk-mixins';
+@import "~bpk-mixins";
 
 .Contact {
-
+  &__visible {
+    opacity: 1;
+    transform: translateX(0px) translateY(0px) translateZ(0px);
+    transition: opacity 300ms ease-out 0s, transform 300ms ease 0s;
+  }
+  &__invisible {
+    opacity: 0;
+    -webkit-transform: translate(50px, 0);
+    -ms-transform: translate(50px, 0);
+    transform: translate(50px, 0);
+  }
   &__row {
     width: 95%;
     margin: auto;
@@ -28,7 +38,7 @@
     transform: translate3d(0, 0, 0);
     border-radius: $bpk-border-radius-sm;
     box-shadow: $bpk-box-shadow-xl;
-    animation: shake .82s cubic-bezier(.36, .07, .19, .97) both;
+    animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
     backface-visibility: hidden;
     perspective: 1000px;
   }

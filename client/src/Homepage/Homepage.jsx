@@ -23,13 +23,27 @@ class Homepage extends React.Component {
 
     this.state = {
       sectionInView: "top",
+      sectionsUncovered: {
+        top: true,
+        profile: false,
+        projects: false,
+        career: false,
+        careerB: false,
+        careerC: false,
+        education: false,
+        contact: false
+      },
       skills: []
     };
   }
 
   changeSelected(sectionInView) {
+    const sectionsUncovered = { ...this.state.sectionsUncovered };
+    sectionsUncovered[sectionInView] = true;
+    debugger;
     this.setState({
-      sectionInView
+      sectionInView,
+      sectionsUncovered
     });
   }
 
@@ -46,6 +60,7 @@ class Homepage extends React.Component {
   }
 
   render() {
+    const { sectionsUncovered } = this.state;
     return (
       <div className={c("App")}>
         <BpkGridContainer>
@@ -54,15 +69,35 @@ class Homepage extends React.Component {
             selected={this.state.sectionInView}
             scrollTo={this.scrollTo}
           />
-          <Heading onIntersection={this.changeSelected} id="profile" show />
-          <Profile scrollTo={this.scrollTo} />
-          <Heading onIntersection={this.changeSelected} id="projects" show />
+          <Heading
+            visible={sectionsUncovered.profile}
+            onIntersection={this.changeSelected}
+            id="profile"
+            show
+          />
+          <Profile
+            visible={sectionsUncovered.profile}
+            scrollTo={this.scrollTo}
+          />
+          <Heading
+            visible={sectionsUncovered.projects}
+            onIntersection={this.changeSelected}
+            id="projects"
+            show
+          />
           <Projects
+            visible={sectionsUncovered.projects}
             filters={this.state.skills}
             onFilterRemove={this.onFilter}
           />
-          <Heading onIntersection={this.changeSelected} id="career" show />
+          <Heading
+            onIntersection={this.changeSelected}
+            id="career"
+            show
+            visible={sectionsUncovered.career}
+          />
           <CareerEvent
+            visible={sectionsUncovered.career}
             changeSelected={this.changeSelected}
             bannerImage="https://s3.eu-central-1.amazonaws.com/benicek/homepage/skyline.jpg"
             organisation="Skyscanner"
@@ -80,10 +115,12 @@ class Homepage extends React.Component {
           />
           <Heading
             onIntersection={this.changeSelected}
-            id="career"
+            id="careerB"
+            target="career"
             show={false}
           />
           <CareerEvent
+            visible={sectionsUncovered.careerB}
             changeSelected={this.changeSelected}
             bannerImage="https://s3.eu-central-1.amazonaws.com/benicek/homepage/glasgow2.jpg"
             organisation="University Of Glasgow"
@@ -96,11 +133,14 @@ class Homepage extends React.Component {
             ]}
           />
           <Heading
+            visible={sectionsUncovered.careerC}
             onIntersection={this.changeSelected}
-            id="career"
+            id="careerC"
+            target="career"
             show={false}
           />
           <CareerEvent
+            visible={sectionsUncovered.careerC}
             changeSelected={this.changeSelected}
             bannerImage="https://s3.eu-central-1.amazonaws.com/benicek/homepage/myanmar.jpg"
             organisation="WhiteStein"
@@ -112,11 +152,24 @@ class Homepage extends React.Component {
               "Reimplemented demo programs and documentation that was presented to clients"
             ]}
           />
-          <Heading onIntersection={this.changeSelected} id="education" show />
-          <Schooling />
-          <Heading onIntersection={this.changeSelected} id="contact" show />
-          <Contact />
-          <Footer scrollUp={this.scrollTo} />
+          <Heading
+            onIntersection={this.changeSelected}
+            id="education"
+            show
+            visible={sectionsUncovered.education}
+          />
+          <Schooling visible={sectionsUncovered.education} />
+          <Heading
+            onIntersection={this.changeSelected}
+            id="contact"
+            show
+            visible={sectionsUncovered.contact}
+          />
+          <Contact visible={sectionsUncovered.contact} />
+          <Footer
+            scrollUp={this.scrollTo}
+            visible={sectionsUncovered.contact}
+          />
         </BpkGridContainer>
       </div>
     );
