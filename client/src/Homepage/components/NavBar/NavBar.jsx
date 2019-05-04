@@ -22,7 +22,7 @@ class NavBar extends React.Component {
             }}
             width={12 / NAV_BAR.length}
             className={
-              this.props.selected === item.id
+              this.props.selected.indexOf(item.id) > -1
                 ? c('NavBar__selected')
                 : c('NavBar__unselected')
             }

@@ -1,18 +1,18 @@
-import React from "react";
-import { BpkGridRow, BpkGridColumn } from "bpk-component-grid";
-import BpkText from "bpk-component-text";
-import BpkButton from "bpk-component-button";
-import { withButtonAlignment, withRtlSupport } from "bpk-component-icon";
-import BpkLargeChevronDownIcon from "bpk-component-icon/sm/chevron-down";
-import BpkBreakpoint, { BREAKPOINTS } from "bpk-component-breakpoint";
-import { LANG_SKILLS } from "../../data";
+import React from 'react';
+import { BpkGridRow, BpkGridColumn } from 'bpk-component-grid';
+import BpkText from 'bpk-component-text';
+import BpkButton from 'bpk-component-button';
+import { withButtonAlignment, withRtlSupport } from 'bpk-component-icon';
+import BpkLargeChevronDownIcon from 'bpk-component-icon/sm/chevron-down';
+import BpkBreakpoint, { BREAKPOINTS } from 'bpk-component-breakpoint';
+import { LANG_SKILLS } from '../../data';
 
-import STYLES from "./Skills.scss";
+import STYLES from './Skills.scss';
 
-const c = className => STYLES[className] || "UNKNOWN";
+const c = className => STYLES[className] || 'UNKNOWN';
 
 const AlignedChevronDown = withButtonAlignment(
-  withRtlSupport(BpkLargeChevronDownIcon)
+  withRtlSupport(BpkLargeChevronDownIcon),
 );
 
 class Skills extends React.Component {
@@ -20,7 +20,7 @@ class Skills extends React.Component {
     super();
     this.state = {
       hidden: true,
-      closed: true
+      closed: true,
     };
 
     this.renderSkills = this.renderSkills.bind(this);
@@ -29,7 +29,7 @@ class Skills extends React.Component {
 
   toggleLevels(hidden) {
     this.setState({
-      hidden
+      hidden,
     });
   }
 
@@ -43,8 +43,8 @@ class Skills extends React.Component {
         <div
           style={{ width: `${mobile && hidden ? 0 : skill.level}%` }}
           className={`
-            ${c("Skills__bar")}
-            ${mobile && hidden ? c("Skills__hiddenBar") : ""}
+            ${c('Skills__bar')}
+            ${mobile && hidden ? c('Skills__hiddenBar') : ''}
           `}
         >
           {skill.text}
@@ -55,7 +55,7 @@ class Skills extends React.Component {
 
   toggleCollapse(closed) {
     this.setState({
-      closed
+      closed,
     });
     setTimeout(() => this.toggleLevels(closed), 200);
   }
@@ -63,26 +63,26 @@ class Skills extends React.Component {
   render() {
     return (
       <BpkGridColumn
-        className={c("Skills__section")}
+        className={c('Skills__section')}
         width={6}
         offset={0}
         mobileWidth={12}
         mobileOffset={0}
       >
-        <BpkGridRow className={c("Skills__skill")}>
+        <BpkGridRow className={c('Skills__skill')}>
           <BpkBreakpoint query={BREAKPOINTS.MOBILE}>
-            <div className={c("Skills__controller")}>
+            <div className={c('Skills__controller')}>
               <BpkText
                 tagName="p"
                 textStyle="base"
-                className={c("Skills__sectionTitle")}
+                className={c('Skills__sectionTitle')}
               >
                 Language skills:
               </BpkText>
               <BpkButton
                 iconOnly
                 secondary
-                className={c("Skills__chevronButton")}
+                className={c('Skills__chevronButton')}
                 onClick={() => {
                   this.toggleCollapse(!this.state.closed);
                 }}
@@ -90,14 +90,14 @@ class Skills extends React.Component {
                 {
                   <AlignedChevronDown
                     className={`
-                    ${c("Skills__chevron")}
-                    ${this.state.closed ? "" : c("Skills__chevronDown")}
+                    ${c('Skills__chevron')}
+                    ${this.state.closed ? '' : c('Skills__chevronDown')}
                   `}
                   />
                 }
               </BpkButton>
             </div>
-            {this.state.closed ? "" : this.renderSkills(true)}
+            {this.state.closed ? '' : this.renderSkills(true)}
           </BpkBreakpoint>
           <BpkBreakpoint query={BREAKPOINTS.ABOVE_MOBILE}>
             <BpkText tagName="p" textStyle="base">
