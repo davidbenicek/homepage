@@ -1,7 +1,7 @@
 const proj = [
   {
     name: 'KanHanZi',
-    tagLine: 'Learn, practice and test your Chinese characters online',
+    tagLine: 'Virtual flash cards for HSK Chinese characters!',
     work: false,
     url: '/kanhanzi',
     logo: 'https://s3.eu-central-1.amazonaws.com/benicek/homepage/hanyu.png',
@@ -13,7 +13,7 @@ const proj = [
     tagLine:
       'A travel chatbot that finds flight, hotels, attractions and tells (terrible) jokes!',
     work: false,
-    url: 'https://benicek-travelbot.azurewebsites.net/',
+    url: 'https://www.youtube.com/watch?v=klAgEJp0HDc',
     logo: 'https://s3.eu-central-1.amazonaws.com/benicek/homepage/lorin.png',
     background: '#faefe6',
     skills: ['react', 'nodejs', 'nlp'],

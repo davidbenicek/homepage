@@ -75,7 +75,7 @@ class Homepage extends React.Component {
           <Heading
             visible={sectionsUncovered.profile}
             onIntersection={this.changeSelected}
-            id="profile"
+            pixelId="profile"
             show
           />
           <Profile
@@ -85,7 +85,7 @@ class Homepage extends React.Component {
           <Heading
             visible={sectionsUncovered.projects}
             onIntersection={this.changeSelected}
-            id="projects"
+            pixelId="projects"
             show
           />
           <Projects
@@ -94,10 +94,10 @@ class Homepage extends React.Component {
             onFilterRemove={this.onFilter}
           />
           <Heading
-            onIntersection={this.changeSelected}
-            id="career"
-            show
             visible={sectionsUncovered.career}
+            onIntersection={this.changeSelected}
+            pixelId="career"
+            show
           />
           <CareerEvent
             visible={sectionsUncovered.career}
@@ -105,8 +105,9 @@ class Homepage extends React.Component {
             info={SKYSCANNER}
           />
           <Heading
+            visible={sectionsUncovered.careerB}
             onIntersection={this.changeSelected}
-            id="careerB"
+            pixelId="careerB"
             target="career"
             show={false}
           />
@@ -118,7 +119,7 @@ class Homepage extends React.Component {
           <Heading
             visible={sectionsUncovered.careerC}
             onIntersection={this.changeSelected}
-            id="careerC"
+            pixelId="careerC"
             target="career"
             show={false}
           />
@@ -129,14 +130,14 @@ class Homepage extends React.Component {
           />
           <Heading
             onIntersection={this.changeSelected}
-            id="education"
+            pixelId="education"
             show
             visible={sectionsUncovered.education}
           />
           <Schooling visible={sectionsUncovered.education} />
           <Heading
             onIntersection={this.changeSelected}
-            id="contact"
+            pixelId="contact"
             show
             visible={sectionsUncovered.contact}
           />

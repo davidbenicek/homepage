@@ -1,0 +1,20 @@
+.Harmonica {
+    &__controller {
+        height: 35px;
+    }
+    &__sectionTitle {
+        float: left;
+    }
+    &__chevronButton {
+        float: right;
+    }
+    &__chevron {
+        overflow: hidden;
+        transition-duration: 0.8s;
+        transition-property: transform;
+    }
+    &__chevronDown {
+        transform: rotate(-180deg);
+        -webkit-transform: rotate(-180deg);
+    }
+}

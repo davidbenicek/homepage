@@ -4,15 +4,16 @@ export const SKYSCANNER = {
   position: 'Software Engineer',
   dates: 'June 2016 - Present',
   text:
-        [
-          'Working in the Modern Advertising team, focusing on optimising the delivery of ads throughout the Skyscanner product',
-          'Working with integrations for Google Ad Manager, Media Alpha and helping develop the Skyscanner Ad Manager ecosystem',
-          'Created branded content pages for numerous partners',
-          'Previously, worked part time alongside university for two years (Glasgow, London office)',
-          'Created bespoke systems for surfacing internal company organisation structure, goal alignment and service ownership',
-          'Helped re-design the Skyscanner Jobs website',
-          'Worked extensively with JIRA, Confluence and developed system engineering knowledge',
-        ],
+    [
+      'Working in the Modern Advertising team, focusing on optimising the delivery of ads throughout the Skyscanner product',
+      'Worked on numerous core services of the company, reaching millions of users',
+      'Working with integrations for Google Ad Manager, Media Alpha and helping develop the Skyscanner Ad Manager ecosystem',
+      'Created branded content pages for numerous partners',
+      'Previously, worked part time alongside university for two years (Glasgow, London office)',
+      'Created bespoke systems for surfacing internal company organisation structure, goal alignment and service ownership',
+      'Helped re-design the Skyscanner Jobs website',
+      'Worked extensively with JIRA, Confluence and developed basic system engineering knowledge',
+    ],
 };
 
 export const GLASGOW = {
@@ -21,11 +22,11 @@ export const GLASGOW = {
   position: 'Tutor/Agile Coach',
   dates: 'Sep 2016 - Jun 2017',
   text:
-        [
-          'Operated as a de facto Agile coach for teams completing their third year group project',
-          'Mentored, guided and helped teams and individuals to work together and follow Agile principles',
-          'Helped facilitate meetings with stakeholders and clients',
-        ],
+    [
+      'Operated as a de facto Agile coach for teams completing their third year group project',
+      'Mentored, guided and assisted teams and individuals to work together and follow Agile principles',
+      'Helped facilitate meetings with stakeholders and real-world clients',
+    ],
 };
 
 
@@ -35,9 +36,9 @@ export const WHITESTEIN = {
   position: 'Intern Software Engineer',
   dates: 'Dec 2012-Jan 2013',
   text:
-        [
-          'One month internship during final year of high school',
-          'Extended a set of executable models for a Business Process Management platform',
-          'Reimplemented demo programs and documentation that was presented to clients',
-        ],
+    [
+      'One month internship during the final year of high school',
+      'Extended a set of executable models for a Business Process Management platform',
+      'Reimplemented demo programs and documentation that was then presented to clients',
+    ],
 };

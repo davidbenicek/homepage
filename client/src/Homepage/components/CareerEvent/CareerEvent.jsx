@@ -1,8 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { BpkGridRow, BpkGridColumn } from 'bpk-component-grid';
+import BpkBreakpoint, { BREAKPOINTS } from 'bpk-component-breakpoint';
 import BpkText from 'bpk-component-text';
 import styled from 'styled-components';
+
+import Harmonica from '../Harmonica';
 
 import STYLES from './CareerEvent.scss';
 
@@ -31,7 +34,7 @@ class CareerEvent extends React.Component {
         }
       >
         <BpkGridColumn width={12}>
-          <Banner className={c('CareerEvent__banner')} />
+          <Banner className={c('CareerEvent__banner')}><div /></Banner>
           <BpkGridRow className={c('CareerEvent__content')}>
             <BpkGridColumn width={12}>
               <BpkGridRow>
@@ -64,7 +67,15 @@ class CareerEvent extends React.Component {
                 </BpkGridColumn>
               </BpkGridRow>
               <BpkGridRow className={c('CareerEvent__textArea')}>
-                {this.renderBulletPoints()}
+                <BpkBreakpoint query={BREAKPOINTS.MOBILE}>
+                  <Harmonica
+                    title="More info"
+                    renderContent={() => this.renderBulletPoints()}
+                  />
+                </BpkBreakpoint>
+                <BpkBreakpoint query={BREAKPOINTS.ABOVE_MOBILE}>
+                  {this.renderBulletPoints()}
+                </BpkBreakpoint>
               </BpkGridRow>
             </BpkGridColumn>
           </BpkGridRow>

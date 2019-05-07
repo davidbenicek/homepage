@@ -19,12 +19,13 @@ export const CONTACT = [
   },
   {
     name: 'Email',
-    linkText: 'davidbenicek@hotmail.com',
+    linkText: 'Email me!',
     url: 'mailto:davidbenicek@hotmail.com',
     logo: 'https://s3.eu-central-1.amazonaws.com/benicek/homepage/email.svg',
   },
   {
     name: 'Smoke Signal',
+    hideOnMobile: true,
     linkText: 'Two puff signals',
     url:
       'https://adventure.howstuffworks.com/survival/wilderness/how-to-send-smoke-signal1.htm',

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { BpkGridRow, BpkGridColumn } from 'bpk-component-grid';
 import BpkText from 'bpk-component-text';
 import BpkLink from 'bpk-component-link';
+import BpkBreakpoint, { BREAKPOINTS } from 'bpk-component-breakpoint';
 
 import STYLES from './Contact.scss';
 
@@ -12,30 +13,33 @@ const c = className => STYLES[className] || 'UNKNOWN';
 
 class Contact extends React.Component {
   // eslint-disable-next-line class-methods-use-this
-  renderContactOption() {
+  renderContactOption(mobile) {
     return CONTACT.map((contact, i) => (
-      <BpkGridColumn
-        width={2}
-        offset={i === 0 ? 1 : 0}
-        mobileWidth={12}
-        mobileOffset={0}
-        className={c('Contact__optionBox')}
-        onClick={() => {
-          window.location = contact.url;
-        }}
-      >
-        <img
-          className={c('Contact__logo')}
-          src={contact.logo}
-          alt={contact.name}
-        />
-        <BpkText tagName="h3" textStyle="lg">
-          {contact.name}
-        </BpkText>
-        <BpkLink blank href={contact.url} className={c('Contact__link')}>
-          {contact.linkText}
-        </BpkLink>
-      </BpkGridColumn>
+      mobile && contact.hideOnMobile ?
+        ''
+        :
+        <BpkGridColumn
+          width={2}
+          offset={i === 0 ? 1 : 0}
+          mobileWidth={6}
+          mobileOffset={0}
+          className={c('Contact__optionBox')}
+          onClick={() => {
+            window.location = contact.url;
+          }}
+        >
+          <img
+            className={c('Contact__logo')}
+            src={contact.logo}
+            alt={contact.name}
+          />
+          <BpkText tagName="h3" textStyle="lg">
+            {contact.name}
+          </BpkText>
+          <BpkLink blank href={contact.url} className={c('Contact__link')}>
+            {contact.linkText}
+          </BpkLink>
+        </BpkGridColumn>
     ));
   }
   render() {
@@ -44,7 +48,7 @@ class Contact extends React.Component {
         className={`
           ${c('Contact__row')}
           ${
-            this.props.visible ? c('Contact__visible') : c('Contact__invisible')
+          this.props.visible ? c('Contact__visible') : c('Contact__invisible')
           }
         `}
       >
@@ -70,7 +74,12 @@ class Contact extends React.Component {
             </BpkText>
           </BpkGridRow>
           <BpkGridRow className={c('Contact__options')}>
-            {this.renderContactOption()}
+            <BpkBreakpoint query={BREAKPOINTS.MOBILE}>
+              {this.renderContactOption(true)}
+            </BpkBreakpoint>
+            <BpkBreakpoint query={BREAKPOINTS.ABOVE_MOBILE}>
+              {this.renderContactOption(false)}
+            </BpkBreakpoint>
           </BpkGridRow>
         </BpkGridColumn>
       </BpkGridRow>

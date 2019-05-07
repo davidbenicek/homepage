@@ -33,6 +33,13 @@ class Skills extends React.Component {
     });
   }
 
+  toggleCollapse(closed) {
+    this.setState({
+      closed,
+    });
+    setTimeout(() => this.toggleLevels(closed), 200);
+  }
+
   renderSkills(mobile) {
     const { hidden } = this.state;
     return LANG_SKILLS.map(skill => (
@@ -53,13 +60,6 @@ class Skills extends React.Component {
     ));
   }
 
-  toggleCollapse(closed) {
-    this.setState({
-      closed,
-    });
-    setTimeout(() => this.toggleLevels(closed), 200);
-  }
-
   render() {
     return (
       <BpkGridColumn
@@ -72,6 +72,13 @@ class Skills extends React.Component {
         <BpkGridRow className={c('Skills__skill')}>
           <BpkBreakpoint query={BREAKPOINTS.MOBILE}>
             <div className={c('Skills__controller')}>
+              {/*
+              TODO: Migrate to Harmonica
+              <Harmonica
+                className={c('Skills__controller')}
+                title="Language skills:"
+                renderContent={() => { this.renderSkills(true) }}
+              /> */}
               <BpkText
                 tagName="p"
                 textStyle="base"

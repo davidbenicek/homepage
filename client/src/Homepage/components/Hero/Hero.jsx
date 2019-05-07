@@ -35,7 +35,7 @@ class Hero extends React.Component {
   }
   // eslint-disable-next-line class-methods-use-this
   renderHeroImage() {
-    return (<BpkGridColumn width={6} mobileWidth={12} className={c('Hero__imageBlock')} />);
+    return (<BpkGridColumn width={6} mobileWidth={12} className={c('Hero__imageBlock')}><div /></BpkGridColumn>);
   }
 
   renderHeroText() {

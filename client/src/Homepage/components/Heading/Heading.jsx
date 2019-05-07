@@ -30,29 +30,28 @@ class Heading extends React.Component {
       this.interSectionCallback,
       options,
     );
-    const { target, id } = this.props;
-    observer.observe(document.querySelector(`#${id}`));
+    const { pixelId } = this.props;
+    observer.observe(document.querySelector(`#${pixelId}`));
   }
 
   interSectionCallback(changes) {
-    const { id, target } = this.props;
+    const { pixelId } = this.props;
     changes.forEach((change) => {
       if (change.intersectionRatio > 0.8) {
-        this.props.onIntersection(id);
+        this.props.onIntersection(pixelId);
       }
     });
   }
 
   render() {
-    const { id, target, show } = this.props;
-    const { Icon, name } = HEADINGS[target || id];
+    const { pixelId, target, show } = this.props;
+    const { Icon, name } = HEADINGS[target || pixelId];
     return (
       <BpkGridRow
-        id={id}
         className={`
           ${c('Heading__row')}
           ${
-            this.props.visible ? c('Heading__visible') : c('Heading__invisible')
+          this.props.visible ? c('Heading__visible') : c('Heading__invisible')
           }
         `}
         padded={false}
@@ -64,14 +63,18 @@ class Heading extends React.Component {
           </BpkText>
         ) : (
           <span />
-        )}
+          )}
+        <div
+          className={c('Heading__intersectionPixel')}
+          id={pixelId}
+        />
       </BpkGridRow>
     );
   }
 }
 
 Heading.propTypes = {
-  id: PropTypes.string.isRequired,
+  pixelId: PropTypes.string.isRequired,
   target: PropTypes.string,
   show: PropTypes.bool.isRequired,
   onIntersection: PropTypes.func.isRequired,

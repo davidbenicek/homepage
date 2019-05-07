@@ -37,22 +37,23 @@
     font-size: 10px;
     text-align: right;
   }
+
   &__controller {
     height: 35px;
   }
   &__sectionTitle {
-    float: left;
+      float: left;
   }
   &__chevronButton {
-    float: right;
+      float: right;
   }
   &__chevron {
-    overflow: hidden;
-    transition-duration: 0.8s;
-    transition-property: transform;
+      overflow: hidden;
+      transition-duration: 0.8s;
+      transition-property: transform;
   }
   &__chevronDown {
-    transform: rotate(-180deg);
-    -webkit-transform: rotate(-180deg);
+      transform: rotate(-180deg);
+      -webkit-transform: rotate(-180deg);
   }
 }

@@ -38,33 +38,6 @@ class Projects extends React.Component {
     });
   };
 
-  renderSkillBadge(title, id, active) {
-    return (
-      <BpkBadge
-        className={`
-        ${c('Projects__skill')}
-        ${id ? c('Projects__clickableSkill') : ''}
-        ${active ? c('Projects__clicked') : ''}
-        `}
-        onClick={() => {
-          id ? this.onClick(id) : () => {};
-        }}
-        type={BADGE_TYPES.inverse}
-      >
-        {title}
-      </BpkBadge>
-    );
-  }
-
-  renderSkills = () =>
-    Object.keys(this.state.skills).map(id =>
-      this.renderSkillBadge(
-        this.state.skills[id].title, // title
-        id, // id
-        this.state.activeFilters.includes(id), // active
-      ),
-    );
-
   removeFilter(skillId) {
     const activeFilters = [...this.state.activeFilters];
     const index = activeFilters.indexOf(skillId);
@@ -87,16 +60,44 @@ class Projects extends React.Component {
   projectSkills(skills) {
     if (skills.length > 0) {
       return (
-        <BpkText tagName="p" textStyle="base" className={c('Projects')}>
-          This project was made using:{' '}
+        <div>
+          <BpkText tagName="p" textStyle="base" className={c('Projects')}>
+            This project was made using:
+          </BpkText>
           <div>
             {skills.map(s =>
               this.renderSkillBadge(TECH_SKILLS[s] ? TECH_SKILLS[s].title : s),
             )}
           </div>
-        </BpkText>
+        </div>
       );
     }
+    return '';
+  }
+
+  renderSkills = () =>
+    Object.keys(this.state.skills).map(id =>
+      this.renderSkillBadge(
+        this.state.skills[id].title, // title
+        id, // id
+        this.state.activeFilters.includes(id), // active
+      ),
+    );
+
+  renderSkillBadge(title, id, active) {
+    return (
+      <BpkBadge
+        className={`
+        ${c('Projects__skill')}
+        ${id ? c('Projects__clickableSkill') : ''}
+        ${active ? c('Projects__clicked') : ''}
+        `}
+        onClick={() => (id ? this.onClick(id) : () => { })}
+        type={BADGE_TYPES.inverse}
+      >
+        {title}
+      </BpkBadge>
+    );
   }
 
   // eslint-disable-next-line class-methods-use-this
@@ -142,8 +143,8 @@ class Projects extends React.Component {
                 {proj.workExplanation}
               </BpkText>
             ) : (
-              ''
-            )}
+                ''
+              )}
             {this.projectSkills(proj.skills)}
             <BpkText
               tagName="p"
@@ -199,8 +200,8 @@ class Projects extends React.Component {
               {proj.workExplanation}
             </BpkText>
           ) : (
-            ''
-          )}
+              ''
+            )}
           <BpkText
             tagName="p"
             textStyle="base"
@@ -252,11 +253,11 @@ class Projects extends React.Component {
 
   renderFilteredProjects() {
     return (
-      <BpkGridRow className={c('Projects__row')}>
+      <div>
         {this.renderFilters()}
         {this.renderActiveFilters()}
         {this.renderProjects(this.filterProjects(), false)}
-      </BpkGridRow>
+      </div>
     );
   }
   renderProjectCarousel() {
@@ -311,7 +312,7 @@ class Projects extends React.Component {
         ${c('Projects__row')}
         ${
           this.props.visible ? c('Projects__visible') : c('Projects__invisible')
-        }
+          }
       `}
       >
         {this.state.activeFilters.length > 0

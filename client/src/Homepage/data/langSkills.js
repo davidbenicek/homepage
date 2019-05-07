@@ -21,7 +21,7 @@ const lang = [
   },
   {
     title: 'Spanish',
-    level: 15,
+    level: 25,
     text: 'Beginner',
   },
 ];
