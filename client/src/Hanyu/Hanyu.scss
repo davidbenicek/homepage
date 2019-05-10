@@ -42,4 +42,10 @@
   &__text {
     margin-bottom: $bpk-spacing-sm;
   }
+
+  &__info {
+    text-align: left;
+    width: 75%;
+    margin: auto;
+  }
 }

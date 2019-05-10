@@ -17,7 +17,7 @@
     "axios": "^0.18.0",
     "backpack-react-scripts": "^5.1.1",
     "bpk-component-badge": "^1.1.67",
-    "bpk-component-banner-alert": "^2.0.84",
+    "bpk-component-banner-alert": "^2.0.86",
     "bpk-component-breakpoint": "^1.1.31",
     "bpk-component-button": "^2.1.6",
     "bpk-component-card": "^1.1.45",

@@ -25,7 +25,6 @@ class ExerciseArea extends React.Component {
   }
 
   changeShowVocab(showVocab) {
-    console.log('change show vocab', showVocab, this.state);
     this.setState({
       showVocab,
     });
@@ -70,12 +69,10 @@ class ExerciseArea extends React.Component {
   }
 
   render() {
-    console.log(this.state, 'state');
     const {
       showVocab,
       charUp,
     } = this.state;
-    console.log(showVocab, charUp);
     return (
       <BpkGridContainer className={STYLES.ExerciseArea} >
         <BpkGridRow>

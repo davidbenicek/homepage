@@ -73,13 +73,17 @@ class Settings extends React.Component {
           renderTarget={() => document.getElementById('setting-modal-container')}
         >
           <div className={STYLES.Settings__form}>
+            {/*
+              TODO: Reimplement this better
+            */}
+            {/*
             <BpkCheckbox
               className={STYLES.Settings__checkbox}
               name="vocabLevelToggle"
               label="Show vocab level"
               onChange={() => { this.changeShowVocab(); }}
               defaultChecked={this.state.showVocab}
-            />
+            /> */}
             <BpkCheckbox
               className={STYLES.Settings__checkbox}
               name="charUpToggle"

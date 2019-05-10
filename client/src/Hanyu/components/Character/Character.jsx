@@ -46,9 +46,7 @@ class Character extends React.Component {
 
   async fetchWord() {
     const { levels, charUp } = this.props;
-    const lvlQuery = Object.keys(levels).map(lvl => (
-      (levels[lvl] ? lvl : '')
-    )).join('');
+    const lvlQuery = Object.keys(levels).filter(lvl => levels[lvl]).join(',');
     const { data } = await axios({
       url: `/char?level=${lvlQuery}`,
       method: 'get',
@@ -100,7 +98,6 @@ class Character extends React.Component {
   }
 
   renderExamples() {
-    console.log(this.state.examples);
     return this.state.examples.map((example, i) => (
       <div className={STYLES.Character__exampleContainer}>
         <BpkText tagName="h1" textStyle="lg" className={STYLES.Character__example}>{example.cn}</BpkText>
@@ -110,7 +107,6 @@ class Character extends React.Component {
   }
 
   renderCharUp() {
-    console.log('up');
     return (
       <div>
         <span className={STYLES.Character__stats}>HSK: {this.state.char.HSK} Word ID:{this.state.char.id}</span>
@@ -121,7 +117,6 @@ class Character extends React.Component {
   }
 
   renderCharDown() {
-    console.log('down');
     return (
       <div>
         <BpkText tagName="h1" textStyle="xxl" >{this.state.char.pinyin}</BpkText>
@@ -137,7 +132,13 @@ class Character extends React.Component {
       this.setState({ backEnabled: false });
     }
     const char = history[history.length - 1];
-    this.setState({ char, history });
+    let examplesOut = true;
+    if ('sentence1' in char) {
+      examplesOut = false;
+    }
+    this.setState({
+      char, history, examples: [], examplesOut,
+    });
   }
 
   render() {
