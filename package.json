@@ -1,6 +1,6 @@
 {
     "scripts": {
-        "start": "nodemon server",
+        "start": "node server",
         "dev:start": "node server & cd client && npm start",
         "heroku-postbuild": "cd client && npm i && npm run build"
     },
@@ -16,7 +16,6 @@
     },
     "devDependencies": {
         "bpk-component-badge": "^1.1.67",
-        "bpk-component-label": "^3.2.122",
-        "nodemon": "^1.19.0"
+        "bpk-component-label": "^3.2.122"
     }
 }
