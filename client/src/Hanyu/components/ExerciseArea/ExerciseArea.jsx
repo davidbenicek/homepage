@@ -1,10 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { BpkGridContainer, BpkGridRow, BpkGridColumn } from 'bpk-component-grid';
 import BpkCheckbox from 'bpk-component-checkbox';
-import BpkText from 'bpk-component-text';
-import BpkCard from 'bpk-component-card';
-import BpkButton from 'bpk-component-button';
 
 import STYLES from './ExerciseArea.scss';
 import Settings from '../Settings';
@@ -20,7 +16,9 @@ class ExerciseArea extends React.Component {
     this.changeCharUp = this.changeCharUp.bind(this);
     this.render = this.render.bind(this);
     this.state = {
-      levels: { 1: false, 2: false, 3: false },
+      levels: {
+        1: false, 2: false, 3: false, 4: false,
+      },
       charUp: true,
       showVocab: false,
     };
@@ -31,7 +29,9 @@ class ExerciseArea extends React.Component {
     this.setState({
       showVocab,
     });
-    const levels = { 1: false, 2: false, 3: false };
+    const levels = {
+      1: false, 2: false, 3: false, 4: false,
+    };
     if (showVocab) {
       levels[9] = true;
     }

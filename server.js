@@ -27,9 +27,9 @@ kanhanzi.getVocab().then(({ vocab }) => {
 app.get('/char', (req, res) => {
   let { level } = req.query;
 
-  if (!level) level = '1,2,3';
+  if (!level) level = '1,2,3,4';
   let char = VOCAB[Math.floor(Math.random() * VOCAB.length)];
-  while(!level.includes(char.HSK)) {
+  while (!level.includes(char.HSK)) {
     char = VOCAB[Math.floor(Math.random() * VOCAB.length)];
   }
   res.send(char);
@@ -50,7 +50,7 @@ app.get('/weather', async (req, res) => {
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname+'/client/build/index.html'));
+  res.sendFile(path.join(__dirname + '/client/build/index.html'));
 });
 
 app.listen(port);
