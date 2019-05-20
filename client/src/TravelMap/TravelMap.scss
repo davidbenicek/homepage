@@ -1,0 +1,23 @@
+@import "~bpk-mixins";
+
+.TravelMap {
+  &__main {
+      width: 100%;
+      height: 500px;
+  }
+  &__legend {
+    text-align: center;
+    &__item {
+      display: inline-block;
+      margin-left: $bpk-spacing-xxl;
+      margin-top: $bpk-spacing-base;
+      text-align: left;
+    }
+    &__title {
+      top: -7px;
+      right: -10px;
+      position: relative;
+
+    }
+  }
+}
