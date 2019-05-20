@@ -2,10 +2,16 @@ import React from 'react';
 import * as leaflet from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import BpkText from 'bpk-component-text';
+import BpkButton from 'bpk-component-button';
+import BpkLongArrowRightIcon from 'bpk-component-icon/sm/long-arrow-right';
+import { withButtonAlignment } from 'bpk-component-icon';
+
 
 // import { LEGEND } from './data.jsx';
 
 import STYLES from './TravelMap.scss';
+
+const AlignedRightIcon = withButtonAlignment(BpkLongArrowRightIcon);
 
 const c = className => STYLES[className] || 'UNKNOWN';
 
@@ -15,7 +21,7 @@ class WorldMap extends React.Component {
       minZoom: 1,
       maxZoom: 4,
       center: [0, 0],
-      zoom: 1,
+      zoom: window.innerWidth <= 516 ? 1 : 2,
       crs: leaflet.CRS.Simple,
     });
     const w = 2000;
@@ -30,8 +36,8 @@ class WorldMap extends React.Component {
 
   render() {
     return (
-      <div>
-        <div id="image-map" className={c('TravelMap__main')} />
+      <div className={c('TravelMap__container')}>
+        <div id="image-map" className={c('TravelMap__map')} />
         <div className={c('TravelMap__legend')}>
           <div className={c('TravelMap__legend__item')}>
             <svg width="30" height="30">
@@ -60,7 +66,8 @@ class WorldMap extends React.Component {
             <BpkText textStyle="base" className={c('TravelMap__legend__subtitle')}>I'll get there on day!</BpkText>
           </div>
         </div>
-      </div>
+        <BpkButton secondary href="https://www.beni.tech/" className={c('TravelMap__button')} > See more of my work&nbsp;<AlignedRightIcon /></BpkButton>
+      </div >
     );
   }
 }

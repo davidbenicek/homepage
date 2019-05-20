@@ -1,9 +1,16 @@
 @import "~bpk-mixins";
 
 .TravelMap {
-  &__main {
+  &__container {
+    text-align: center;
+  }
+
+  &__map {
       width: 100%;
       height: 500px;
+      @include bpk-breakpoint-mobile {
+        height: 350px;
+      }
   }
   &__legend {
     text-align: center;
@@ -12,12 +19,19 @@
       margin-left: $bpk-spacing-xxl;
       margin-top: $bpk-spacing-base;
       text-align: left;
+      min-width: 300px;
     }
     &__title {
       top: -7px;
       right: -10px;
       position: relative;
 
+    }
+  }
+  &__button {
+    margin-top: $bpk-spacing-xxl;
+    @include bpk-breakpoint-mobile {
+      margin-top: $bpk-spacing-lg;
     }
   }
 }
