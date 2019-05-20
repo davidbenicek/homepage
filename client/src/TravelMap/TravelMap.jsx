@@ -50,7 +50,7 @@ class WorldMap extends React.Component {
               <rect width="30" height="30" fill="url(#stroke)" />
             </svg>
             <BpkText textStyle="lg" className={c('TravelMap__legend__title')}>Planned (4)</BpkText><br />
-            <BpkText textStyle="base" className={c('TravelMap__legend__subtitle')}>It's been booked and I'm going (soon)!</BpkText>
+            <BpkText textStyle="base" className={c('TravelMap__legend__subtitle')}>It's been booked and I'm going... soon</BpkText>
           </div>
           <div className={c('TravelMap__legend__item')}>
             <svg width="30" height="30">
