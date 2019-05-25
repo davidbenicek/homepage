@@ -1,4 +1,6 @@
-const COUNTRIES = {
+import React from 'react';
+
+export const COUNTRIES = {
   Afghanistan: 'AF',
   Angola: 'AO',
   Albania: 'AL',
@@ -94,6 +96,7 @@ const COUNTRIES = {
   Moldova: 'MD',
   Madagascar: 'MG',
   Mexico: 'MX',
+  Macau: 'MC',
   Macedonia: 'MK',
   Mali: 'ML',
   Myanmar: 'MM',
@@ -124,7 +127,7 @@ const COUNTRIES = {
   Palestine: 'PS',
   Qatar: 'QA',
   Romania: 'RO',
-  Unnamed: 'RU',
+  Russia: 'RU',
   Rwanda: 'RW',
   'Western Sahara': 'EH',
   'Saudi Arabia': 'SA',
@@ -213,8 +216,7 @@ const COUNTRIES = {
   'Canary Islands (Spain)': 'IC',
 };
 
-
-const BEEN = [
+const VISITED = [
   'Austria',
   'Belgium',
   'Bosnia and Herzegovina',
@@ -231,16 +233,19 @@ const BEEN = [
   'Germany',
   'Greece',
   'Hungary',
+  'Hong Kong',
   'Ireland',
   'Israel',
   'Italy',
   'Kenya',
   'Luxembourg',
+  'Macau',
   'Montenegro',
   'Morocco',
   'Myanmar',
   'Dem. Rep. Korea',
   'Norway',
+  'Palestine',
   'Poland',
   'Portugal',
   'Romania',
@@ -260,5 +265,73 @@ const BEEN = [
   'Vietnam',
 ];
 
+const PLANNED = [
+  'Bulgaria',
+  'Armenia',
+  'Georgia',
+  'Azerbaijan',
+];
 
-const CODES = BEEN.map(b => COUNTRIES[b] || b);
+const LIVED = [
+  'Czech Republic',
+  'Netherlands',
+  'Switzerland',
+  'United Kingdom',
+  'Hong Kong',
+  'China',
+  'Spain',
+];
+
+export const MAP_DATA = {};
+Object.keys(COUNTRIES).forEach((country) => {
+  let status = 'TODO';
+  if (PLANNED.indexOf(country) > -1) status = 'Planned';
+  if (VISITED.indexOf(country) > -1) status = 'Visited';
+  if (LIVED.indexOf(country) > -1) status = 'Lived in';
+  MAP_DATA[COUNTRIES[country]] = {
+    name: country,
+    status,
+  };
+});
+
+const legend = fill => (<svg width="30" height="30">
+  <rect width="30" height="30" fill={fill} />
+                        </svg>);
+
+export const LEGEND = [
+  {
+    name: 'TODO',
+    description: "I'll get there on day!",
+    fill: '#273E47',
+    legend,
+    data: Object.keys(COUNTRIES).filter(country => !VISITED.includes(country)),
+  },
+  {
+    name: 'Visited',
+    description: "Countries I've been to (no transfers)",
+    fill: '#D8973C',
+    legend,
+    data: VISITED,
+  },
+  {
+    name: 'Planned',
+    description: "It's been booked and I'm going... soon",
+    fill: 'url(#stroke)',
+    legend: () => (<svg width="30" height="30">
+      <defs>
+        <pattern id="stroke" patternUnits="userSpaceOnUse" width="15" height="15" patternTransform="rotate(45)">
+          <line x1="0" y="0" x2="0" y2="15" stroke="#A4243B" strokeWidth="28" />
+        </pattern>
+      </defs>
+      <rect width="30" height="30" fill="url(#stroke)" />
+                   </svg>),
+    data: PLANNED,
+  },
+  {
+    name: 'Lived',
+    description: "Places I've lived",
+    fill: '#226F54',
+    legend,
+    data: LIVED,
+  },
+];

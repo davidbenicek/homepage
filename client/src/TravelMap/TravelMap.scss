@@ -34,4 +34,19 @@
       margin-top: $bpk-spacing-lg;
     }
   }
+
+  &__button > path {
+    fill: $bpk-color-blue-500;
+  }
+
+  &__tooltip {
+    display: none;
+    background: $bpk-color-white;
+    border-radius: $bpk-border-radius-sm;
+    padding: $bpk-spacing-xs;
+    z-index: 1001;
+    box-shadow: $bpk-box-shadow-xl;
+    user-select: none;
+    pointer-events: none;
+  }
 }

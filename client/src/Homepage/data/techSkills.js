@@ -19,6 +19,16 @@ const tech = {
     level: 70,
     text: 'Proficient',
   },
+  d3: {
+    title: 'd3',
+    level: 70,
+    text: 'Proficient',
+  },
+  leaflet: {
+    title: 'Leaflet',
+    level: 70,
+    text: 'Proficient',
+  },
   aws: {
     title: 'AWS',
     level: 70,

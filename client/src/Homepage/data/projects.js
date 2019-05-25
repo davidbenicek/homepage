@@ -9,6 +9,15 @@ const proj = [
     skills: ['react', 'nodejs'],
   },
   {
+    name: 'Travel Map',
+    tagLine: 'A visual representation of my travel obsession',
+    work: false,
+    url: '/map',
+    logo: 'https://s3.eu-central-1.amazonaws.com/benicek/homepage/map.png',
+    background: 'white',
+    skills: ['react', 'nodejs', 'd3', 'leaflet'],
+  },
+  {
     name: 'Lorin',
     tagLine:
       'A travel chatbot that finds flight, hotels, attractions and tells (terrible) jokes!',
@@ -27,27 +36,6 @@ const proj = [
     logo: 'https://s3.eu-central-1.amazonaws.com/benicek/homepage/firstrep.png',
     background: '#faefe6',
     skills: ['blender', 'c#', 'ar'],
-  },
-  {
-    name: 'Content Labs*',
-    tagLine: 'Customisable pages for Skyscanner partners',
-    work: true,
-    workExplanation: '* a team project from my time at Skyscanner',
-    url: 'https://www.skyscanner.net/mp/lufthansa',
-    logo: 'https://www.skyscanner.net/sttc/blackbird/opengraph_solid.png',
-    background: 'rgb(1,178,214)',
-    skills: ['react', 'nodejs'],
-  },
-  {
-    name: 'Skyscanner Jobs Website*',
-    tagLine:
-      'A place to attract talent and familiarise users with life at Skyscanner',
-    work: true,
-    workExplanation: '* a team project from my time at Skyscanner',
-    url: 'https://www.skyscanner.net/jobs',
-    logo: 'https://www.skyscanner.net/sttc/blackbird/opengraph_solid.png',
-    background: 'rgb(1,178,214)',
-    skills: ['react', 'wordpress', 'database'],
   },
   {
     name: '...and many other small projects that never made it live',
