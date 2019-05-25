@@ -2,6 +2,7 @@ import React from 'react';
 import * as d3 from 'd3';
 import * as leaflet from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import PieChart from 'react-minimal-pie-chart';
 import BpkText from 'bpk-component-text';
 import BpkButton from 'bpk-component-button';
 import BpkLongArrowRightIcon from 'bpk-component-icon/sm/long-arrow-right';
@@ -57,7 +58,7 @@ function hideTooltip(id) {
   d3
     .select(`#${id}`)
     .transition()
-    .duration(100)
+    .duration(1000)
     .style('stroke', 'black')
     .style('stroke-width', '1.28908');
 }
@@ -66,7 +67,7 @@ function hightlightCountry(id) {
   d3
     .select(`#${id}`)
     .transition()
-    .duration(500)
+    .duration(100)
     .style('stroke', '#DA2C38')
     .style('stroke-width', '5');
 }
@@ -138,6 +139,24 @@ class WorldMap extends React.Component {
         <div className={c('TravelMap__legend')}>
           {renderLegend()}
         </div>
+        <PieChart
+          className={c('TravelMap__pie')}
+          label
+          labelStyle={{
+            fontSize: '5px',
+            fontFamily: 'sans-serif',
+          }}
+          paddingAngle={5}
+          radius={42}
+          labelPosition={60}
+          lineWidth={15}
+          animate
+          data={[
+            { title: 'TODO', value: LEGEND[0].data.length, color: LEGEND[0].fill },
+            { title: 'Visited', value: LEGEND[1].data.length, color: LEGEND[1].fill },
+            { title: 'Planned', value: LEGEND[2].data.length, color: '#A4243B' },
+          ]}
+        />
         <BpkButton secondary href="https://www.beni.tech/" className={c('TravelMap__button')} > See more of my work&nbsp;<AlignedRightIcon /></BpkButton>
       </div >
     );

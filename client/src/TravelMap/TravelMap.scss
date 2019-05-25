@@ -25,11 +25,11 @@
       top: -7px;
       right: -10px;
       position: relative;
-
     }
   }
   &__button {
     margin-top: $bpk-spacing-xxl;
+    margin-bottom: $bpk-spacing-lg;
     @include bpk-breakpoint-mobile {
       margin-top: $bpk-spacing-lg;
     }
@@ -48,5 +48,11 @@
     box-shadow: $bpk-box-shadow-xl;
     user-select: none;
     pointer-events: none;
+  }
+
+  &__pie {
+    max-width: 300px;
+    margin: auto;
+    margin-top: $bpk-spacing-base; 
   }
 }
