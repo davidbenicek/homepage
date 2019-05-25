@@ -1,7 +1,7 @@
 import React from 'react';
 import * as d3 from 'd3';
-import * as leaflet from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import * as leaflet from 'leaflet';
 import PieChart from 'react-minimal-pie-chart';
 import BpkText from 'bpk-component-text';
 import BpkButton from 'bpk-component-button';
