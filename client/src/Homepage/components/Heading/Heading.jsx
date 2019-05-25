@@ -7,7 +7,7 @@ import { HEADINGS } from '../../data';
 
 import STYLES from './Heading.scss';
 
-const c = className => STYLES[className] || 'UNKNOWN';
+const c = className =>className || 'UNKNOWN';
 
 class Heading extends React.Component {
   constructor() {

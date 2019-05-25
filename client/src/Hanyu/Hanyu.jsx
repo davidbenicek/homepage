@@ -15,7 +15,7 @@ import STYLES from './Hanyu.scss';
 const BannerAlertExpandableState = withBannerAlertState(BpkBannerAlertExpandable);
 const AlignedRightIcon = withButtonAlignment(BpkLongArrowRightIcon);
 
-const c = className => STYLES[className] || 'UNKNOWN';
+const c = className =>className || 'UNKNOWN';
 const StyledHeader = styled.header`
   background: url(https://s3.eu-central-1.amazonaws.com/benicek/kanhanzi/hero.jpg) center;
   background-size: cover;

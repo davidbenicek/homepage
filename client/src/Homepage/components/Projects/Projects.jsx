@@ -14,7 +14,7 @@ import { TECH_SKILLS, PROJECTS } from '../../data';
 
 import STYLES from './Projects.scss';
 
-const c = className => STYLES[className] || 'UNKNOWN';
+const c = className =>className || 'UNKNOWN';
 
 class Projects extends React.Component {
   constructor() {

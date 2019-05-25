@@ -9,7 +9,7 @@ import STYLES from './Contact.scss';
 
 import { CONTACT } from '../../data/contact';
 
-const c = className => STYLES[className] || 'UNKNOWN';
+const c = className =>className || 'UNKNOWN';
 
 class Contact extends React.Component {
   // eslint-disable-next-line class-methods-use-this

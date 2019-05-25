@@ -7,7 +7,7 @@ import BpkText from 'bpk-component-text';
 
 import STYLES from './Favourites.scss';
 
-const c = className => STYLES[className] || 'UNKNOWN';
+const c = className =>className || 'UNKNOWN';
 
 const openInNewTab = (url) => {
   const win = window.open(url, '_blank');

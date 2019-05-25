@@ -4,7 +4,7 @@ import { Chart } from 'react-charts';
 
 import STYLES from './WeatherChart.scss';
 
-const c = className => STYLES[className] || 'UNKNOWN';
+const c = className =>className || 'UNKNOWN';
 
 class WeatherChart extends React.Component {
   constructor() {

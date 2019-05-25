@@ -4,7 +4,7 @@ import { BpkGridRow, BpkGridColumn } from 'bpk-component-grid';
 
 import STYLES from './Toggle.scss';
 
-const c = className => STYLES[className] || 'UNKNOWN';
+const c = className =>className || 'UNKNOWN';
 
 
 class Toggle extends React.Component {

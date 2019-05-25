@@ -9,7 +9,7 @@ import { LANG_SKILLS } from '../../data';
 
 import STYLES from './Skills.scss';
 
-const c = className => STYLES[className] || 'UNKNOWN';
+const c = className =>className || 'UNKNOWN';
 
 const AlignedChevronDown = withButtonAlignment(
   withRtlSupport(BpkLargeChevronDownIcon),

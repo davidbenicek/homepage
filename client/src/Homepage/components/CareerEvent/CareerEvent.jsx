@@ -9,7 +9,7 @@ import Harmonica from '../Harmonica';
 
 import STYLES from './CareerEvent.scss';
 
-const c = className => STYLES[className] || 'UNKNOWN';
+const c = className =>className || 'UNKNOWN';
 
 class CareerEvent extends React.Component {
   renderBulletPoints() {

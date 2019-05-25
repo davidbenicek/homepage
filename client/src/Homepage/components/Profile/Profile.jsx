@@ -13,7 +13,7 @@ import { TECH_SKILLS } from '../../data';
 
 import STYLES from './Profile.scss';
 
-const c = className => STYLES[className] || 'UNKNOWN';
+const c = className =>className || 'UNKNOWN';
 
 const Profile = props => (
   <BpkGridRow

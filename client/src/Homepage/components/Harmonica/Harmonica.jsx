@@ -7,7 +7,7 @@ import BpkLargeChevronDownIcon from 'bpk-component-icon/sm/chevron-down';
 
 import STYLES from './Harmonica.scss';
 
-const c = className => STYLES[className] || 'UNKNOWN';
+const c = className =>className || 'UNKNOWN';
 
 const AlignedChevronDown = withButtonAlignment(
   withRtlSupport(BpkLargeChevronDownIcon),

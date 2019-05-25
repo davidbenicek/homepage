@@ -7,7 +7,7 @@ import STYLES from './Schooling.scss';
 
 import { SCHOOLS, MOBILE_SCHOOLS } from '../../data/schools';
 
-const c = className => STYLES[className] || 'UNKNOWN';
+const c = className =>className || 'UNKNOWN';
 
 class Schooling extends React.Component {
   // eslint-disable-next-line class-methods-use-this

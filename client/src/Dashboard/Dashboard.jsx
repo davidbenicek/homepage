@@ -11,7 +11,7 @@ import Favourites from './Favourites';
 
 import STYLES from './Dashboard.scss';
 
-const c = className => STYLES[className] || 'UNKNOWN';
+const c = className =>className || 'UNKNOWN';
 
 const WORK_FAVOURITES = [
   {

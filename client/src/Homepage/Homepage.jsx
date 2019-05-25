@@ -15,7 +15,7 @@ import STYLES from './Homepage.scss';
 
 import { SKYSCANNER, GLASGOW, WHITESTEIN } from './data/career';
 
-const c = className => STYLES[className] || 'UNKNOWN';
+const c = className =>className || 'UNKNOWN';
 
 
 class Homepage extends React.Component {

@@ -8,7 +8,7 @@ import { NAV_BAR } from '../../data';
 
 import STYLES from './NavBar.scss';
 
-const c = className => STYLES[className] || 'UNKNOWN';
+const c = className =>className || 'UNKNOWN';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class NavBar extends React.Component {

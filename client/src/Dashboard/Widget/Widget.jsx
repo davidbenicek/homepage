@@ -10,7 +10,7 @@ import { BpkLargeSpinner, SPINNER_TYPES } from 'bpk-component-spinner';
 
 import STYLES from './Widget.scss';
 
-const c = className => STYLES[className] || 'UNKNOWN';
+const c = className =>className || 'UNKNOWN';
 
 const AlignedChevronDown = withButtonAlignment(
   withRtlSupport(BpkLargeChevronDownIcon),

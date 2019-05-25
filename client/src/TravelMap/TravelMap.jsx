@@ -14,7 +14,7 @@ import STYLES from './TravelMap.scss';
 
 const AlignedRightIcon = withButtonAlignment(BpkLongArrowRightIcon);
 
-const c = className => STYLES[className] || 'UNKNOWN';
+const c = className =>className || 'UNKNOWN';
 
 function paintMap(countries, fill) {
   countries.forEach((country) => {

@@ -10,7 +10,7 @@ import { withButtonAlignment } from 'bpk-component-icon';
 import STYLES from './Footer.scss';
 
 const AlignedBpkLargeUpIcon = withButtonAlignment(BpkLargeUpIcon);
-const c = className => STYLES[className] || 'UNKNOWN';
+const c = className =>className || 'UNKNOWN';
 
 const Footer = props => (
   <BpkGridRow

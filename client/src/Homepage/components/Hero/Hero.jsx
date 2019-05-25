@@ -7,7 +7,7 @@ import BpkLargeChevronIcon from 'bpk-component-icon/lg/chevron-down';
 
 import STYLES from './Hero.scss';
 
-const c = className => STYLES[className] || 'UNKNOWN';
+const c = className =>className || 'UNKNOWN';
 
 class Hero extends React.Component {
   constructor() {

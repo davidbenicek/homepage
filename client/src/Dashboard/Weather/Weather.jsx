@@ -11,7 +11,7 @@ import WeatherChart from './WeatherChart';
 
 import STYLES from './Weather.scss';
 
-const c = className => STYLES[className] || 'UNKNOWN';
+const c = className =>className || 'UNKNOWN';
 
 const ICONS = {
   'clear-day': 'CLEAR_DAY',
