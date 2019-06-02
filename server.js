@@ -4,9 +4,11 @@ require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const enforce = require('express-sslify');
+const bodyParser = require("body-parser");
 
 const kanhanzi = require('./services/kanhanzi');
 const weather = require('./services/weather');
+const map = require('./services/map');
 
 // Start server
 const app = express();
@@ -16,6 +18,9 @@ if (process.env.ENV === 'prod')
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
 const port = Number(process.env.PORT || 5000);
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // TODO: replace with DB bind
 let VOCAB = [];
@@ -43,6 +48,27 @@ app.get('/weather', async (req, res) => {
     res.send(forecast);
   } catch (err) {
     console.log('WEATHER ERROR: ', err);
+    res.status(500).send(err);
+  }
+});
+
+app.get('/api/map/:id', async (req, res) => {
+  let { id } = req.params;
+  try {
+    const mapData = await map.getMap(id);
+    res.send(mapData);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+app.post('/api/map/:id', async (req, res) => {
+  let { id } = req.params;
+  let { countryCode, status } = req.body;
+  try {
+    const newMapData = await map.insertIntoMap(id, countryCode, status);
+    res.send(newMapData);
+  } catch (err) {
     res.status(500).send(err);
   }
 });

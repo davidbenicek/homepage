@@ -1,0 +1,54 @@
+@import "~bpk-mixins";
+
+.TravelMapFallback {
+  &__container {
+    text-align: center;
+    background: url('https://benicek.s3.eu-central-1.amazonaws.com/homepage/map_background.png');
+    width: 100vw;
+    height: 100vh;
+  }
+
+  &__blurb {
+    position: relative;
+    top: 15%;
+    text-align: left;
+    width: 70%;
+    max-width: 800px;
+    margin: auto;
+    padding: $bpk-spacing-xxl;
+    background: $bpk-color-white;
+    border-radius: $bpk-border-radius-sm;
+    box-shadow: $bpk-box-shadow-xl;
+
+    @include bpk-breakpoint-mobile {
+        width: 100%;
+    }
+  }
+
+  &__blurb > p {
+    @include bpk-breakpoint-mobile {
+        font-size: 15px;
+        line-height: 30px;
+    }
+  }
+  
+  &__button {
+    @include bpk-breakpoint-above-mobile {
+        position: relative;
+        top: 200px;
+    }
+
+    @include bpk-breakpoint-mobile {
+        position: absolute;
+        bottom: 5%;
+        left: 0;
+        height: 100px;
+        padding-top: 10%;
+        width: 100%;
+    }
+  }
+
+  &__button > path {
+    fill: $bpk-color-blue-500;
+  }
+}

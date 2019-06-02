@@ -4,6 +4,31 @@
   &__container {
     text-align: center;
   }
+  
+  &__spinner {
+    margin-top: 30%;
+  }
+
+  &__editButton {
+    width: 200px;
+    margin-top: $bpk-spacing-base;
+    margin-bottom: $bpk-spacing-sm;
+  }
+
+  &__editButton > svg {
+    margin-bottom: -5px;
+    display: inline;
+  }
+
+  &__editButton > p {
+    display: inline;
+    margin-left: 5px;
+  }
+
+  &__editBanner {
+    width: 70%;
+    margin: auto;
+  }
 
   &__map {
       width: 100%;
@@ -54,5 +79,11 @@
     max-width: 300px;
     margin: auto;
     margin-top: $bpk-spacing-base; 
+  }
+}
+
+:global {
+  #svgMap > path {
+    fill: #273E47
   }
 }

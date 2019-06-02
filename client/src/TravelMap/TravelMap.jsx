@@ -1,100 +1,99 @@
 import React from 'react';
+import axios from 'axios';
 import * as d3 from 'd3';
 import 'leaflet/dist/leaflet.css';
 import * as leaflet from 'leaflet';
 import PieChart from 'react-minimal-pie-chart';
 import BpkText from 'bpk-component-text';
 import BpkButton from 'bpk-component-button';
+import BpkBannerAlert, { ALERT_TYPES } from 'bpk-component-banner-alert';
 import BpkLongArrowRightIcon from 'bpk-component-icon/sm/long-arrow-right';
 import { withButtonAlignment } from 'bpk-component-icon';
+import { BpkExtraLargeSpinner, BpkSpinner, SPINNER_TYPES } from 'bpk-component-spinner';
+import BpkLargeEditIcon from 'bpk-component-icon/lg/edit';
+import BpkLargeTickIcon from 'bpk-component-icon/lg/tick';
+import { withLargeButtonAlignment } from 'bpk-component-icon';
 
-import { COUNTRIES, MAP_DATA, LEGEND } from './map_data';
+import { COUNTRIES, CODES, LEGEND, STATUSES } from './map_data';
 
 import STYLES from './TravelMap.scss';
 
 const AlignedRightIcon = withButtonAlignment(BpkLongArrowRightIcon);
 
-const c = className =>className || 'UNKNOWN';
+const c = className => className || 'UNKNOWN';
 
-function paintMap(countries, fill) {
-  countries.forEach((country) => {
-    d3.select(`#${COUNTRIES[country]}`).style('fill', fill);
-  });
-}
-
-const renderLegend = () => LEGEND.map(item => (
-  <div className={c('TravelMap__legend__item')}>
-    {item.legend(item.fill)}
-    <BpkText textStyle="lg" className={c('TravelMap__legend__title')} >{item.name} ({item.data.length})</BpkText><br />
-    <BpkText textStyle="base" className={c('TravelMap__legend__subtitle')}>{item.description}</BpkText>
-  </div>
-));
-
-
-function setTooltipText(id) {
-  d3
-    .select('#tooltipTitle')
-    .text(MAP_DATA[id].name);
-  d3
-    .select('#tooltipStatus')
-    .text(`Status: ${MAP_DATA[id].status}`);
-}
-
-function resetTooltip() {
-  d3
-    .select('#tooltip')
-    .style('display', 'none')
-    .style('position', 'initial');
-  d3
-    .select('#tooltipTitle')
-    .text('');
-  d3
-    .select('#tooltipStatus')
-    .text('');
-}
-
-function hideTooltip(id) {
-  resetTooltip();
-  d3
-    .select(`#${id}`)
-    .transition()
-    .duration(1000)
-    .style('stroke', 'black')
-    .style('stroke-width', '1.28908');
-}
-
-function hightlightCountry(id) {
-  d3
-    .select(`#${id}`)
-    .transition()
-    .duration(100)
-    .style('stroke', '#DA2C38')
-    .style('stroke-width', '5');
-}
-
-function renderTooltip(boundingRect, id) {
-  const { top, left } = boundingRect;
-  if (window.innerWidth < 516) {
-    resetTooltip();
-    setTooltipText(id);
-    d3
-      .select('#tooltip')
-      .style('display', 'block');
-    hightlightCountry(id);
-  } else {
-    d3
-      .select('#tooltip')
-      .style('position', 'absolute')
-      .style('display', 'block')
-      .style('top', `${top + 50}px`)
-      .style('left', `${left}px`);
-    hightlightCountry(id);
-    setTooltipText(id);
-  }
-}
 
 class WorldMap extends React.Component {
-  componentDidMount() {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      data: [],
+      stats: {},
+      loading: true,
+      edit: false,
+    };
+
+    this.componentDidMount = this.componentDidMount.bind(this);
+    this.callApiToFetchData = this.callApiToFetchData.bind(this);
+    this.paintMap = this.paintMap.bind(this);
+    this.renderLegend = this.renderLegend.bind(this);
+    this.setTooltipText = this.setTooltipText.bind(this);
+    this.resetTooltip = this.resetTooltip.bind(this);
+    this.hideTooltip = this.hideTooltip.bind(this);
+    this.hightlightCountry = this.hightlightCountry.bind(this);
+    this.renderTooltip = this.renderTooltip.bind(this);
+    this.decorateMap = this.decorateMap.bind(this);
+    this.toggleEdit = this.toggleEdit.bind(this);
+    this.render = this.render.bind(this);
+    this.postToApi = this.postToApi.bind(this);
+    this.addToMap = this.addToMap.bind(this);
+    this.renderEditBanner = this.renderEditBanner.bind(this);
+    this.renderPieChart = this.renderPieChart.bind(this);
+
+  }
+
+  async callApiToFetchData() {
+    let id = 'david';
+    if (this.props.match) id = this.props.match.params.id;
+    return await axios({
+      url: `/api/map/${id}`,
+      method: 'get',
+    });
+  }
+
+  async postToApi(countryCode, status) {
+    let id = 'david';
+    if (this.props.match) id = this.props.match.params.id;
+    return await axios.post(`/api/map/${id}`, {
+      countryCode,
+      status,
+    });
+  }
+
+  decorateMap() {
+    // paint countries on map
+    Object.keys(this.state.data).forEach(id => this.paintMap(id));
+    // add event listeners
+    const paths = d3.select('svg').selectAll('path');
+    paths.on('mouseover', (d, i) => {
+      // TODO: resolve this nasty ass hack
+      const target = paths._groups[0][i];
+      this.renderTooltip(target.getBoundingClientRect(), target.id);
+    }).on('mouseout', (d, i) => {
+      const target = paths._groups[0][i];
+      this.hideTooltip(target.id);
+    });
+  }
+
+
+  async componentDidMount() {
+    const { data: response } = await this.callApiToFetchData();
+    this.setState({
+      data: response.data,
+      stats: response.stats,
+      loading: false,
+    })
     const map = leaflet.map('image-map', {
       minZoom: 0,
       maxZoom: 5,
@@ -109,54 +108,179 @@ class WorldMap extends React.Component {
     const bounds = new leaflet.LatLngBounds(southWest, northEast);
     map.setMaxBounds(bounds);
 
-    d3.xml('/world.svg').then((svg) => {
+    d3.xml('/world.svg').then(svg => {
       leaflet.svgOverlay(svg.documentElement, bounds, {
         interactive: true,
       }).addTo(map);
-      // paint countries on map
-      LEGEND.forEach(status => paintMap(status.data, status.fill));
-      // add event listeners
-      const paths = d3.select('svg').selectAll('path');
-      paths.on('mouseover', (d, i) => {
-        // TODO: resolve this nasty ass hack
-        const target = paths._groups[0][i];
-        renderTooltip(target.getBoundingClientRect(), target.id);
-      }).on('mouseout', (d, i) => {
-        const target = paths._groups[0][i];
-        hideTooltip(target.id);
-      });
+      this.decorateMap();
     });
   }
 
+  paintMap(country) {
+    const { fill } = LEGEND[this.state.data[country]];
+    d3.select(`#${country}`).style('fill', fill);
+  }
+
+  async addToMap(id) {
+    this.setState({
+      adding: true,
+    })
+    const { data } = this.state;
+    let status = data[id] || 'TODO';
+    const index = (STATUSES.indexOf(status) + 1) % 4;
+    status = STATUSES[index];
+    const response = await this.postToApi(id, status);
+    debugger; // eslint-disable-line
+    this.setState({
+      data: response.data.data,
+      stat: response.data.stat,
+      adding: false,
+    })
+    this.setTooltipText(id);
+  }
+
+  renderEditBanner() {
+    return <BpkBannerAlert
+      message="Click to update the map. Refresh to see full update."
+      type={ALERT_TYPES.WARN}
+      className={c('TravelMap__editBanner')}
+      animateOnEnter
+    />
+  }
+
+  renderPieChart() {
+    const { stats } = this.state;
+    return <PieChart
+      className={c('TravelMap__pie')}
+      label
+      labelStyle={{
+        fontSize: '5px',
+        fontFamily: 'sans-serif',
+      }}
+      paddingAngle={5}
+      radius={42}
+      labelPosition={60}
+      lineWidth={15}
+      animate
+      data={[
+        { title: 'TODO', value: stats.TODO || 0, color: LEGEND.TODO.fill },
+        { title: 'Visited', value: stats.Visited || 0, color: LEGEND.Visited.fill },
+        { title: 'Lived', value: stats.Lived || 0, color: LEGEND.Lived.fill },
+        { title: 'Planned', value: stats.Planned || 0, color: '#A4243B' },
+      ]}
+    />
+  }
+
+  toggleEdit() {
+    const { edit } = this.state;
+    console.log('xx', edit);
+    if (!edit) {
+      const paths = d3.select('svg').selectAll('path')
+      paths.on('click', (d, i) => {
+        // TODO: resolve this nasty ass hack
+        const target = paths._groups[0][i];
+        this.addToMap(target.id);
+      })
+    } else {
+      d3.select('svg').selectAll('path').on('click', null);
+    }
+    this.setState({
+      edit: !edit,
+    })
+  }
+
+  renderLegend = () => Object.keys(LEGEND).map(item => (
+    <div className={c('TravelMap__legend__item')}>
+      {LEGEND[item].legend(LEGEND[item].fill)}
+      <BpkText textStyle="lg" className={c('TravelMap__legend__title')} >{LEGEND[item].name} ({this.state.stats[item]})</BpkText><br />
+      <BpkText textStyle="base" className={c('TravelMap__legend__subtitle')}>{LEGEND[item].description}</BpkText>
+    </div>
+  ));
+
+
+  setTooltipText(id) {
+    d3
+      .select('#tooltipTitle')
+      .text(CODES[id]);
+    d3
+      .select('#tooltipStatus')
+      .text(`Status: ${this.state.data[id] || 'todo'}`);
+  }
+
+  resetTooltip() {
+    d3
+      .select('#tooltip')
+      .style('display', 'none')
+      .style('position', 'initial');
+    d3
+      .select('#tooltipTitle')
+      .text('');
+    d3
+      .select('#tooltipStatus')
+      .text('');
+  }
+
+  hideTooltip(id) {
+    this.resetTooltip();
+    d3
+      .select(`#${id}`)
+      .transition()
+      .duration(1000)
+      .style('stroke', 'black')
+      .style('stroke-width', '1.28908');
+  }
+
+  hightlightCountry(id) {
+    d3
+      .select(`#${id}`)
+      .transition()
+      .duration(100)
+      .style('stroke', '#DA2C38')
+      .style('stroke-width', '5');
+  }
+
+  renderTooltip(boundingRect, id) {
+    const { top, left } = boundingRect;
+    if (window.innerWidth < 516) {
+      this.resetTooltip();
+      this.setTooltipText(id);
+      d3
+        .select('#tooltip')
+        .style('display', 'block');
+      this.hightlightCountry(id);
+    } else {
+      d3
+        .select('#tooltip')
+        .style('position', 'absolute')
+        .style('display', 'block')
+        .style('top', `${top + 50}px`)
+        .style('left', `${left}px`);
+      this.hightlightCountry(id);
+      this.setTooltipText(id);
+    }
+  }
+
   render() {
+    const { loading, edit, adding } = this.state;
+    this.decorateMap();
     return (
       <div className={c('TravelMap__container')} >
-        <div id="image-map" className={c('TravelMap__map')} />
+        <div id="image-map" className={!loading && c('TravelMap__map')} />
+        {loading && <div className={loading && c('TravelMap__map')}>
+          <BpkExtraLargeSpinner className={c('TravelMap__spinner')} type={SPINNER_TYPES.dark} />
+        </div>}
         <div id="tooltip" className={c('TravelMap__tooltip')}>
           <BpkText textStyle="base" id="tooltipTitle" className={c('TravelMap__tooltip__title')} /><br />
           <BpkText textStyle="sm" id="tooltipStatus" className={c('TravelMap__tooltip__status')} />
         </div>
-        <div className={c('TravelMap__legend')}>
-          {renderLegend()}
-        </div>
-        <PieChart
-          className={c('TravelMap__pie')}
-          label
-          labelStyle={{
-            fontSize: '5px',
-            fontFamily: 'sans-serif',
-          }}
-          paddingAngle={5}
-          radius={42}
-          labelPosition={60}
-          lineWidth={15}
-          animate
-          data={[
-            { title: 'TODO', value: LEGEND[0].data.length, color: LEGEND[0].fill },
-            { title: 'Visited', value: LEGEND[1].data.length, color: LEGEND[1].fill },
-            { title: 'Planned', value: LEGEND[2].data.length, color: '#A4243B' },
-          ]}
-        />
+        <BpkButton secondary onClick={this.toggleEdit} className={c('TravelMap__editButton')}>
+          {!edit ? <><p>Edit</p><BpkLargeEditIcon /></> : <>{adding && <BpkSpinner />}<p>Stop edit</p><BpkLargeTickIcon /></>}
+        </BpkButton>
+        {edit && this.renderEditBanner()}
+        {!loading && (<div className={c('TravelMap__legend')}>
+          {this.renderLegend()}
+        </div>)}
+        {!loading && this.renderPieChart()}
         <BpkButton secondary href="https://www.beni.tech/" className={c('TravelMap__button')} > See more of my work&nbsp;<AlignedRightIcon /></BpkButton>
       </div >
     );
