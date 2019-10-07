@@ -1,0 +1,9 @@
+@import "~bpk-mixins";
+
+.Stats {
+  &__pie {
+    max-width: 300px;
+    margin: auto;
+    margin-top: $bpk-spacing-base; 
+  }
+}

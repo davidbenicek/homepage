@@ -13,7 +13,8 @@
         "node-cmd": "^3.0.0",
         "pg": "^7.11.0",
         "request": "^2.83.0",
-        "request-promise": "^4.2.2"
+        "request-promise": "^4.2.2",
+        "skyscanner-promise-browse": "^1.0.3"
     },
     "devDependencies": {
         "bpk-component-badge": "^1.1.67",

@@ -15,6 +15,10 @@
     margin-bottom: $bpk-spacing-sm;
   }
 
+  &__plusPlanned { 
+    white-space: nowrap;
+  }
+
   &__editButton > svg {
     margin-bottom: -5px;
     display: inline;
@@ -28,6 +32,7 @@
   &__editBanner {
     width: 70%;
     margin: auto;
+    margin-bottom: $bpk-spacing-base;
   }
 
   &__map {
@@ -36,6 +41,10 @@
       @include bpk-breakpoint-mobile {
         height: 350px;
       }
+  }
+
+  &__map__extended {
+    height: 750px;
   }
   &__legend {
     text-align: center;
@@ -75,10 +84,9 @@
     pointer-events: none;
   }
 
-  &__pie {
-    max-width: 300px;
-    margin: auto;
-    margin-top: $bpk-spacing-base; 
+  &__collapseButton {
+    transform: rotate(90deg);
+    float: right;
   }
 }
 

@@ -3,7 +3,7 @@ import axios from 'axios';
 import * as d3 from 'd3';
 import 'leaflet/dist/leaflet.css';
 import * as leaflet from 'leaflet';
-import PieChart from 'react-minimal-pie-chart';
+import BpkHorizontalNav, { BpkHorizontalNavItem } from 'bpk-component-horizontal-nav';
 import BpkText from 'bpk-component-text';
 import BpkButton from 'bpk-component-button';
 import BpkBannerAlert, { ALERT_TYPES } from 'bpk-component-banner-alert';
@@ -12,12 +12,17 @@ import { withButtonAlignment } from 'bpk-component-icon';
 import { BpkExtraLargeSpinner, BpkSpinner, SPINNER_TYPES } from 'bpk-component-spinner';
 import BpkLargeEditIcon from 'bpk-component-icon/lg/edit';
 import BpkLargeTickIcon from 'bpk-component-icon/lg/tick';
+import BpkLargeSwapVertical from 'bpk-component-icon/lg/swap';
 import { withLargeButtonAlignment } from 'bpk-component-icon';
+
+import Flights from './Flights';
+import Stats from './Stats';
 
 import { COUNTRIES, CODES, LEGEND, STATUSES } from './map_data';
 
 import STYLES from './TravelMap.scss';
 
+const AlignedSwapVertical = withLargeButtonAlignment(BpkLargeSwapVertical);
 const AlignedRightIcon = withButtonAlignment(BpkLongArrowRightIcon);
 
 const c = className => className || 'UNKNOWN';
@@ -30,11 +35,15 @@ class WorldMap extends React.Component {
     this.state = {
       data: [],
       stats: {},
+      flights: [],
       loading: true,
       edit: false,
+      collapsed: false,
+      selectedNavSegment: 'stats',
     };
 
     this.componentDidMount = this.componentDidMount.bind(this);
+    this.queryApi = this.queryApi.bind(this);
     this.callApiToFetchData = this.callApiToFetchData.bind(this);
     this.paintMap = this.paintMap.bind(this);
     this.renderLegend = this.renderLegend.bind(this);
@@ -49,16 +58,22 @@ class WorldMap extends React.Component {
     this.postToApi = this.postToApi.bind(this);
     this.addToMap = this.addToMap.bind(this);
     this.renderEditBanner = this.renderEditBanner.bind(this);
-    this.renderPieChart = this.renderPieChart.bind(this);
-
+    this.onNavBarClick = this.onNavBarClick.bind(this);
+    this.renderNavBar = this.renderNavBar.bind(this);
+    this.toggleCollapse = this.toggleCollapse.bind(this);
+    this.drawMap = this.drawMap.bind(this);
+    this.onNewSearch = this.onNewSearch.bind(this);
   }
 
-  async callApiToFetchData() {
+  async callApiToFetchData(search) {
     let id = 'david';
     if (this.props.match) id = this.props.match.params.id;
     return await axios({
       url: `/api/map/${id}`,
       method: 'get',
+      params: {
+        ...search
+      }
     });
   }
 
@@ -86,14 +101,29 @@ class WorldMap extends React.Component {
     });
   }
 
-
-  async componentDidMount() {
-    const { data: response } = await this.callApiToFetchData();
+  async queryApi(search) {
+    const { data: response } = await this.callApiToFetchData(search);
     this.setState({
       data: response.data,
+      flights: response.flights,
       stats: response.stats,
       loading: false,
+    });
+  }
+
+  async componentDidMount() {
+    await this.queryApi()
+    this.drawMap();
+  }
+
+  async onNewSearch(search) {
+    this.setState({
+      flights: [],
     })
+    this.queryApi(search);
+  }
+
+  drawMap() {
     const map = leaflet.map('image-map', {
       minZoom: 0,
       maxZoom: 5,
@@ -130,10 +160,9 @@ class WorldMap extends React.Component {
     const index = (STATUSES.indexOf(status) + 1) % 4;
     status = STATUSES[index];
     const response = await this.postToApi(id, status);
-    debugger; // eslint-disable-line
     this.setState({
       data: response.data.data,
-      stat: response.data.stat,
+      stats: response.data.stats,
       adding: false,
     })
     this.setTooltipText(id);
@@ -141,33 +170,10 @@ class WorldMap extends React.Component {
 
   renderEditBanner() {
     return <BpkBannerAlert
-      message="Click to update the map. Refresh to see full update."
+      message="You are now editing the map! Please make sure it's your own"
       type={ALERT_TYPES.WARN}
       className={c('TravelMap__editBanner')}
       animateOnEnter
-    />
-  }
-
-  renderPieChart() {
-    const { stats } = this.state;
-    return <PieChart
-      className={c('TravelMap__pie')}
-      label
-      labelStyle={{
-        fontSize: '5px',
-        fontFamily: 'sans-serif',
-      }}
-      paddingAngle={5}
-      radius={42}
-      labelPosition={60}
-      lineWidth={15}
-      animate
-      data={[
-        { title: 'TODO', value: stats.TODO || 0, color: LEGEND.TODO.fill },
-        { title: 'Visited', value: stats.Visited || 0, color: LEGEND.Visited.fill },
-        { title: 'Lived', value: stats.Lived || 0, color: LEGEND.Lived.fill },
-        { title: 'Planned', value: stats.Planned || 0, color: '#A4243B' },
-      ]}
     />
   }
 
@@ -187,6 +193,12 @@ class WorldMap extends React.Component {
     this.setState({
       edit: !edit,
     })
+  }
+
+  toggleCollapse() {
+    this.setState({
+      collapsed: !this.state.collapsed,
+    });
   }
 
   renderLegend = () => Object.keys(LEGEND).map(item => (
@@ -260,12 +272,42 @@ class WorldMap extends React.Component {
     }
   }
 
+  onNavBarClick = (e) => {
+    this.setState({
+      selectedNavSegment: e.target.name,
+    });
+  }
+
+  renderNavBar() {
+    const { selectedNavSegment } = this.state;
+    return (
+      <BpkHorizontalNav>
+        <BpkHorizontalNavItem
+          name="stats"
+          selected={selectedNavSegment === 'stats'}
+          onClick={this.onNavBarClick}
+          spaceAround
+        >
+          Statistics
+        </BpkHorizontalNavItem>
+        <BpkHorizontalNavItem
+          name="flights"
+          selected={selectedNavSegment === 'flights'}
+          onClick={this.onNavBarClick}
+          spaceAround
+        >
+          Flights
+        </BpkHorizontalNavItem>
+      </BpkHorizontalNav>
+    );
+  }
+
   render() {
-    const { loading, edit, adding } = this.state;
+    const { loading, edit, adding, selectedNavSegment, stats, flights, collapsed } = this.state;
     this.decorateMap();
     return (
       <div className={c('TravelMap__container')} >
-        <div id="image-map" className={!loading && c('TravelMap__map')} />
+        <div id="image-map" className={`${!loading && c('TravelMap__map')} ${collapsed ? c('TravelMap__map__extended') : ''}`} />
         {loading && <div className={loading && c('TravelMap__map')}>
           <BpkExtraLargeSpinner className={c('TravelMap__spinner')} type={SPINNER_TYPES.dark} />
         </div>}
@@ -273,15 +315,24 @@ class WorldMap extends React.Component {
           <BpkText textStyle="base" id="tooltipTitle" className={c('TravelMap__tooltip__title')} /><br />
           <BpkText textStyle="sm" id="tooltipStatus" className={c('TravelMap__tooltip__status')} />
         </div>
-        <BpkButton secondary onClick={this.toggleEdit} className={c('TravelMap__editButton')}>
-          {!edit ? <><p>Edit</p><BpkLargeEditIcon /></> : <>{adding && <BpkSpinner />}<p>Stop edit</p><BpkLargeTickIcon /></>}
-        </BpkButton>
-        {edit && this.renderEditBanner()}
-        {!loading && (<div className={c('TravelMap__legend')}>
-          {this.renderLegend()}
-        </div>)}
-        {!loading && this.renderPieChart()}
-        <BpkButton secondary href="https://www.beni.tech/" className={c('TravelMap__button')} > See more of my work&nbsp;<AlignedRightIcon /></BpkButton>
+        <div className={c('TravelMap__menu')} >
+          {/* <BpkButton iconOnly secondary onClick={this.toggleCollapse} className={c('TravelMap__collapseButton')}>
+            <AlignedSwapVertical />
+          </BpkButton> */}
+          {collapsed ? null : <div>
+            <BpkButton secondary onClick={this.toggleEdit} className={c('TravelMap__editButton')}>
+              {!edit ? <><p>Edit</p><BpkLargeEditIcon /></> : <>{adding && <BpkSpinner />}<p>Stop edit</p><BpkLargeTickIcon /></>}
+            </BpkButton>
+            {edit && this.renderEditBanner()}
+            {!loading && (<div className={c('TravelMap__legend')}>
+              {stats ? <div><BpkText textStyle="lg" >Total Countries Visited: {stats.Total} </BpkText><BpkText className={c('TravelMap__plusPlanned')} textStyle="sm">(+{stats.Planned} planned)</BpkText><br /></div> : null}
+              {this.renderLegend()}
+            </div>)}
+            {!loading && this.renderNavBar()}
+            {loading ? null : selectedNavSegment === 'stats' ? <Stats stats={stats} /> : <Flights flights={flights} onNewSearch={this.onNewSearch} />}
+            <BpkButton secondary href="https://www.beni.tech/" className={c('TravelMap__button')} > See more of my work&nbsp;<AlignedRightIcon /></BpkButton>
+          </div>}
+        </div>
       </div >
     );
   }
