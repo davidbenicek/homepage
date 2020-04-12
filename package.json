@@ -1,6 +1,6 @@
 {
     "scripts": {
-        "start": "nvm use && node server",
+        "start": "node server",
         "dev:start": "node server & cd client && npm start",
         "heroku-postbuild": "cd client && npm i && npm run build"
     },
