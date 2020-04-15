@@ -7,6 +7,7 @@ import Dashboard from './Dashboard';
 import TravelMap from './TravelMap';
 import TravelMapFallback from './TravelMap/Fallback';
 import Hanyu from './Hanyu';
+import TruthOrDrink from './TruthOrDrink';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class App extends React.Component {
@@ -20,6 +21,7 @@ class App extends React.Component {
           <Route path="/map" component={TravelMapFallback} />
           <Route path="/kanhanzi" component={Hanyu} />
           <Route path="/hanyu" component={Hanyu} />
+          <Route path="/truthordrink" component={TruthOrDrink} />
         </Switch>
       </Router>
     );

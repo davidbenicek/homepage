@@ -9,6 +9,7 @@ const bodyParser = require("body-parser");
 const kanhanzi = require('./services/kanhanzi');
 const weather = require('./services/weather');
 const map = require('./services/map');
+const truthOrDrink = require('./services/truthOrDrink');
 
 // Start server
 const app = express();
@@ -69,6 +70,24 @@ app.post('/api/map/:id', async (req, res) => {
   try {
     const newMapData = await map.insertIntoMap(id, countryCode, status);
     res.send(newMapData);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+app.get('/api/truthordrink/:cat', async (req, res) => {
+  try {
+    const question = await truthOrDrink.selectRandom(req.params.cat)
+    res.send(question);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+app.get('/api/truthordrink', async (req, res) => {
+  try {
+    const question = await truthOrDrink.selectRandom()
+    res.send(question);
   } catch (err) {
     res.status(500).send(err);
   }
