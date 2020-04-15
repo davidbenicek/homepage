@@ -26,9 +26,22 @@
       display: flex;
       justify-content: space-around;
       margin-bottom: $bpk-spacing-lg;
+      @include bpk-breakpoint-mobile {
+        flex-wrap: wrap;
+      }
     }
     &__card {
       width: 20%;
+      @include bpk-breakpoint-mobile {
+        width: 100%;
+        margin-bottom: $bpk-spacing-sm;
+      }
+    }
+
+    &__subtitle {
+      @include bpk-breakpoint-mobile {
+        display: none;
+      }
     }
   }
 
