@@ -1,11 +1,12 @@
 const skyscanner = require('skyscanner-promise-browse')
+const crypto = require('crypto')
 const db = require('./database');
 
 const getMap = async (mapName, origin, outbound, inbound) => {
     try {
         const data = {};
-        const { rows: todo } = await db.query(`SELECT * FROM locations WHERE map_name = $1 AND status = 'TODO'`, [mapName])
-        const { rows: planned } = await db.query(`SELECT country_code FROM locations WHERE map_name = $1 AND status = 'Planned'`, [mapName])
+        const { rows: todo } = await db.query(`SELECT * FROM locations WHERE map_name = $1 AND status = 'TODO';`, [mapName])
+        const { rows: planned } = await db.query(`SELECT country_code FROM locations WHERE map_name = $1 AND status = 'Planned';`, [mapName])
         const { rows: visited } = await db.query(`SELECT country_code FROM locations WHERE map_name = $1 AND status = 'Visited';`, [mapName])
         const { rows: lived } = await db.query(`SELECT country_code FROM locations WHERE map_name = $1 AND status = 'Lived'`, [mapName])
         const todoCountrycCodes = todo.map(x => x.country_code);
@@ -29,6 +30,12 @@ const getMap = async (mapName, origin, outbound, inbound) => {
         console.log(err);
         throw new Error('Error while getting map');
     }
+}
+
+const getAllMaps = async () => {
+    const { rows } = await db.query(`SELECT DISTINCT map_name FROM locations;`);
+
+    return rows.map(({ map_name }) => crypto.createHash('sha1').update(map_name).digest('hex'));
 }
 
 const getSortedFlights = async (origin, outbound, inbound, countries) => {
@@ -96,6 +103,7 @@ const insertIntoMap = async (mapName, countryCode, status) => {
 
 module.exports = {
     getMap,
+    getAllMaps,
     insertIntoMap,
 };
 

@@ -3,19 +3,22 @@
 .TravelMapFallback {
   &__container {
     text-align: center;
-    background: url('https://benicek.s3.eu-central-1.amazonaws.com/homepage/map_background.png');
     width: 100vw;
     height: 100vh;
+    background: url(https://benicek.s3.eu-central-1.amazonaws.com/homepage/map_background.png) center center no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    padding: $bpk-spacing-base;
   }
 
   &__blurb {
-    position: relative;
-    top: 15%;
     text-align: left;
     width: 70%;
     max-width: 800px;
-    margin: auto;
-    padding: $bpk-spacing-xxl;
+    padding: $bpk-spacing-xl;
     background: $bpk-color-white;
     border-radius: $bpk-border-radius-sm;
     box-shadow: $bpk-box-shadow-xl;
@@ -32,20 +35,24 @@
     }
   }
   
-  &__button {
+  &__navigation {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    
     @include bpk-breakpoint-above-mobile {
-        position: relative;
-        top: 200px;
+        // width: 400px;
+        // margin: auto;
+        // margin-top: $bpk-spacing-xxl;
     }
 
     @include bpk-breakpoint-mobile {
-        position: absolute;
-        bottom: 5%;
-        left: 0;
-        height: 100px;
-        padding-top: 10%;
-        width: 100%;
+      // margin-top: $bpk-spacing-base;
     }
+  }
+
+  &__myMap {
+    margin-top: $bpk-spacing-sm;
   }
 
   &__button > path {

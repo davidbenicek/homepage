@@ -53,6 +53,15 @@ app.get('/weather', async (req, res) => {
   }
 });
 
+app.get('/api/allMaps', async (req, res) => {
+  try {
+    const mapData = await map.getAllMaps();
+    res.send(mapData);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
 app.get('/api/map/:id', async (req, res) => {
   let { id } = req.params;
   let { origin, outbound, inbound } = req.query;
