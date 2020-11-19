@@ -11,18 +11,18 @@ const lang = [
   },
   {
     title: 'German',
-    level: 70,
-    text: 'Fluent',
-  },
-  {
-    title: 'Chinese',
-    level: 50,
-    text: 'Semi-fluent',
+    level: 65,
+    text: 'Intermediate',
   },
   {
     title: 'Spanish',
-    level: 25,
-    text: 'Beginner',
+    level: 65,
+    text: 'Intermediate',
+  },
+  {
+    title: 'Chinese',
+    level: 40,
+    text: 'Semi-fluent',
   },
 ];
 
