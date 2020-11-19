@@ -23,8 +23,8 @@ export const SCHOOLS = [
     period: '(Sep. 2008 - Jun. 2013)',
   },
   {
-    name: 'Fudan University, Shangai',
-    degree: 'Internationl Summer Session',
+    name: 'Fudan University, Shanghai',
+    degree: 'International Summer Session',
     period: '(Jul. 2018 - Aug. 2018)',
   },
 ];
@@ -36,8 +36,8 @@ export const MOBILE_SCHOOLS = [
     period: '(Sep. 2017 - Sep. 2018)',
   },
   {
-    name: 'Fudan University, Shangai',
-    degree: 'Internationl Summer Session',
+    name: 'Fudan University, Shanghai',
+    degree: 'International Summer Session',
     period: '(Jul. 2018 - Aug. 2018)',
   },
   {
