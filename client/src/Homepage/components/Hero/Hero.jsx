@@ -7,7 +7,7 @@ import BpkLargeChevronIcon from 'bpk-component-icon/lg/chevron-down';
 
 import STYLES from './Hero.scss';
 
-const c = className =>className || 'UNKNOWN';
+const c = className => className || 'UNKNOWN';
 
 class Hero extends React.Component {
   constructor() {
@@ -43,7 +43,7 @@ class Hero extends React.Component {
       <BpkGridColumn width={6} mobileWidth={12} className={c('Hero__textBlock')}>
         <div className={c('Hero__textContainer')}>
           <BpkText tagName="h1" textStyle="xxl" className={c('Hero__heading')}>David Beníček</BpkText>
-          <BpkText tagName="h2" textStyle="xl" className={c('Hero__subheading')}>Software Engineer at Skyscanner</BpkText>
+          <BpkText tagName="h2" textStyle="xl" className={c('Hero__subheading')}>Software Engineer II at Skyscanner</BpkText>
           <div className={c('Hero__more')} onClick={() => { this.props.scrollTo('profile', 'start'); }}>
             <BpkText tagName="p" textStyle="base" >Find out more</BpkText>
             <BpkLargeChevronIcon className={c('Hero__chevron')} />

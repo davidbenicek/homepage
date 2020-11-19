@@ -1,7 +1,7 @@
 export const SKYSCANNER = {
   bannerImage: 'https://s3.eu-central-1.amazonaws.com/benicek/homepage/skyline.jpg',
   organisation: 'Skyscanner',
-  position: 'Software Engineer',
+  position: 'Software Engineer II',
   dates: 'June 2016 - Present',
   text:
     [
