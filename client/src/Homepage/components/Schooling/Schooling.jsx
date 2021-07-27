@@ -2,12 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { BpkGridRow, BpkGridColumn } from 'bpk-component-grid';
 import BpkText from 'bpk-component-text';
+import window from 'global'
 
 import STYLES from './Schooling.scss';
 
 import { SCHOOLS, MOBILE_SCHOOLS } from '../../data/schools';
 
-const c = className =>className || 'UNKNOWN';
+const c = className => className || 'UNKNOWN';
 
 class Schooling extends React.Component {
   // eslint-disable-next-line class-methods-use-this
@@ -36,15 +37,15 @@ class Schooling extends React.Component {
             {school.grade}
           </BpkText>
         ) : (
-          ''
-        )}
+            ''
+          )}
         {school.period ? (
           <BpkText tagName="span" textStyle="sm">
             {school.period}
           </BpkText>
         ) : (
-          ''
-        )}
+            ''
+          )}
       </BpkGridColumn>
     ));
   }
@@ -54,9 +55,9 @@ class Schooling extends React.Component {
         className={`
           ${c('Schooling__row')}
           ${
-            this.props.visible
-              ? c('Schooling__visible')
-              : c('Schooling__invisible')
+          this.props.visible
+            ? c('Schooling__visible')
+            : c('Schooling__invisible')
           }
         `}
       >

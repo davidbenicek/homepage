@@ -2,12 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { BpkGridRow } from 'bpk-component-grid';
 import BpkText from 'bpk-component-text';
+import window from 'global'
 
 import { HEADINGS } from '../../data';
 
 import STYLES from './Heading.scss';
 
-const c = className =>className || 'UNKNOWN';
+const c = className => className || 'UNKNOWN';
 
 class Heading extends React.Component {
   constructor() {
@@ -62,7 +63,7 @@ class Heading extends React.Component {
             {name}
           </BpkText>
         ) : (
-          <span />
+            <span />
           )}
         <div
           className={c('Heading__intersectionPixel')}

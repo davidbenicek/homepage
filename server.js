@@ -1,6 +1,8 @@
 'use strict'
 //Lib imports
 require('dotenv').config();
+const React = require('react');
+const ReactDOMServer = require('react-dom/server');
 const express = require('express');
 const path = require('path');
 const enforce = require('express-sslify');
@@ -11,13 +13,15 @@ const weather = require('./services/weather');
 const map = require('./services/map');
 const truthOrDrink = require('./services/truthOrDrink');
 
+
+const components = require('./client/build/ssr').default;
+
 // Start server
 const app = express();
 // Enforce SLL
 if (process.env.ENV === 'prod')
   app.use(enforce.HTTPS({ trustProtoHeader: true }));
 // Serve static files from the React app
-app.use(express.static(path.join(__dirname, 'client/build')));
 const port = Number(process.env.PORT || 5000);
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -30,6 +34,16 @@ kanhanzi.getVocab().then((vocab) => {
 }).catch((err) => {
   console.log(err);
 });
+
+
+app.get('/', (req, res) => {
+  console.log('hello');
+  const element = React.createElement(components.App);
+  const html = ReactDOMServer.renderToString(element);
+  console.log('html', html);
+  res.render('index', { html });
+});
+
 
 app.get('/char', (req, res) => {
   let { level } = req.query;
@@ -100,13 +114,6 @@ app.get('/api/truthordrink', async (req, res) => {
   } catch (err) {
     res.status(500).send(err);
   }
-});
-
-
-// The "catchall" handler: for any request that doesn't
-// match one above, send back React's index.html file.
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname + '/client/build/index.html'));
 });
 
 app.listen(port);

@@ -10,6 +10,7 @@ import { BpkExtraLargeSpinner, BpkSpinner, SPINNER_TYPES } from 'bpk-component-s
 import BpkLongArrowRightIcon from 'bpk-component-icon/lg/long-arrow-right';
 import BpkLargeTickIcon from 'bpk-component-icon/lg/tick';
 import { withLargeButtonAlignment } from 'bpk-component-icon';
+import window from 'global'
 
 import DatePicker from './DatePicker';
 

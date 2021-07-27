@@ -14,6 +14,7 @@ import BpkLargeEditIcon from 'bpk-component-icon/lg/edit';
 import BpkLargeTickIcon from 'bpk-component-icon/lg/tick';
 import BpkLargeSwapVertical from 'bpk-component-icon/lg/swap';
 import { withLargeButtonAlignment } from 'bpk-component-icon';
+import window from 'global'
 
 import Flights from './Flights';
 import Stats from './Stats';

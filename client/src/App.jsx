@@ -1,13 +1,22 @@
-import React from 'react';
+import React, from 'react';
+import loadable from '@loadable/component'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 // Internal imports
-import Homepage from './Homepage';
-import Dashboard from './Dashboard';
-import TravelMap from './TravelMap';
-import TravelMapFallback from './TravelMap/Fallback';
-import Hanyu from './Hanyu';
-import TruthOrDrink from './TruthOrDrink';
+// import Homepage from './Homepage';
+// import Dashboard from './Dashboard';
+// import TravelMap from './TravelMap';
+// import TravelMapFallback from './TravelMap/Fallback';
+// import Hanyu from './Hanyu';
+// import TruthOrDrink from './TruthOrDrink';
+
+
+const Homepage = loadable(() => import('./Homepage'));
+const Dashboard = loadable(() => import('./Dashboard'));
+const TravelMap = loadable(() => import('./TravelMap'));
+const TravelMapFallback = loadable(() => import('./TravelMap/Fallback'));
+const Hanyu = loadable(() => import('./Hanyu'));
+const TruthOrDrink = loadable(() => import('./TruthOrDrink'));
 
 // eslint-disable-next-line react/prefer-stateless-function
 class App extends React.Component {

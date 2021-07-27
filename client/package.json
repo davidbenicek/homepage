@@ -14,6 +14,7 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
+    "@loadable/component": "^5.12.0",
     "axios": "^0.18.1",
     "backpack-react-scripts": "^7.0.5",
     "bpk-component-badge": "^1.3.2",
@@ -40,6 +41,7 @@
     "bpk-stylesheets": "^3.4.2",
     "crypto": "^1.0.1",
     "d3": "^5.15.1",
+    "global": "^4.4.0",
     "intersection-observer": "^0.5.1",
     "leaflet": "^1.6.0",
     "moment": "^2.24.0",
@@ -57,7 +59,11 @@
   },
   "proxy": "http://localhost:5000/",
   "backpack-react-scripts": {
-    "cssModules": false
+    "cssModules": false,
+    "babelIncludePrefixes": [
+      "react-skycons",
+      "some-module"
+    ]
   },
   "engines": {
     "node": "12.16.x"

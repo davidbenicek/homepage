@@ -9,12 +9,13 @@ import BpkBreakpoint, { BREAKPOINTS } from 'bpk-component-breakpoint';
 import styled from 'styled-components';
 import BpkBannerAlert, { ALERT_TYPES } from 'bpk-component-banner-alert';
 import BpkBadge, { BADGE_TYPES } from 'bpk-component-badge';
+import window from 'global'
 
 import { TECH_SKILLS, PROJECTS } from '../../data';
 
 import STYLES from './Projects.scss';
 
-const c = className =>className || 'UNKNOWN';
+const c = className => className || 'UNKNOWN';
 
 class Projects extends React.Component {
   constructor() {

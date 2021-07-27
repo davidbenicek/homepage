@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import Skycons from 'react-skycons';
+// import Skycons from 'react-skycons';
 import moment from 'moment';
 
 import { BpkGridRow, BpkGridColumn } from 'bpk-component-grid';
@@ -11,7 +11,7 @@ import WeatherChart from './WeatherChart';
 
 import STYLES from './Weather.scss';
 
-const c = className =>className || 'UNKNOWN';
+const c = className => className || 'UNKNOWN';
 
 const ICONS = {
   'clear-day': 'CLEAR_DAY',
@@ -78,12 +78,12 @@ class Weather extends React.Component {
     return (
       <BpkGridColumn width={3} className={c(`Weather__${type}DayColumn`)}>
         <BpkText tagName="h3" textStyle="lg" className={c('Weather__date')}>{date.format('ddd Do')}</BpkText>
-        <Skycons
+        {/* <Skycons
           className={c(`Weather__${type}Icon`)}
           color="#524c61"
           icon={ICONS[forecast.icon]}
           autoplay
-        />
+        /> */}
         <BpkText tagName="h3" textStyle="base" className={c('Weather__temperature')}>{forecast.temperature ? `${forecast.temperature}°` : `${forecast.apparentTemperatureLow}° - ${forecast.apparentTemperatureHigh}°`}</BpkText>
         {/* TODO: Move to tooltip */}
         {/* <BpkText tagName="h3" textStyle="base" className={c('Weather__state')}>{forecast.summary}</BpkText> */}

@@ -1,7 +1,13 @@
 const { Client } = require('pg')
 
+const USERNAME = 'xxiynskvnvejtu';
+const PASSWORD = '3f4ecc30258fb23a8447607eb3d622f65f0ea3c195cc2dacffea0e85dc7b6c5b';
+const HOST = 'ec2-54-246-117-62.eu-west-1.compute.amazonaws.com';
+const PORT = '5432';
+const DATABASE = 'de4263l3jgvr6o';
+
 config = {
-    connectionString: process.env.DATABASE_URL,
+    connectionString: 'postgres://xxiynskvnvejtu:3f4ecc30258fb23a8447607eb3d622f65f0ea3c195cc2dacffea0e85dc7b6c5b@ec2-54-246-117-62.eu-west-1.compute.amazonaws.com:5432/de4263l3jgvr6o',
     ssl: true,
 }
 const client = new Client(config)
