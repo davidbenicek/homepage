@@ -1,7 +1,7 @@
 export const SMALLPDF = {
   bannerImage: 'https://benicek.s3.eu-central-1.amazonaws.com/homepage/wadirum.jpg',
   organisation: 'Smallpdf',
-  position: 'Lead Frontend Engineer',
+  position: 'Frontend Lead',
   dates: 'March 2021 - Present',
   text:
     [
