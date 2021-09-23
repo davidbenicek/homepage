@@ -32,7 +32,7 @@ const Profile = props => (
       </BpkText>
       <BpkLabel htmlFor="employment">What are you doing now?</BpkLabel>
       <BpkText tagName="p" textStyle="base" id="employment">
-        Software Engineer at Skyscanner
+        Frontend Lead at Smallpdf
       </BpkText>
       <BpkLabel htmlFor="home">Where's home?</BpkLabel>
       <BpkText tagName="p" textStyle="base" id="home">
@@ -40,7 +40,7 @@ const Profile = props => (
       </BpkText>
       <BpkLabel htmlFor="location">Where are you now?</BpkLabel>
       <BpkText tagName="p" textStyle="base" id="location">
-        Barcelona, Catalunya
+        Zürich, Switzerland
       </BpkText>
       <BpkLabel htmlFor="location">What are your qualifications?</BpkLabel>
       <BpkButton
