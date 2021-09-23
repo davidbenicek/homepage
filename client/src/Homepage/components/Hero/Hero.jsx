@@ -43,7 +43,7 @@ class Hero extends React.Component {
       <BpkGridColumn width={6} mobileWidth={12} className={c('Hero__textBlock')}>
         <div className={c('Hero__textContainer')}>
           <BpkText tagName="h1" textStyle="xxl" className={c('Hero__heading')}>David Beníček</BpkText>
-          <BpkText tagName="h2" textStyle="xl" className={c('Hero__subheading')}>Software Engineer II at Skyscanner</BpkText>
+          <BpkText tagName="h2" textStyle="xl" className={c('Hero__subheading')}>Lead Frontend Developer at Smallpdf</BpkText>
           <div className={c('Hero__more')} onClick={() => { this.props.scrollTo('profile', 'start'); }}>
             <BpkText tagName="p" textStyle="base" >Find out more</BpkText>
             <BpkLargeChevronIcon className={c('Hero__chevron')} />

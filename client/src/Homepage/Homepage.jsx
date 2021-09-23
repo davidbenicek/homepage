@@ -13,7 +13,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import STYLES from './Homepage.scss';
 
-import { SKYSCANNER, GLASGOW, WHITESTEIN } from './data/career';
+import { SKYSCANNER, GLASGOW, WHITESTEIN, SMALLPDF } from './data/career';
 
 const c = className =>className || 'UNKNOWN';
 
@@ -102,7 +102,7 @@ class Homepage extends React.Component {
           <CareerEvent
             visible={sectionsUncovered.career}
             changeSelected={this.changeSelected}
-            info={SKYSCANNER}
+            info={SMALLPDF}
           />
           <Heading
             visible={sectionsUncovered.careerB}
@@ -110,6 +110,11 @@ class Homepage extends React.Component {
             pixelId="careerB"
             target="career"
             show={false}
+          />
+          <CareerEvent
+            visible={sectionsUncovered.careerB}
+            changeSelected={this.changeSelected}
+            info={SKYSCANNER}
           />
           <CareerEvent
             visible={sectionsUncovered.careerB}

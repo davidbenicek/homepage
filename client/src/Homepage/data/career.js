@@ -1,8 +1,18 @@
+export const SMALLPDF = {
+  bannerImage: 'https://benicek.s3.eu-central-1.amazonaws.com/homepage/wadirum.jpg',
+  organisation: 'Smallpdf',
+  position: 'Lead Frontend Engineer',
+  dates: 'March 2021 - Present',
+  text:
+    [
+      "Working hard 💪"
+    ],
+};
 export const SKYSCANNER = {
   bannerImage: 'https://s3.eu-central-1.amazonaws.com/benicek/homepage/skyline.jpg',
   organisation: 'Skyscanner',
   position: 'Software Engineer II',
-  dates: 'June 2016 - Present',
+  dates: 'June 2016 - February 2021',
   text:
     [
       "Implemented award-winning native advertising across the site, including the homepage, results page, delivering over $50 million in revenue.",
