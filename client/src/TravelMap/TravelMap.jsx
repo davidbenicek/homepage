@@ -295,6 +295,7 @@ class WorldMap extends React.Component {
           selected={selectedNavSegment === 'flights'}
           onClick={this.onNavBarClick}
           spaceAround
+          disabled
         >
           Flights
         </BpkHorizontalNavItem>
