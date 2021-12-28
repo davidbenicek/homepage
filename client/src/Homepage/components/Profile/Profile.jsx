@@ -32,7 +32,7 @@ const Profile = props => (
       </BpkText>
       <BpkLabel htmlFor="employment">What are you doing now?</BpkLabel>
       <BpkText tagName="p" textStyle="base" id="employment">
-        Frontend Lead at Smallpdf
+        Frontend Engineer at Smallpdf
       </BpkText>
       <BpkLabel htmlFor="home">Where's home?</BpkLabel>
       <BpkText tagName="p" textStyle="base" id="home">
