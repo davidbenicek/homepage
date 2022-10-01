@@ -29,7 +29,7 @@ class TruthOrDrink extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchQuestion();
+    this.fetchQuestion('HAPPY_HOUR');
   }
 
   async fetchQuestion(level) {

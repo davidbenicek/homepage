@@ -86,21 +86,22 @@ app.post('/api/map/:id', async (req, res) => {
 
 app.get('/api/truthordrink/:cat', async (req, res) => {
   try {
-    const question = await truthOrDrink.selectRandom(req.params.cat)
+    const question = truthOrDrink.selectRandomQuestion(req.params.cat)
     res.send(question);
   } catch (err) {
     res.status(500).send(err);
   }
 });
 
-app.get('/api/truthordrink', async (req, res) => {
-  try {
-    const question = await truthOrDrink.selectRandom()
-    res.send(question);
-  } catch (err) {
-    res.status(500).send(err);
-  }
-});
+// Note: Unused
+// app.get('/api/truthordrink', async (req, res) => {
+//   try {
+//     const question = await truthOrDrink.selectRandomQuestion()
+//     res.send(question);
+//   } catch (err) {
+//     res.status(500).send(err);
+//   }
+// });
 
 
 // The "catchall" handler: for any request that doesn't
