@@ -23,8 +23,7 @@ class TruthOrDrink extends React.Component {
 
 
     this.state = {
-      cat: "",
-      m: "",
+      question: null
     };
   }
 
@@ -32,13 +31,13 @@ class TruthOrDrink extends React.Component {
     this.fetchQuestion('HAPPY_HOUR');
   }
 
-  async fetchQuestion(level) {
+  async fetchQuestion(cat) {
     const { data } = await axios({
-      url: `/api/truthOrDrink${level ? `/${level}` : ''}`,
+      url: `/api/truthOrDrink${cat ? `/${cat}` : ''}`,
       method: 'get',
     });
     this.setState({
-      ...data,
+      question: data
     });
   }
 
@@ -85,8 +84,16 @@ class TruthOrDrink extends React.Component {
           ))}
         </div>
         <div className={c('TruthOrDrink__question__container')}>
-          <BpkText tagName="h4" textStyle="lg" className={c('TruthOrDrink__question__prompt')}>The question is...</BpkText>
-          <BpkText bold tagName="h3" textStyle="xl" className={c('TruthOrDrink__question__question')}>"{this.state.m}"</BpkText>
+          {
+            this.state.question ?
+              (
+                <>
+                  <BpkText tagName="h4" textStyle="lg" className={c('TruthOrDrink__question__prompt')}>The question is...</BpkText>
+                  <BpkText bold tagName="h3" textStyle="xl" className={c('TruthOrDrink__question__question')}>"{this.state.question}"</BpkText>
+                </>
+              )
+              : <BpkText tagName="h4" textStyle="lg" className={c('TruthOrDrink__question__prompt')}>Select a category to start!</BpkText>
+          }
         </div>
       </main>
     </div>);
