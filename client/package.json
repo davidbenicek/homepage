@@ -42,7 +42,7 @@
     "d3": "^5.15.1",
     "intersection-observer": "^0.5.1",
     "leaflet": "^1.6.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-charts": "^2.0.0-beta.6",
