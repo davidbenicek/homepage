@@ -11,7 +11,7 @@ import STYLES from './TruthOrDrink.scss';
 
 const c = className => className || 'UNKNOWN';
 const StyledHeader = styled.header`
-  background: url(https://www.ecopetit.cat/iconpics/f/27/272087/party-wallpaper.jpg) center;
+  background: url(https://benicek.s3.eu-central-1.amazonaws.com/homepage/party.jpg) center;
   background-size: cover;
 `;
 
